@@ -1,0 +1,11 @@
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\bin\Debug\GUI_AUGUR_V3.exe.config
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\bin\Debug\GUI_AUGUR_V3.exe
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\bin\Debug\GUI_AUGUR_V3.pdb
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.csprojAssemblyReference.cache
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.Properties.Resources.resources
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.csproj.GenerateResource.cache
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.csproj.CoreCompileInputs.cache
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.exe
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.pdb
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.Loggin.resources
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.Principal.resources
