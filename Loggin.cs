@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using GUI_AUGUR_V3.DataBase;
 
 namespace GUI_AUGUR_V3 {
     public partial class Loggin : Form {
         private Form principal;
+        private ConexionDB1 conector =  new ConexionDB1();
         public Loggin() {
             InitializeComponent();
             camposblancos();
@@ -34,7 +30,8 @@ namespace GUI_AUGUR_V3 {
 
         }
         private void validarAcceso() {
-            if (conector.validarLoggin(textBoxUserLoggin.Text,textBoxPassLoggin.Text) ) {
+
+            if (conector.validarLoggin(textBoxUserLoggin.Text,textBoxPassLoggin.Text)) {
                 principal = new Principal();
                 principal.Visible = true;
                 this.Hide();
