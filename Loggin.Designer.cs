@@ -123,6 +123,7 @@
             this.textBoxUserLoggin.Size = new System.Drawing.Size(155, 26);
             this.textBoxUserLoggin.TabIndex = 15;
             this.textBoxUserLoggin.TextChanged += new System.EventHandler(this.TextBoxUserLoggin_TextChanged);
+            this.textBoxUserLoggin.Enter += new System.EventHandler(this.TextBoxUserLoggin_Enter);
             this.textBoxUserLoggin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxUserLoggin_KeyPress);
             // 
             // textBoxPassLoggin
@@ -136,6 +137,7 @@
             this.textBoxPassLoggin.TabIndex = 16;
             this.textBoxPassLoggin.UseSystemPasswordChar = true;
             this.textBoxPassLoggin.TextChanged += new System.EventHandler(this.TextBoxPassLoggin_TextChanged);
+            this.textBoxPassLoggin.Enter += new System.EventHandler(this.TextBoxPassLoggin_Enter);
             this.textBoxPassLoggin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPassLoggin_KeyPress);
             this.textBoxPassLoggin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxPassLoggin_KeyUp);
             // 
@@ -201,6 +203,7 @@
             this.Controls.Add(this.panelTituloLoggin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Loggin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loggin";
             this.Load += new System.EventHandler(this.Loggin_Load);
             this.panelTituloLoggin.ResumeLayout(false);

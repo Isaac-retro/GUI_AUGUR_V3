@@ -7,10 +7,11 @@ using GUI_AUGUR_V3.DataBase;
 namespace GUI_AUGUR_V3 {
     public partial class Loggin : Form {
         private Form principal;
-        private ConexionDB1 conector =  new ConexionDB1();
+        private ConexionDB1 conector = new ConexionDB1();
         public Loggin() {
             InitializeComponent();
             camposblancos();
+
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -20,12 +21,12 @@ namespace GUI_AUGUR_V3 {
         private void camposblancos() {
             textBoxUserLoggin.BackColor = Color.White;
             textBoxPassLoggin.BackColor = Color.White;
+            textBoxPassLoggin.Text = "";
             labelErrorLoggin.Visible = false;
         }
         private void camposError() {
             textBoxUserLoggin.BackColor = Color.Pink;
             textBoxPassLoggin.BackColor = Color.Pink;
-            textBoxPassLoggin.Text = "";
             labelErrorLoggin.Visible = true;
 
         }
@@ -59,7 +60,7 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void TextBoxPassLoggin_TextChanged(object sender, EventArgs e){
-            camposblancos();
+            
 
         }
 
@@ -81,16 +82,22 @@ namespace GUI_AUGUR_V3 {
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void TextBoxPassLoggin_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        private void TextBoxPassLoggin_KeyPress(object sender, KeyPressEventArgs e){
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
                 validarAcceso();
             } 
         }
 
-        private void TextBoxUserLoggin_TextChanged(object sender, EventArgs e)
-        {
+        private void TextBoxUserLoggin_TextChanged(object sender, EventArgs e){
 
+        }
+
+        private void TextBoxUserLoggin_Enter(object sender, EventArgs e){
+            camposblancos();
+        }
+
+        private void TextBoxPassLoggin_Enter(object sender, EventArgs e){
+            camposblancos();
         }
     }
 }
