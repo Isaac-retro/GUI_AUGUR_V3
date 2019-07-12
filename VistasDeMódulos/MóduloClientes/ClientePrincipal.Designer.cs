@@ -30,12 +30,13 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBuscarCP = new System.Windows.Forms.ComboBox();
             this.buttonRegistrarCP = new System.Windows.Forms.Button();
             this.buttonActualizarCP = new System.Windows.Forms.Button();
             this.buttonDarBajaCP = new System.Windows.Forms.Button();
             this.buttonDarAltaCP = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,28 +46,33 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(622, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyUp);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 52);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1026, 476);
+            this.dataGridView1.Size = new System.Drawing.Size(1026, 462);
             this.dataGridView1.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxBuscarCP
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(236, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxBuscarCP.FormattingEnabled = true;
+            this.comboBoxBuscarCP.Items.AddRange(new object[] {
+            "Nombre",
+            "Cédula",
+            "Pasaporte"});
+            this.comboBoxBuscarCP.Location = new System.Drawing.Point(236, 12);
+            this.comboBoxBuscarCP.Name = "comboBoxBuscarCP";
+            this.comboBoxBuscarCP.Size = new System.Drawing.Size(174, 21);
+            this.comboBoxBuscarCP.TabIndex = 2;
             // 
             // buttonRegistrarCP
             // 
             this.buttonRegistrarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrarCP.FlatAppearance.BorderSize = 0;
-            this.buttonRegistrarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonRegistrarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.buttonRegistrarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegistrarCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonRegistrarCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -83,7 +89,7 @@
             // 
             this.buttonActualizarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonActualizarCP.FlatAppearance.BorderSize = 0;
-            this.buttonActualizarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonActualizarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.buttonActualizarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonActualizarCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonActualizarCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -99,7 +105,7 @@
             // 
             this.buttonDarBajaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarBajaCP.FlatAppearance.BorderSize = 0;
-            this.buttonDarBajaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonDarBajaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.buttonDarBajaCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDarBajaCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonDarBajaCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -115,12 +121,12 @@
             // 
             this.buttonDarAltaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarAltaCP.FlatAppearance.BorderSize = 0;
-            this.buttonDarAltaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonDarAltaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.buttonDarAltaCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDarAltaCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonDarAltaCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonDarAltaCP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDarAltaCP.Location = new System.Drawing.Point(749, 557);
+            this.buttonDarAltaCP.Location = new System.Drawing.Point(630, 548);
             this.buttonDarAltaCP.Name = "buttonDarAltaCP";
             this.buttonDarAltaCP.Size = new System.Drawing.Size(200, 45);
             this.buttonDarAltaCP.TabIndex = 6;
@@ -128,33 +134,50 @@
             this.buttonDarAltaCP.UseVisualStyleBackColor = true;
             this.buttonDarAltaCP.Click += new System.EventHandler(this.ButtonDarAltaCP_Click);
             // 
-            // button4
+            // buttonSalir
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(836, 548);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 45);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Platos";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSalir.FlatAppearance.BorderSize = 0;
+            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalir.Location = new System.Drawing.Point(836, 548);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(200, 45);
+            this.buttonSalir.TabIndex = 7;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(12, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 34);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Buscar Cliente por";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ClientePrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 605);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonDarAltaCP);
             this.Controls.Add(this.buttonDarBajaCP);
             this.Controls.Add(this.buttonActualizarCP);
             this.Controls.Add(this.buttonRegistrarCP);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxBuscarCP);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -171,11 +194,12 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxBuscarCP;
         private System.Windows.Forms.Button buttonRegistrarCP;
         private System.Windows.Forms.Button buttonActualizarCP;
         private System.Windows.Forms.Button buttonDarBajaCP;
         private System.Windows.Forms.Button buttonDarAltaCP;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.Button button1;
     }
 }

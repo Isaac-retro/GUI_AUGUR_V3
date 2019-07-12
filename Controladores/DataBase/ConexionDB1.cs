@@ -9,6 +9,7 @@ namespace GUI_AUGUR_V3.DataBase{
         }
         private string connection_string = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=prueba1_AugurV3;Integrated Security=True";
         private string query_string = "";
+        private string[][] result_matriz;
         private SqlConnection connection;
         private SqlCommand command_query;
         private SqlDataReader readerSet;
@@ -42,6 +43,17 @@ namespace GUI_AUGUR_V3.DataBase{
                 MessageBox.Show("Error en la conexión de base de datos");
                 return false;
             }
+        }
+        public void consultaLsitaDB(string query_string_param) {
+            connection = new SqlConnection(connection_string);
+            connection.Open();
+            command_query = new SqlCommand(query_string_param);
+            readerSet = command_query.ExecuteReader();
+            while (readerSet.Read()) {
+
+            }
+            connection.Close();
+            
         }
         
     }

@@ -12,17 +12,23 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
 {
     public partial class ClientePrincipal : Form
     {
-        public ClientePrincipal(){
+        public ClientePrincipal()
+        {
             InitializeComponent();
         }
 
-        private void ButtonRegistrarCP_Click(object sender, EventArgs e)
-        {
+        private void ButtonRegistrarCP_Click(object sender, EventArgs e){
 
         }
 
-        private void ButtonDarAltaCP_Click(object sender, EventArgs e)
-        {
+        private void ButtonDarAltaCP_Click(object sender, EventArgs e){
+
+        }
+
+        private void TextBox1_KeyUp(object sender, KeyEventArgs e){
+            //invocar a método de consulta
 
         }
     }
+
+}
