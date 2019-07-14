@@ -122,9 +122,11 @@
             this.textBoxUserLoggin.ShortcutsEnabled = false;
             this.textBoxUserLoggin.Size = new System.Drawing.Size(155, 26);
             this.textBoxUserLoggin.TabIndex = 15;
+            this.textBoxUserLoggin.UseWaitCursor = true;
             this.textBoxUserLoggin.TextChanged += new System.EventHandler(this.TextBoxUserLoggin_TextChanged);
             this.textBoxUserLoggin.Enter += new System.EventHandler(this.TextBoxUserLoggin_Enter);
             this.textBoxUserLoggin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxUserLoggin_KeyPress);
+            this.textBoxUserLoggin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxUserLoggin_KeyUp);
             // 
             // textBoxPassLoggin
             // 

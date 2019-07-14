@@ -1,22 +1,37 @@
 ﻿namespace GUI_AUGUR_V3.ModelosClases{
     public class Usuario{
-        private string idUser; 
+        private int idUser;
+        private string loggin; 
         private string nombreUsuario;
         private string cargo;
+        private string pass;
+        private bool activo;
         public Usuario() { }
-        public Usuario(string idUserm, string nombreUsuariom, string cargo) {
+        public Usuario(int idUser, string loggin, string nombreUsuario, string cargo, string pass, bool activo) {
             this.idUser = idUser;
+            this.loggin = loggin;
             this.nombreUsuario = nombreUsuario;
             this.cargo = cargo;
+            this.pass = pass;
+            this.activo = activo;
         }
-        public string getidUser() {
-            return idUser;
+        public string getLoggin() {
+            return loggin;
         }
         public string getNombreUsuario() {
             return nombreUsuario;
         }
         public string getCargo() {
             return cargo;
+        }
+        public int getIdUser() {
+            return idUser;
+        }
+        public string getPass() {
+            return pass;
+        }
+        public bool isActivo() {
+            return activo;
         }
     }
 }

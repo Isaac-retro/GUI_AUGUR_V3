@@ -10,29 +10,34 @@ using System.Windows.Forms;
 
 namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes{
     public partial class ClientePrincipal : Form{
-        Form registro; 
+        Form registroActucalizacion; 
         public ClientePrincipal(){
             InitializeComponent();
 
         }
 
-        private void ButtonRegistrarCP_Click(object sender, EventArgs e){
-            registro = new RegistrarCliente();
-            registro.Visible = true;
+        
+        private void ButtonRegistrarCP_Click_1(object sender, EventArgs e){
+            registroActucalizacion?.Close();
+            registroActucalizacion = new ActualizarRegistrarCliente("Registro","Registrar");
+            registroActucalizacion.Visible = true;
         }
 
-        private void ButtonDarAltaCP_Click(object sender, EventArgs e){
+        private void ButtonActualizarCP_Click(object sender, EventArgs e)        {
+            registroActucalizacion?.Close();
+            registroActucalizacion = new ActualizarRegistrarCliente("Actulización","Actualizar");
+            registroActucalizacion.Visible = true;
 
         }
 
-        private void TextBox1_KeyUp(object sender, KeyEventArgs e){
-            //invocar a método de consulta
-
-        }
-
-        private void ButtonSalir_Click(object sender, EventArgs e)
+        private void ButtonDarBajaCP_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void ButtonDarAltaCP_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 

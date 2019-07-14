@@ -3,11 +3,14 @@ using System.Windows.Forms;
 
 namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
 {
-    public partial class RegistrarCliente : Form
+    public partial class ActualizarRegistrarCliente : Form
     {
-        public RegistrarCliente(){
+        public ActualizarRegistrarCliente(string funcion_name,string funcion){
             InitializeComponent();
             label1.Visible = false;
+            label1.Text = "Error al " + funcion + "Cliente";
+            labelTitulo.Text = funcion_name;
+            buttonRegistrarC.Text = funcion;
             
         }
 

@@ -51,7 +51,7 @@
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,7 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).BeginInit();
             this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuVertical
@@ -373,7 +373,7 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
-            this.panelContenedor.Controls.Add(this.pictureBox3);
+            this.panelContenedor.Controls.Add(this.pictureBoxImagen);
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 45);
@@ -382,15 +382,15 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
-            // pictureBox3
+            // pictureBoxImagen
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(238, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(485, 353);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.pictureBoxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxImagen.Image")));
+            this.pictureBoxImagen.Location = new System.Drawing.Point(238, 6);
+            this.pictureBoxImagen.Name = "pictureBoxImagen";
+            this.pictureBoxImagen.Size = new System.Drawing.Size(485, 353);
+            this.pictureBoxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxImagen.TabIndex = 0;
+            this.pictureBoxImagen.TabStop = false;
             // 
             // Principal
             // 
@@ -414,7 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).EndInit();
             this.panelContenedor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,7 +443,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelUserCargo;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxImagen;
     }
 }
 

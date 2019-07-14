@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\DataBase\ConexionDB1.cs" />
+    <Compile Include="Controladores\DataBase\ConexionLoggin.cs" />
     <Compile Include="ModelosClases\Usuario.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -62,11 +62,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.cs">
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.Designer.cs">
-      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.Designer.cs">
+      <DependentUpon>AdminPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.cs">
       <SubType>Form</SubType>
@@ -74,11 +80,11 @@
     <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.Designer.cs">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.cs">
+    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.Designer.cs">
-      <DependentUpon>RegistrarCliente.cs</DependentUpon>
+    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.Designer.cs">
+      <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Loggin.resx">
       <DependentUpon>Loggin.cs</DependentUpon>
@@ -95,14 +101,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.resx">
-      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.resx">
+      <DependentUpon>AdminPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.resx">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.resx">
-      <DependentUpon>RegistrarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.resx">
+      <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,7 +127,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="VistasDeMódulos\MóduloAdminstración\" />
     <Folder Include="VistasDeMódulos\MóduloAyuda\" />
     <Folder Include="VistasDeMódulos\MóduloPagos\" />
     <Folder Include="VistasDeMódulos\MóduloPlatos\" />
