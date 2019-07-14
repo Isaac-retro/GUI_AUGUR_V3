@@ -1,0 +1,37 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
+{
+    public partial class RegistrarCliente : Form
+    {
+        public RegistrarCliente(){
+            InitializeComponent();
+            label1.Visible = false;
+            
+        }
+
+        private void PictureBoxSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ButtonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ButtonRegistrarC_Click(object sender, EventArgs e)
+        {
+            if (textBoxApellido.Text == "" || textBoxNombre.Text == "" || textBoxdirección.Text == "" || textBoxDocumento.Text == "" || textBoxTeléfono.Text == "") {
+                label1.Visible = true;
+
+            } else {
+                MessageBox.Show("Cliente Registrado Exitosamente");
+                this.Close();
+
+            }
+            
+        }
+    }
+}

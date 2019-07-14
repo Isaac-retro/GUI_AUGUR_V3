@@ -35,8 +35,8 @@
             this.buttonActualizarCP = new System.Windows.Forms.Button();
             this.buttonDarBajaCP = new System.Windows.Forms.Button();
             this.buttonDarAltaCP = new System.Windows.Forms.Button();
-            this.buttonSalir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,22 +134,6 @@
             this.buttonDarAltaCP.UseVisualStyleBackColor = true;
             this.buttonDarAltaCP.Click += new System.EventHandler(this.ButtonDarAltaCP_Click);
             // 
-            // buttonSalir
-            // 
-            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSalir.FlatAppearance.BorderSize = 0;
-            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalir.Location = new System.Drawing.Point(836, 548);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(200, 45);
-            this.buttonSalir.TabIndex = 7;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -166,13 +150,30 @@
             this.button1.Text = "Buscar Cliente por";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSalir.FlatAppearance.BorderSize = 0;
+            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalir.Location = new System.Drawing.Point(836, 548);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(200, 45);
+            this.buttonSalir.TabIndex = 9;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.ButtonSalir_Click);
+            // 
             // ClientePrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 605);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDarAltaCP);
             this.Controls.Add(this.buttonDarBajaCP);
             this.Controls.Add(this.buttonActualizarCP);
@@ -199,7 +200,7 @@
         private System.Windows.Forms.Button buttonActualizarCP;
         private System.Windows.Forms.Button buttonDarBajaCP;
         private System.Windows.Forms.Button buttonDarAltaCP;
-        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSalir;
     }
 }

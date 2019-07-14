@@ -10,3 +10,5 @@ C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.pdb
 C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.Loggin.resources
 C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.Principal.resources
 C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes.ClientePrincipal.resources
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes.RegistrarCliente.resources
+C:\Users\willa\Documents\Git\GUI_AUGUR_V3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes.ActualizarCliente.resources

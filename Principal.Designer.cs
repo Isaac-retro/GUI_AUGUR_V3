@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelMenuVertical = new System.Windows.Forms.Panel();
-            this.labelUserId = new System.Windows.Forms.Label();
+            this.labelUserCargo = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,6 +51,7 @@
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,12 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).BeginInit();
+            this.panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuVertical
             // 
             this.panelMenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.panelMenuVertical.Controls.Add(this.labelUserId);
+            this.panelMenuVertical.Controls.Add(this.labelUserCargo);
             this.panelMenuVertical.Controls.Add(this.labelUser);
             this.panelMenuVertical.Controls.Add(this.pictureBox1);
             this.panelMenuVertical.Controls.Add(this.flowLayoutPanel1);
@@ -85,17 +88,17 @@
             this.panelMenuVertical.TabIndex = 0;
             this.panelMenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelMenuVertical_Paint);
             // 
-            // labelUserId
+            // labelUserCargo
             // 
-            this.labelUserId.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelUserId.AutoSize = true;
-            this.labelUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelUserId.Location = new System.Drawing.Point(86, 621);
-            this.labelUserId.Name = "labelUserId";
-            this.labelUserId.Size = new System.Drawing.Size(90, 20);
-            this.labelUserId.TabIndex = 14;
-            this.labelUserId.Text = "UsuarioID";
+            this.labelUserCargo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelUserCargo.AutoSize = true;
+            this.labelUserCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelUserCargo.Location = new System.Drawing.Point(86, 621);
+            this.labelUserCargo.Name = "labelUserCargo";
+            this.labelUserCargo.Size = new System.Drawing.Size(57, 20);
+            this.labelUserCargo.TabIndex = 14;
+            this.labelUserCargo.Text = "Cargo";
             // 
             // labelUser
             // 
@@ -111,6 +114,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1, 590);
             this.pictureBox1.Name = "pictureBox1";
@@ -368,7 +372,8 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.pictureBox3);
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 45);
@@ -376,6 +381,16 @@
             this.panelContenedor.Size = new System.Drawing.Size(1050, 605);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(238, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(485, 353);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // Principal
             // 
@@ -398,6 +413,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).EndInit();
+            this.panelContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,7 +442,8 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label labelUserId;
+        private System.Windows.Forms.Label labelUserCargo;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

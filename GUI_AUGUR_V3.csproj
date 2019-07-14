@@ -62,11 +62,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.Designer.cs">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.Designer.cs">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.Designer.cs">
+      <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Loggin.resx">
       <DependentUpon>Loggin.cs</DependentUpon>
@@ -83,8 +95,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ActualizarCliente.resx">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.resx">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\RegistrarCliente.resx">
+      <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

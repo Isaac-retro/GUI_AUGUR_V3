@@ -2,27 +2,49 @@
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes;
+using System.Linq;
+using GUI_AUGUR_V3.ModelosClases;
 
-namespace GUI_AUGUR_V3
-{
+namespace GUI_AUGUR_V3 {
     public partial class Principal : Form {
-        public Form loggin = new Loggin();
-        public Form generic;
-        public Principal(){
+        private Usuario user;
+        //ClientePrincipal clienteprincioalform;
+        //private string nombreusuario = "", userid = "";
+        public Principal(Usuario user){//string nombreusuario, string userid) {
             InitializeComponent();
+            this.user = user;
+            labelUser.Text = user.getNombreUsuario();
+            labelUserCargo.Text = user.getCargo();
+
+
 
         }
-        public void abrirFormEnContenedor(object formHijo) {
-            if (this.panelContenedor.Controls.Count > 0) {
-                this.panelContenedor.Controls.RemoveAt(0);
-                generic = formHijo as Form;
-                generic.TopLevel = false;
-                generic.Dock = DockStyle.Fill;
-                this.panelContenedor.Controls.Add(generic);
-                this.panelContenedor.Tag = generic;
-                generic.Show();
-            }
+        private void AbrirFormEnPanel<Forms>() where Forms : Form, new() {
+            Form formulario;
+            formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
+            //si el formulario/instancia no existe, creamos nueva instancia y mostramos
+            if (formulario == null) {
+                formulario = new Forms();
+                formulario.TopLevel = false;
+                //formulario.FormBorderStyle = FormBorderStyle.None;
+                //formulario.Dock = DockStyle.Fill;
+                panelContenedor.Controls.Add(formulario);
+                panelContenedor.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+                // formulario.FormClosed += new FormClosedEventHandler(CloseForms);               
+            } else {
 
+                //si la Formulario/instancia existe, lo traemos a frente
+                formulario.BringToFront();
+
+                //Si la instancia esta minimizada mostramos
+                if (formulario.WindowState == FormWindowState.Minimized)
+                {
+                    formulario.WindowState = FormWindowState.Normal;
+                }
+
+            }
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -34,9 +56,11 @@ namespace GUI_AUGUR_V3
             {
                 panelMenuVertical.Width = 62;
             } else {
-                panelMenuVertical.Width = 250; 
+                panelMenuVertical.Width = 250;
             }
         }
+
+    
 
         private void PictureBoxSalir_Click(object sender, EventArgs e)
         {
@@ -58,8 +82,7 @@ namespace GUI_AUGUR_V3
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void PanelTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
+        private void PanelTitulo_MouseDown(object sender, MouseEventArgs e){
 
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012,0);
@@ -67,7 +90,8 @@ namespace GUI_AUGUR_V3
 
         private void ButtonClientes_Click(object sender, EventArgs e){
             labelTitulo.Text = "Clientes";
-            abrirFormEnContenedor(new ClientePrincipal()); 
+            AbrirFormEnPanel<ClientePrincipal>();
+    
 
         }
 
@@ -114,6 +138,11 @@ namespace GUI_AUGUR_V3
         }
 
         private void PanelTitulo_Paint(object sender, PaintEventArgs e){
+        }
+
+        private void PictureBoxHome_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Label1_Click(object sender, EventArgs e)
