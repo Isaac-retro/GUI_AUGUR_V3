@@ -10,7 +10,6 @@ namespace GUI_AUGUR_V3.DataBase{
         public ConexionLoggin() { }
         private readonly string connection_string = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
         private string query_string = "";
-        private int resul_command = 0;
         private SqlConnection connection;
         private SqlCommand command_query;
         private SqlDataReader readerSet;
@@ -26,16 +25,16 @@ namespace GUI_AUGUR_V3.DataBase{
             }
             return builder_string.ToString();
         }
-        public Usuario consultarUsuario(string user){
+        public Usuario consultarUsuario(string user) {
             Usuario user_object;
             connection = new SqlConnection(connection_string);
             connection.Open();
-            if (connection.State == System.Data.ConnectionState.Open){
-                query_string = "select idUsuario,nombreUsuario,loggin,pass from usuario where  bloqueado = 1 AND loggin = '" + user +  "';";
+            if (connection.State == System.Data.ConnectionState.Open) {
+                query_string = "select idUsuario,nombreUsuario,loggin,pass from usuario where  bloqueado = 1 AND loggin = '" + user + "';";
                 command_query = new SqlCommand(query_string, connection);
                 readerSet = command_query.ExecuteReader();
                 if (readerSet.Read()) {
-                    if (user.ToString() == Convert.ToString(readerSet["loggin"])){
+                    if (user.ToString() == Convert.ToString(readerSet["loggin"])) {
                         user_object = new Usuario(Convert.ToInt32(readerSet["idUsuario"]), Convert.ToString(readerSet["loggin"]), Convert.ToString(readerSet["nombreUsuario"]), seleccionarCargo(Convert.ToString(readerSet["loggin"])), Convert.ToString(readerSet["pass"]), true);
                         connection.Close();
                         return user_object;
@@ -53,12 +52,12 @@ namespace GUI_AUGUR_V3.DataBase{
         private string seleccionarCargo(string param) {
             if (param == "manag") {
                 return "Gerente";
-            } else if ( param == "admin") {
+            } else if (param == "admin") {
                 return "Administrador";
             } else {
                 return "Cajero";
             }
-            
+
         }
         public int bloquearUsuario(int id) {
             if (id != 2) {
@@ -72,6 +71,18 @@ namespace GUI_AUGUR_V3.DataBase{
                     return id;
                 }
                 return -1;
+            }
+            return -1;
+        }
+        public int registrarLog(int id){
+            connection = new SqlConnection(connection_string);
+            connection.Open();
+            if (connection.State == System.Data.ConnectionState.Open){
+                query_string = "insert into LogAcceso (idUsuario,fechaHoraAcceso) values ("+ id + ",GETDATE());";
+                command_query = new SqlCommand(query_string, connection);
+                id = Convert.ToInt16(command_query.ExecuteNonQuery());
+                connection.Close();
+                return id;
             }
             return -1;
         }

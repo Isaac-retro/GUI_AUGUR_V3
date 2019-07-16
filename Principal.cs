@@ -4,17 +4,19 @@ using System.Runtime.InteropServices;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes;
 using GUI_AUGUR_V3.ModelosClases;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración;
+using GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos;
 
 namespace GUI_AUGUR_V3 {
     public partial class Principal : Form {
         private Usuario user;
-        Form cpform;
+        Form genericform;
         public Principal(Usuario user){
             InitializeComponent();
             this.user = user;
             labelUser.Text = user.getNombreUsuario();
             labelUserCargo.Text = user.getCargo();
-            
+            pictureBoxImagen.Visible = true;
+           
 
         }
 
@@ -34,9 +36,7 @@ namespace GUI_AUGUR_V3 {
                 labelUser.Visible = true;
             }
         }
-
-    
-
+   
         private void PictureBoxSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -66,14 +66,14 @@ namespace GUI_AUGUR_V3 {
         private void ButtonClientes_Click(object sender, EventArgs e){
             labelTitulo.Text = "Clientes";
             pictureBoxImagen.Visible = false;
-            cpform?.Close();
-            cpform = new ClientePrincipal() { TopLevel = false, FormBorderStyle = FormBorderStyle.None , Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(cpform);
-            cpform.Show();
+            genericform?.Close();
+            genericform = new ClientePrincipal() { TopLevel = false, FormBorderStyle = FormBorderStyle.None , Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
         }
 
         private void PanelContenedor_Paint(object sender, PaintEventArgs e){
-
+            
         }
 
         private void PanelMenuVertical_Paint(object sender, PaintEventArgs e){
@@ -94,10 +94,10 @@ namespace GUI_AUGUR_V3 {
         private void ButtonAdmin_Click(object sender, EventArgs e){
             labelTitulo.Text = "Administración";
             pictureBoxImagen.Visible = false;
-            cpform?.Close();
-            cpform = new AdminPrincipal() { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(cpform);
-            cpform.Show();
+            genericform?.Close();
+            genericform = new AdminPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
 
         }
 
@@ -114,9 +114,12 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void ButtonPlatosIng_Click(object sender, EventArgs e){
-           
-            
-
+            labelTitulo.Text = "Platos de Comida";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new PlatosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
         }
 
         private void PanelTitulo_Paint(object sender, PaintEventArgs e){

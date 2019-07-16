@@ -42,9 +42,13 @@ namespace GUI_AUGUR_V3 {
             user_object = conector.consultarUsuario(textBoxUserLoggin.Text);
             if (user_object != null){
                 if (conector.md5_string(textBoxPassLoggin.Text) == user_object.getPass() && buttonIngresarLoggin.Enabled){
-                    principal = new Principal(user_object);
-                    principal.Visible = true;
-                    this.Hide();
+                    if (conector.registrarLog(user_object.getIdUser()) > 0){
+                        principal = new Principal(user_object);
+                        principal.Visible = true;
+                        this.Hide();
+                    } else {
+                        MessageBox.Show("Error del sistema, su acceso no pudo ser registrado");
+                    }
                 } else {
                     if (iduser_aux < 0){
                         iduser_aux = user_object.getIdUser();
@@ -63,7 +67,6 @@ namespace GUI_AUGUR_V3 {
                 camposError();
             }
         }          
-
         private void PictureBoxSalir_Click(object sender, EventArgs e){
             Application.Exit();
         }

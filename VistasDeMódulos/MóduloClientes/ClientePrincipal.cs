@@ -39,6 +39,10 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes{
         {
 
         }
+
+        private void ButtonSalir_Click(object sender, EventArgs e){
+            this.Close();
+        }
     }
 
 }

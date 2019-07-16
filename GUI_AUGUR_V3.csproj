@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\DataBase\ConexionLoggin.cs" />
+    <Compile Include="ModelosClases\Ingrediente.cs" />
+    <Compile Include="ModelosClases\Parametro.cs" />
+    <Compile Include="ModelosClases\PlatoDeComida.cs" />
     <Compile Include="ModelosClases\Usuario.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -68,11 +71,17 @@
     <Compile Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.Designer.cs">
       <DependentUpon>AdminPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.cs">
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.Designer.cs">
-      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.Designer.cs">
+      <DependentUpon>RegistrarActualizarParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\UserContra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloAdminstración\UserContra.Designer.cs">
+      <DependentUpon>UserContra.cs</DependentUpon>
     </Compile>
     <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.cs">
       <SubType>Form</SubType>
@@ -85,6 +94,18 @@
     </Compile>
     <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.Designer.cs">
       <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.Designer.cs">
+      <DependentUpon>PlatosPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.Designer.cs">
+      <DependentUpon>RegistrarActualzarPlatocs.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Loggin.resx">
       <DependentUpon>Loggin.cs</DependentUpon>
@@ -104,14 +125,23 @@
     <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.resx">
       <DependentUpon>AdminPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\CrearUsuario.resx">
-      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.resx">
+      <DependentUpon>RegistrarActualizarParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\UserContra.resx">
+      <DependentUpon>UserContra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.resx">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.resx">
       <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.resx">
+      <DependentUpon>PlatosPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.resx">
+      <DependentUpon>RegistrarActualzarPlatocs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,7 +159,6 @@
   <ItemGroup>
     <Folder Include="VistasDeMódulos\MóduloAyuda\" />
     <Folder Include="VistasDeMódulos\MóduloPagos\" />
-    <Folder Include="VistasDeMódulos\MóduloPlatos\" />
     <Folder Include="VistasDeMódulos\MóduloReportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -402,6 +402,7 @@
             this.Controls.Add(this.panelMenuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
             this.panelMenuVertical.ResumeLayout(false);
             this.panelMenuVertical.PerformLayout();

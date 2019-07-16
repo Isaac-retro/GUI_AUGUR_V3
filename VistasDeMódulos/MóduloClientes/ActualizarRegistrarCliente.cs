@@ -7,8 +7,8 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
     {
         public ActualizarRegistrarCliente(string funcion_name,string funcion){
             InitializeComponent();
-            label1.Visible = false;
-            label1.Text = "Error al " + funcion + "Cliente";
+            labelError.Visible = false;
+            labelError.Text = "Error al " + funcion + "Cliente";
             labelTitulo.Text = funcion_name;
             buttonRegistrarC.Text = funcion;
             
@@ -27,7 +27,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
         private void ButtonRegistrarC_Click(object sender, EventArgs e)
         {
             if (textBoxApellido.Text == "" || textBoxNombre.Text == "" || textBoxdirección.Text == "" || textBoxDocumento.Text == "" || textBoxTeléfono.Text == "") {
-                label1.Visible = true;
+                labelError.Visible = true;
 
             } else {
                 MessageBox.Show("Cliente Registrado Exitosamente");

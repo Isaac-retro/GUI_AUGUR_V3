@@ -40,7 +40,7 @@
             this.textBoxdirección = new System.Windows.Forms.TextBox();
             this.buttonRegistrarC = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -162,17 +162,17 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
-            // label1
+            // labelError
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label1.Location = new System.Drawing.Point(95, 288);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Error al registrar Cliente";
+            this.labelError.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.labelError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.labelError.Location = new System.Drawing.Point(95, 288);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(232, 24);
+            this.labelError.TabIndex = 14;
+            this.labelError.Text = "Error al registrar Cliente";
             // 
             // label2
             // 
@@ -245,7 +245,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonRegistrarC);
             this.Controls.Add(this.textBoxdirección);
@@ -279,7 +279,7 @@
         private System.Windows.Forms.TextBox textBoxdirección;
         private System.Windows.Forms.Button buttonRegistrarC;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
