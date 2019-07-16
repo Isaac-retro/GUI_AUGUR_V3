@@ -14,18 +14,26 @@ namespace GUI_AUGUR_V3 {
         private byte contador;
         private int idUsuarioAux; //auxiliar para comparar los usuarios que han intentado loguarse y cambian de usuario reiniciando el conteo de count
         private Usuario usuarioObjeto; //usuario obtenido de la consulta al loguarse, se pasa como parámetro a la siguiente ventana
+
+
         private ConexionLoggin conector = new ConexionLoggin();
         public Loggin() {
             InitializeComponent();
             camposblancos();
+
             contador = 0;
             idUsuarioAux = -1;
+
 
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]  //librerias para que la ventana se mueva 
         private extern static void ReleaseCapture();
+
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
 
         private void camposblancos() {
             textBoxUserLoggin.BackColor = Color.White;
@@ -34,6 +42,8 @@ namespace GUI_AUGUR_V3 {
             labelErrorLoggin.Visible = false;
             buttonIngresarLoggin.Enabled = false;
         }
+
+
         private void camposError() {
             textBoxUserLoggin.BackColor = Color.Pink;
             textBoxPassLoggin.BackColor = Color.Pink;
@@ -45,20 +55,23 @@ namespace GUI_AUGUR_V3 {
             usuarioObjeto = conector.consultarUsuario(textBoxUserLoggin.Text);
             if (usuarioObjeto != null){
                 if (conector.md5_string(textBoxPassLoggin.Text) == usuarioObjeto.getPass() && buttonIngresarLoggin.Enabled){
-                    if (conector.registrarLog(usuarioObjeto.getIdUser()) > 0){
+                    if (conector.registrarLog(usuarioObjeto.obtenerIDUsuario()) > 0){
                         principal = new Principal(usuarioObjeto);
+
                         principal.Visible = true;
                         this.Hide();
                     } else {
                         MessageBox.Show("Error del sistema, su acceso no pudo ser registrado");
                     }
                 } else {
+
                     if (idUsuarioAux < 0){
-                        idUsuarioAux = usuarioObjeto.getIdUser();
-                    } else if (idUsuarioAux == usuarioObjeto.getIdUser() && usuarioObjeto.getIdUser() != 2) {
+                        idUsuarioAux = usuarioObjeto.obtenerIDUsuario();
+                    } else if (idUsuarioAux == usuarioObjeto.obtenerIDUsuario() && usuarioObjeto.obtenerIDUsuario() != 2) {
                         contador++;
-                        if (contador > 4 && conector.bloquearUsuario(usuarioObjeto.getIdUser()) > 0) {
+                        if (contador > 4 && conector.bloquearUsuario(usuarioObjeto.obtenerIDUsuario()) > 0) {
                             MessageBox.Show("El usuario \"" + usuarioObjeto.getNombreUsuario() + "\" ha sido bloqueado | Consulte al admnistrador");
+
 
                         }
                     } else  {
