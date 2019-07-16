@@ -7,19 +7,22 @@ using GUI_AUGUR_V3.ModelosClases;
 
 namespace GUI_AUGUR_V3 {
     public partial class Loggin : Form {
+        //  esta variable sirve para abrir la pantalla de munú principal
         private Form principal;
-        private byte count;
-        private int iduser_aux;
-        private Usuario user_object;
+
+        //contador para el número de veces que un usuario se equivoca al ingresar su contraseña
+        private byte contador;
+        private int idUsuarioAux; //auxiliar para comparar los usuarios que han intentado loguarse y cambian de usuario reiniciando el conteo de count
+        private Usuario usuarioObjeto; //usuario obtenido de la consulta al loguarse, se pasa como parámetro a la siguiente ventana
         private ConexionLoggin conector = new ConexionLoggin();
         public Loggin() {
             InitializeComponent();
             camposblancos();
-            count = 0;
-            iduser_aux = -1;
+            contador = 0;
+            idUsuarioAux = -1;
 
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]  //librerias para que la ventana se mueva 
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -39,27 +42,27 @@ namespace GUI_AUGUR_V3 {
 
         }
         private void validarAcceso() {
-            user_object = conector.consultarUsuario(textBoxUserLoggin.Text);
-            if (user_object != null){
-                if (conector.md5_string(textBoxPassLoggin.Text) == user_object.getPass() && buttonIngresarLoggin.Enabled){
-                    if (conector.registrarLog(user_object.getIdUser()) > 0){
-                        principal = new Principal(user_object);
+            usuarioObjeto = conector.consultarUsuario(textBoxUserLoggin.Text);
+            if (usuarioObjeto != null){
+                if (conector.md5_string(textBoxPassLoggin.Text) == usuarioObjeto.getPass() && buttonIngresarLoggin.Enabled){
+                    if (conector.registrarLog(usuarioObjeto.getIdUser()) > 0){
+                        principal = new Principal(usuarioObjeto);
                         principal.Visible = true;
                         this.Hide();
                     } else {
                         MessageBox.Show("Error del sistema, su acceso no pudo ser registrado");
                     }
                 } else {
-                    if (iduser_aux < 0){
-                        iduser_aux = user_object.getIdUser();
-                    } else if (iduser_aux == user_object.getIdUser() && user_object.getIdUser() != 2) {
-                        count++;
-                        if (count > 4 && conector.bloquearUsuario(user_object.getIdUser()) > 0) {
-                            MessageBox.Show("El usuario \"" + user_object.getNombreUsuario() + "\" ha sido bloqueado | Consulte al admnistrador");
+                    if (idUsuarioAux < 0){
+                        idUsuarioAux = usuarioObjeto.getIdUser();
+                    } else if (idUsuarioAux == usuarioObjeto.getIdUser() && usuarioObjeto.getIdUser() != 2) {
+                        contador++;
+                        if (contador > 4 && conector.bloquearUsuario(usuarioObjeto.getIdUser()) > 0) {
+                            MessageBox.Show("El usuario \"" + usuarioObjeto.getNombreUsuario() + "\" ha sido bloqueado | Consulte al admnistrador");
 
                         }
                     } else  {
-                        count = 0;
+                        contador = 0;
                     }
                     camposError();
                 }
