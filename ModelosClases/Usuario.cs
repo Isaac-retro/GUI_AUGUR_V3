@@ -24,7 +24,7 @@
         public string getCargo() {
             return cargo;
         }
-        public int getIdUser() {
+        public int obtenerIDUsuario() {
             return idUser;
         }
         public string getPass() {
