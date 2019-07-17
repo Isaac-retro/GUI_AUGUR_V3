@@ -65,6 +65,12 @@
     <Compile Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.Designer.cs">
       <DependentUpon>PedidosPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\ActualizarIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\ActualizarIngrediente.Designer.cs">
+      <DependentUpon>ActualizarIngrediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\IngredientePrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.resx">
       <DependentUpon>PedidosPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\ActualizarIngrediente.resx">
+      <DependentUpon>ActualizarIngrediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\IngredientePrincipal.resx">
       <DependentUpon>IngredientePrincipal.cs</DependentUpon>

@@ -38,3 +38,4 @@ C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPagos.PagosPrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPedidos.PedidosPrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente.IngredientePrincipal.resources
+C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente.ActualizarIngrediente.resources

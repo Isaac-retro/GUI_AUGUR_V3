@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 240);
+            this.ClientSize = new System.Drawing.Size(548, 305);
             this.Name = "AyudaPrincipal";
             this.Text = "AyudaPrincipal";
             this.ResumeLayout(false);
