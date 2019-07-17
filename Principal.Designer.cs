@@ -51,6 +51,8 @@
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.buttonSubIngredientes = new System.Windows.Forms.Button();
+            this.buttonSubPlatosDeComida = new System.Windows.Forms.Button();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -373,6 +375,8 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.buttonSubIngredientes);
+            this.panelContenedor.Controls.Add(this.buttonSubPlatosDeComida);
             this.panelContenedor.Controls.Add(this.pictureBoxImagen);
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -381,6 +385,30 @@
             this.panelContenedor.Size = new System.Drawing.Size(1050, 605);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
+            // 
+            // buttonSubIngredientes
+            // 
+            this.buttonSubIngredientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubIngredientes.Location = new System.Drawing.Point(0, 212);
+            this.buttonSubIngredientes.Name = "buttonSubIngredientes";
+            this.buttonSubIngredientes.Size = new System.Drawing.Size(200, 45);
+            this.buttonSubIngredientes.TabIndex = 2;
+            this.buttonSubIngredientes.Text = "Ingredientes";
+            this.buttonSubIngredientes.UseVisualStyleBackColor = true;
+            this.buttonSubIngredientes.Visible = false;
+            this.buttonSubIngredientes.Click += new System.EventHandler(this.ButtonSubIngredientes_Click);
+            // 
+            // buttonSubPlatosDeComida
+            // 
+            this.buttonSubPlatosDeComida.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubPlatosDeComida.Location = new System.Drawing.Point(0, 249);
+            this.buttonSubPlatosDeComida.Name = "buttonSubPlatosDeComida";
+            this.buttonSubPlatosDeComida.Size = new System.Drawing.Size(200, 47);
+            this.buttonSubPlatosDeComida.TabIndex = 1;
+            this.buttonSubPlatosDeComida.Text = "Platos de comida";
+            this.buttonSubPlatosDeComida.UseVisualStyleBackColor = true;
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubPlatosDeComida.Click += new System.EventHandler(this.ButtonSubPlatosDeComida_Click);
             // 
             // pictureBoxImagen
             // 
@@ -445,6 +473,8 @@
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelUserCargo;
         private System.Windows.Forms.PictureBox pictureBoxImagen;
+        private System.Windows.Forms.Button buttonSubIngredientes;
+        private System.Windows.Forms.Button buttonSubPlatosDeComida;
     }
 }
 

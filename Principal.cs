@@ -5,6 +5,10 @@ using GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes;
 using GUI_AUGUR_V3.ModelosClases;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos;
+using GUI_AUGUR_V3.VistasDeMódulos.móduloPedidos;
+using GUI_AUGUR_V3.VistasDeMódulos.móduloPagos;
+using GUI_AUGUR_V3.VistasDeMódulos.móduloAyuda;
+using GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente;
 
 namespace GUI_AUGUR_V3 {
 
@@ -133,13 +137,25 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void ButtonAyuda_Click(object sender, EventArgs e){
-            
-            
+            labelTitulo.Text = "Ayuda";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new AyudaPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+
+
         }
 
         private void ButtonPagos_Click(object sender, EventArgs e){
-            
-            
+            labelTitulo.Text = "Pagos";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new PagosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+
+
         }
 
         /// <summary>
@@ -158,14 +174,24 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void ButtonPedidos_Click(object sender, EventArgs e){
-            
-            
+
+            labelTitulo.Text = "Pedidos";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new PedidosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
 
         }
 
         private void ButtonReportes_Click(object sender, EventArgs e){
-            
-            
+
+            labelTitulo.Text = "Reportes";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new ReportesPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
 
         }
 
@@ -176,12 +202,10 @@ namespace GUI_AUGUR_V3 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonPlatosIng_Click(object sender, EventArgs e){
-            labelTitulo.Text = "Platos de Comida";
-            pictureBoxImagen.Visible = false;
-            genericform?.Close();
-            genericform = new PlatosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(genericform);
-            genericform.Show();
+            this.buttonSubPlatosDeComida.Visible =!this.buttonSubPlatosDeComida.Visible;
+            this.buttonSubIngredientes.Visible =!this.buttonSubIngredientes.Visible;
+
+            
         }
 
         private void PanelTitulo_Paint(object sender, PaintEventArgs e){
@@ -195,6 +219,31 @@ namespace GUI_AUGUR_V3 {
         private void Label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonSubPlatosDeComida_Click(object sender, EventArgs e)
+        {
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubIngredientes.Visible = false;
+            labelTitulo.Text = "Platos de Comida";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new PlatosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+
+        }
+
+        private void ButtonSubIngredientes_Click(object sender, EventArgs e)
+        {
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubIngredientes.Visible = false;
+            labelTitulo.Text = "Ingredientes";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new IngredientePrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
         }
     }
 }

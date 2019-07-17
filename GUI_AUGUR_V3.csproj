@@ -47,6 +47,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\DataBase\ConexionDB.cs" />
+    <Compile Include="VistasDeMódulos\móduloAyuda\AyudaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloAyuda\AyudaPrincipal.Designer.cs">
+      <DependentUpon>AyudaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPagos\PagosPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPagos\PagosPrincipal.Designer.cs">
+      <DependentUpon>PagosPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.Designer.cs">
+      <DependentUpon>PedidosPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\IngredientePrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\IngredientePrincipal.Designer.cs">
+      <DependentUpon>IngredientePrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\RegistrarActualizarPlatoscs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\RegistrarActualizarPlatoscs.Designer.cs">
+      <DependentUpon>RegistrarActualizarPlatoscs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.Designer.cs">
+      <DependentUpon>ReportesPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelosClases\Ingrediente.cs" />
     <Compile Include="ModelosClases\Parametro.cs" />
     <Compile Include="ModelosClases\PlatoDeComida.cs" />
@@ -65,47 +101,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\AdminPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\AdminPrincipal.Designer.cs">
       <DependentUpon>AdminPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\RegistrarActualizarParam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\RegistrarActualizarParam.Designer.cs">
       <DependentUpon>RegistrarActualizarParam.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\UserContra.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\UserContra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloAdminstración\UserContra.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloAdminstración\UserContra.Designer.cs">
       <DependentUpon>UserContra.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.cs">
+    <Compile Include="VistasDeMódulos\móduloClientes\ClientePrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloClientes\ClientePrincipal.Designer.cs">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.cs">
+    <Compile Include="VistasDeMódulos\móduloClientes\ActualizarRegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloClientes\ActualizarRegistrarCliente.Designer.cs">
       <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.cs">
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\PlatosPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.Designer.cs">
+    <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\PlatosPrincipal.Designer.cs">
       <DependentUpon>PlatosPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.Designer.cs">
-      <DependentUpon>RegistrarActualzarPlatocs.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Loggin.resx">
       <DependentUpon>Loggin.cs</DependentUpon>
@@ -122,26 +152,38 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\AdminPrincipal.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\AdminPrincipal.resx">
       <DependentUpon>AdminPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\RegistrarActualizarParam.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\RegistrarActualizarParam.resx">
       <DependentUpon>RegistrarActualizarParam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloAdminstración\UserContra.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\UserContra.resx">
       <DependentUpon>UserContra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ClientePrincipal.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloAyuda\AyudaPrincipal.resx">
+      <DependentUpon>AyudaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloClientes\ClientePrincipal.resx">
       <DependentUpon>ClientePrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloClientes\ActualizarRegistrarCliente.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloClientes\ActualizarRegistrarCliente.resx">
       <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloPlatos\PlatosPrincipal.resx">
+    <EmbeddedResource Include="VistasDeMódulos\móduloPagos\PagosPrincipal.resx">
+      <DependentUpon>PagosPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.resx">
+      <DependentUpon>PedidosPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloIngrediente\IngredientePrincipal.resx">
+      <DependentUpon>IngredientePrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\PlatosPrincipal.resx">
       <DependentUpon>PlatosPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\MóduloPlatos\RegistrarActualzarPlatocs.resx">
-      <DependentUpon>RegistrarActualzarPlatocs.cs</DependentUpon>
+    <EmbeddedResource Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.resx">
+      <DependentUpon>ReportesPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -156,10 +198,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VistasDeMódulos\MóduloAyuda\" />
-    <Folder Include="VistasDeMódulos\MóduloPagos\" />
-    <Folder Include="VistasDeMódulos\MóduloReportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
