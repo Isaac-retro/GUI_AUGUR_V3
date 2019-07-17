@@ -13,9 +13,11 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente
 {
     public partial class IngredientePrincipal : Form
     {
-        public IngredientePrincipal(Usuario usuario)
+        Label labelTitulo;
+        public IngredientePrincipal(Usuario usuario, Label labelTitulo)
         {
             InitializeComponent();
+            this.labelTitulo = labelTitulo;
         }
 
         private void validarCaracteres(object sender, KeyPressEventArgs e)
@@ -59,6 +61,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente
         private void ButtonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.labelTitulo.Text = "AUGUR";
         }
 
         private void ButtonActualizar_Click(object sender, EventArgs e)

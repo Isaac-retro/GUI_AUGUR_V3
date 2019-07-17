@@ -28,188 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonSalir = new System.Windows.Forms.Button();
-            this.buttonEliminarCP = new System.Windows.Forms.Button();
-            this.buttonActualizarP = new System.Windows.Forms.Button();
-            this.buttonRegistrarP = new System.Windows.Forms.Button();
-            this.dataGridViewPlatos = new System.Windows.Forms.DataGridView();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlatos)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonActualizar = new System.Windows.Forms.Button();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // dataGridView1
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1050, 55);
-            this.panel2.TabIndex = 11;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(124, 181);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(897, 229);
+            this.dataGridView1.TabIndex = 45;
             // 
-            // label2
+            // buttonEliminar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 20);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Buscar plato : Nombre";
+            this.buttonEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEliminar.FlatAppearance.BorderSize = 0;
+            this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEliminar.Location = new System.Drawing.Point(214, 462);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(289, 113);
+            this.buttonEliminar.TabIndex = 44;
+            this.buttonEliminar.Text = "Eliminar plato seleccionado";
+            this.buttonEliminar.UseVisualStyleBackColor = false;
+            this.buttonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
-            // textBox1
+            // buttonRegistrar
             // 
-            this.textBox1.Location = new System.Drawing.Point(235, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(802, 20);
-            this.textBox1.TabIndex = 9;
+            this.buttonRegistrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegistrar.FlatAppearance.BorderSize = 0;
+            this.buttonRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRegistrar.Location = new System.Drawing.Point(-3, 462);
+            this.buttonRegistrar.Name = "buttonRegistrar";
+            this.buttonRegistrar.Size = new System.Drawing.Size(191, 113);
+            this.buttonRegistrar.TabIndex = 43;
+            this.buttonRegistrar.Text = "Registrar nuevo plato de comida";
+            this.buttonRegistrar.UseVisualStyleBackColor = false;
+            this.buttonRegistrar.Click += new System.EventHandler(this.ButtonRegistrar_Click);
             // 
-            // panel1
+            // buttonCancelar
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.buttonSalir);
-            this.panel1.Controls.Add(this.buttonEliminarCP);
-            this.panel1.Controls.Add(this.buttonActualizarP);
-            this.panel1.Controls.Add(this.buttonRegistrarP);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 605);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 45);
-            this.panel1.TabIndex = 12;
+            this.buttonCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCancelar.FlatAppearance.BorderSize = 0;
+            this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancelar.Location = new System.Drawing.Point(828, 465);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(193, 110);
+            this.buttonCancelar.TabIndex = 42;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
-            // button1
+            // buttonActualizar
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(629, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 40);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Ingredientes";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonActualizar.FlatAppearance.BorderSize = 0;
+            this.buttonActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonActualizar.Location = new System.Drawing.Point(540, 465);
+            this.buttonActualizar.Name = "buttonActualizar";
+            this.buttonActualizar.Size = new System.Drawing.Size(263, 110);
+            this.buttonActualizar.TabIndex = 41;
+            this.buttonActualizar.Text = "Actualizar plato seleccionado";
+            this.buttonActualizar.UseVisualStyleBackColor = false;
+            this.buttonActualizar.Click += new System.EventHandler(this.ButtonActualizar_Click);
             // 
-            // buttonSalir
+            // textBoxNombre
             // 
-            this.buttonSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSalir.FlatAppearance.BorderSize = 0;
-            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalir.Location = new System.Drawing.Point(835, 3);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(212, 40);
-            this.buttonSalir.TabIndex = 14;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.ButtonSalir_Click);
+            this.textBoxNombre.Location = new System.Drawing.Point(568, 83);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(383, 20);
+            this.textBoxNombre.TabIndex = 38;
+            this.textBoxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarCaracteres);
             // 
-            // buttonEliminarCP
+            // label1
             // 
-            this.buttonEliminarCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonEliminarCP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEliminarCP.FlatAppearance.BorderSize = 0;
-            this.buttonEliminarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonEliminarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminarCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonEliminarCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonEliminarCP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminarCP.Location = new System.Drawing.Point(423, 3);
-            this.buttonEliminarCP.Name = "buttonEliminarCP";
-            this.buttonEliminarCP.Size = new System.Drawing.Size(200, 40);
-            this.buttonEliminarCP.TabIndex = 13;
-            this.buttonEliminarCP.Text = "Eliminar";
-            this.buttonEliminarCP.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(118, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(385, 36);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Nombre del plato de comida";
             // 
-            // buttonActualizarP
+            // label4
             // 
-            this.buttonActualizarP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonActualizarP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonActualizarP.FlatAppearance.BorderSize = 0;
-            this.buttonActualizarP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonActualizarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonActualizarP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonActualizarP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonActualizarP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonActualizarP.Location = new System.Drawing.Point(217, 3);
-            this.buttonActualizarP.Name = "buttonActualizarP";
-            this.buttonActualizarP.Size = new System.Drawing.Size(200, 40);
-            this.buttonActualizarP.TabIndex = 11;
-            this.buttonActualizarP.Text = "Actualizar";
-            this.buttonActualizarP.UseVisualStyleBackColor = true;
-            this.buttonActualizarP.Click += new System.EventHandler(this.ButtonActualizarP_Click);
-            // 
-            // buttonRegistrarP
-            // 
-            this.buttonRegistrarP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonRegistrarP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRegistrarP.FlatAppearance.BorderSize = 0;
-            this.buttonRegistrarP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonRegistrarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrarP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonRegistrarP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonRegistrarP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrarP.Location = new System.Drawing.Point(0, 3);
-            this.buttonRegistrarP.Name = "buttonRegistrarP";
-            this.buttonRegistrarP.Size = new System.Drawing.Size(211, 40);
-            this.buttonRegistrarP.TabIndex = 10;
-            this.buttonRegistrarP.Text = "Registrar";
-            this.buttonRegistrarP.UseVisualStyleBackColor = true;
-            this.buttonRegistrarP.Click += new System.EventHandler(this.ButtonRegistrarP_Click);
-            // 
-            // dataGridViewPlatos
-            // 
-            this.dataGridViewPlatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPlatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPlatos.Location = new System.Drawing.Point(0, 55);
-            this.dataGridViewPlatos.Name = "dataGridViewPlatos";
-            this.dataGridViewPlatos.Size = new System.Drawing.Size(1050, 550);
-            this.dataGridViewPlatos.TabIndex = 13;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(409, 140);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(261, 13);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Tabla de búsqueda automática para platos de comida";
             // 
             // PlatosPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 650);
-            this.Controls.Add(this.dataGridViewPlatos);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1072, 587);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonRegistrar);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonActualizar);
+            this.Controls.Add(this.textBoxNombre);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PlatosPrincipal";
             this.Text = "PlatosIngredientes";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonSalir;
-        private System.Windows.Forms.Button buttonEliminarCP;
-        private System.Windows.Forms.Button buttonActualizarP;
-        private System.Windows.Forms.Button buttonRegistrarP;
-        private System.Windows.Forms.DataGridView dataGridViewPlatos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonActualizar;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

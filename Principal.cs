@@ -228,7 +228,7 @@ namespace GUI_AUGUR_V3 {
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
-            genericform = new PlatosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            genericform = new PlatosPrincipal(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(genericform);
             genericform.Show();
 
@@ -241,7 +241,7 @@ namespace GUI_AUGUR_V3 {
             labelTitulo.Text = "Ingredientes";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
-            genericform = new IngredientePrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            genericform = new IngredientePrincipal(user, labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(genericform);
             genericform.Show();
         }

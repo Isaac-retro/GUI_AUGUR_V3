@@ -7,18 +7,23 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
     public partial class RegistrarActualzarPlatocs : Form{
         int idPlato;
         private Usuario user;
-        public RegistrarActualzarPlatocs(string titulo, string funcion, Usuario user, int idPlato){
+        public RegistrarActualzarPlatocs(string titulo, string funcion, Usuario user, int idPlato) {
             InitializeComponent();
             this.user = user;
             this.idPlato = idPlato;
-            labelTitulo.Text = titulo;
-            labelError.Text = "Error al " + funcion;
-            if (idPlato == 1 ) {
-                textBoxNombre.Text = "Encebollado Futbolero";
-                textBoxApellido.Text = "$ 3.75";
-                textBoxNombre.Enabled = false;
-                textBoxApellido.Enabled = false;
+            this.Text = titulo;
+
+            if (funcion == "actualizar")
+            {
+                this.textBoxNombre.Visible = false;
+                this.label2.Visible = false;
+                this.buttonRegistrar.Visible = false;
             }
+            else
+            {
+                this.buttonActualizar.Visible = false;
+            }
+            
         }
 
         private void PictureBoxSalir_Click(object sender, EventArgs e){
@@ -31,7 +36,23 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void TextBoxNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == '´' || char.IsWhiteSpace(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back));
+        }
+
+        private void validarPrecio(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == Convert.ToChar(Keys.Back));
+
+        }
+
+        private void ButtonRegistrar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Plato registrado correctamente");
+        }
+
+        private void ButtonActualizar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Plato actualizado correctamente");
         }
     }
 }

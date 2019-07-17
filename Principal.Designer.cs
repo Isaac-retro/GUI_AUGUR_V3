@@ -72,12 +72,12 @@
             this.panelMenuVertical.Controls.Add(this.labelUserCargo);
             this.panelMenuVertical.Controls.Add(this.labelUser);
             this.panelMenuVertical.Controls.Add(this.pictureBox1);
+            this.panelMenuVertical.Controls.Add(this.buttonPagos);
             this.panelMenuVertical.Controls.Add(this.flowLayoutPanel1);
             this.panelMenuVertical.Controls.Add(this.labelTitulo2);
             this.panelMenuVertical.Controls.Add(this.labelTitulo1);
             this.panelMenuVertical.Controls.Add(this.buttonAyuda);
             this.panelMenuVertical.Controls.Add(this.buttonAdmin);
-            this.panelMenuVertical.Controls.Add(this.buttonPagos);
             this.panelMenuVertical.Controls.Add(this.buttonPedidos);
             this.panelMenuVertical.Controls.Add(this.buttonReportes);
             this.panelMenuVertical.Controls.Add(this.buttonPlatosIng);
@@ -137,7 +137,7 @@
             this.labelTitulo2.AutoSize = true;
             this.labelTitulo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelTitulo2.Location = new System.Drawing.Point(57, 112);
+            this.labelTitulo2.Location = new System.Drawing.Point(24, 112);
             this.labelTitulo2.Name = "labelTitulo2";
             this.labelTitulo2.Size = new System.Drawing.Size(195, 29);
             this.labelTitulo2.TabIndex = 10;
@@ -148,7 +148,7 @@
             this.labelTitulo1.AutoSize = true;
             this.labelTitulo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelTitulo1.Location = new System.Drawing.Point(71, 83);
+            this.labelTitulo1.Location = new System.Drawing.Point(33, 83);
             this.labelTitulo1.Name = "labelTitulo1";
             this.labelTitulo1.Size = new System.Drawing.Size(173, 29);
             this.labelTitulo1.TabIndex = 9;
@@ -164,7 +164,7 @@
             this.buttonAyuda.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.buttonAyuda.Image = ((System.Drawing.Image)(resources.GetObject("buttonAyuda.Image")));
             this.buttonAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAyuda.Location = new System.Drawing.Point(0, 512);
+            this.buttonAyuda.Location = new System.Drawing.Point(-3, 451);
             this.buttonAyuda.Name = "buttonAyuda";
             this.buttonAyuda.Size = new System.Drawing.Size(250, 45);
             this.buttonAyuda.TabIndex = 8;
@@ -183,11 +183,11 @@
             this.buttonAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdmin.Location = new System.Drawing.Point(0, 461);
+            this.buttonAdmin.Location = new System.Drawing.Point(1, 410);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(250, 45);
             this.buttonAdmin.TabIndex = 7;
-            this.buttonAdmin.Text = "Adminitración";
+            this.buttonAdmin.Text = "Administración";
             this.buttonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdmin.UseVisualStyleBackColor = true;
             this.buttonAdmin.Click += new System.EventHandler(this.ButtonAdmin_Click);
@@ -202,13 +202,14 @@
             this.buttonPagos.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.buttonPagos.Image = ((System.Drawing.Image)(resources.GetObject("buttonPagos.Image")));
             this.buttonPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPagos.Location = new System.Drawing.Point(0, 410);
+            this.buttonPagos.Location = new System.Drawing.Point(-3, 493);
             this.buttonPagos.Name = "buttonPagos";
             this.buttonPagos.Size = new System.Drawing.Size(250, 45);
             this.buttonPagos.TabIndex = 6;
             this.buttonPagos.Text = "Pagos";
             this.buttonPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonPagos.UseVisualStyleBackColor = true;
+            this.buttonPagos.Visible = false;
             this.buttonPagos.Click += new System.EventHandler(this.ButtonPagos_Click);
             // 
             // buttonPedidos

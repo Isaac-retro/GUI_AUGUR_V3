@@ -191,6 +191,9 @@
     <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\PlatosPrincipal.resx">
       <DependentUpon>PlatosPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\RegistrarActualizarPlatoscs.resx">
+      <DependentUpon>RegistrarActualizarPlatoscs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.resx">
       <DependentUpon>ReportesPrincipal.cs</DependentUpon>
     </EmbeddedResource>
