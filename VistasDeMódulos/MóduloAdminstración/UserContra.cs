@@ -24,16 +24,16 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                 // cambiar contrasenia 
                 textBoxNombreUser.Enabled = false;
                 textBoxLoggin.Enabled = false;
-                textBoxLoggin.Text = user.getLoggin();
-                textBoxNombreUser.Text = user.getNombreUsuario();
-                textBoxCargo.Text = user.getCargo();
+                textBoxLoggin.Text = user.obtenerLoggin();
+                textBoxNombreUser.Text = user.obtenerNombreUsuario();
+                textBoxCargo.Text = user.obtenerCargo();
             } else {
                 //restablercer contrasenia
                 textBoxNombreUser.Enabled = false;
                 textBoxLoggin.Enabled = false;
-                textBoxCargo.Text = user_change.getCargo();
-                textBoxLoggin.Text = user.getLoggin();
-                textBoxNombreUser.Text = user.getNombreUsuario();
+                textBoxCargo.Text = user_change.obtenerCargo();
+                textBoxLoggin.Text = user.obtenerLoggin();
+                textBoxNombreUser.Text = user.obtenerNombreUsuario();
             }
 
 
