@@ -38,7 +38,6 @@
             this.labelTitulo1 = new System.Windows.Forms.Label();
             this.buttonAyuda = new System.Windows.Forms.Button();
             this.buttonAdmin = new System.Windows.Forms.Button();
-            this.buttonPagos = new System.Windows.Forms.Button();
             this.buttonPedidos = new System.Windows.Forms.Button();
             this.buttonReportes = new System.Windows.Forms.Button();
             this.buttonPlatosIng = new System.Windows.Forms.Button();
@@ -54,6 +53,10 @@
             this.buttonSubIngredientes = new System.Windows.Forms.Button();
             this.buttonSubPlatosDeComida = new System.Windows.Forms.Button();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
+            this.buttonClientesFrec = new System.Windows.Forms.Button();
+            this.buttonPlatosMas = new System.Windows.Forms.Button();
+            this.buttonReporteDiario = new System.Windows.Forms.Button();
+            this.buttonReporteMensual = new System.Windows.Forms.Button();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -72,7 +75,6 @@
             this.panelMenuVertical.Controls.Add(this.labelUserCargo);
             this.panelMenuVertical.Controls.Add(this.labelUser);
             this.panelMenuVertical.Controls.Add(this.pictureBox1);
-            this.panelMenuVertical.Controls.Add(this.buttonPagos);
             this.panelMenuVertical.Controls.Add(this.flowLayoutPanel1);
             this.panelMenuVertical.Controls.Add(this.labelTitulo2);
             this.panelMenuVertical.Controls.Add(this.labelTitulo1);
@@ -191,26 +193,6 @@
             this.buttonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdmin.UseVisualStyleBackColor = true;
             this.buttonAdmin.Click += new System.EventHandler(this.ButtonAdmin_Click);
-            // 
-            // buttonPagos
-            // 
-            this.buttonPagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPagos.FlatAppearance.BorderSize = 0;
-            this.buttonPagos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.buttonPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonPagos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonPagos.Image = ((System.Drawing.Image)(resources.GetObject("buttonPagos.Image")));
-            this.buttonPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPagos.Location = new System.Drawing.Point(-3, 493);
-            this.buttonPagos.Name = "buttonPagos";
-            this.buttonPagos.Size = new System.Drawing.Size(250, 45);
-            this.buttonPagos.TabIndex = 6;
-            this.buttonPagos.Text = "Pagos";
-            this.buttonPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagos.UseVisualStyleBackColor = true;
-            this.buttonPagos.Visible = false;
-            this.buttonPagos.Click += new System.EventHandler(this.ButtonPagos_Click);
             // 
             // buttonPedidos
             // 
@@ -376,6 +358,10 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.buttonReporteMensual);
+            this.panelContenedor.Controls.Add(this.buttonReporteDiario);
+            this.panelContenedor.Controls.Add(this.buttonClientesFrec);
+            this.panelContenedor.Controls.Add(this.buttonPlatosMas);
             this.panelContenedor.Controls.Add(this.buttonSubIngredientes);
             this.panelContenedor.Controls.Add(this.buttonSubPlatosDeComida);
             this.panelContenedor.Controls.Add(this.pictureBoxImagen);
@@ -421,6 +407,53 @@
             this.pictureBoxImagen.TabIndex = 0;
             this.pictureBoxImagen.TabStop = false;
             // 
+            // buttonClientesFrec
+            // 
+            this.buttonClientesFrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientesFrec.Location = new System.Drawing.Point(0, 263);
+            this.buttonClientesFrec.Name = "buttonClientesFrec";
+            this.buttonClientesFrec.Size = new System.Drawing.Size(344, 45);
+            this.buttonClientesFrec.TabIndex = 4;
+            this.buttonClientesFrec.Text = "Clientes más frecuentes";
+            this.buttonClientesFrec.UseVisualStyleBackColor = true;
+            this.buttonClientesFrec.Visible = false;
+            this.buttonClientesFrec.Click += new System.EventHandler(this.ButtonClientesFrec_Click);
+            // 
+            // buttonPlatosMas
+            // 
+            this.buttonPlatosMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlatosMas.Location = new System.Drawing.Point(0, 306);
+            this.buttonPlatosMas.Name = "buttonPlatosMas";
+            this.buttonPlatosMas.Size = new System.Drawing.Size(344, 47);
+            this.buttonPlatosMas.TabIndex = 3;
+            this.buttonPlatosMas.Text = "Platos más vendidos";
+            this.buttonPlatosMas.UseVisualStyleBackColor = true;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonPlatosMas.Click += new System.EventHandler(this.ButtonPlatosMas_Click);
+            // 
+            // buttonReporteDiario
+            // 
+            this.buttonReporteDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteDiario.Location = new System.Drawing.Point(0, 349);
+            this.buttonReporteDiario.Name = "buttonReporteDiario";
+            this.buttonReporteDiario.Size = new System.Drawing.Size(344, 45);
+            this.buttonReporteDiario.TabIndex = 6;
+            this.buttonReporteDiario.Text = "Reporte diario";
+            this.buttonReporteDiario.UseVisualStyleBackColor = true;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteDiario.Click += new System.EventHandler(this.ButtonReporteDiario_Click);
+            // 
+            // buttonReporteMensual
+            // 
+            this.buttonReporteMensual.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteMensual.Location = new System.Drawing.Point(0, 390);
+            this.buttonReporteMensual.Name = "buttonReporteMensual";
+            this.buttonReporteMensual.Size = new System.Drawing.Size(344, 45);
+            this.buttonReporteMensual.TabIndex = 7;
+            this.buttonReporteMensual.Text = "Reporte mensual";
+            this.buttonReporteMensual.UseVisualStyleBackColor = true;
+            this.buttonReporteMensual.Visible = false;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,7 +493,6 @@
         private System.Windows.Forms.PictureBox pictureBoxMin;
         private System.Windows.Forms.PictureBox pictureBoxSalir;
         private System.Windows.Forms.Button buttonAdmin;
-        private System.Windows.Forms.Button buttonPagos;
         private System.Windows.Forms.Button buttonPedidos;
         private System.Windows.Forms.Button buttonReportes;
         private System.Windows.Forms.Button buttonPlatosIng;
@@ -476,6 +508,10 @@
         private System.Windows.Forms.PictureBox pictureBoxImagen;
         private System.Windows.Forms.Button buttonSubIngredientes;
         private System.Windows.Forms.Button buttonSubPlatosDeComida;
+        private System.Windows.Forms.Button buttonReporteMensual;
+        private System.Windows.Forms.Button buttonReporteDiario;
+        private System.Windows.Forms.Button buttonClientesFrec;
+        private System.Windows.Forms.Button buttonPlatosMas;
     }
 }
 

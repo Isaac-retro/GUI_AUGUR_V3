@@ -6,9 +6,10 @@ using GUI_AUGUR_V3.ModelosClases;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloPedidos;
-using GUI_AUGUR_V3.VistasDeMódulos.móduloPagos;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloAyuda;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente;
+using GUI_AUGUR_V3.VistasDeMódulos.móduloReportes;
+
 
 namespace GUI_AUGUR_V3 {
 
@@ -147,16 +148,6 @@ namespace GUI_AUGUR_V3 {
 
         }
 
-        private void ButtonPagos_Click(object sender, EventArgs e){
-            labelTitulo.Text = "Pagos";
-            pictureBoxImagen.Visible = false;
-            genericform?.Close();
-            genericform = new PagosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(genericform);
-            genericform.Show();
-
-
-        }
 
         /// <summary>
         /// abre el formulario de administración casteando al form genérico
@@ -185,13 +176,14 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void ButtonReportes_Click(object sender, EventArgs e){
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubIngredientes.Visible = false;
 
-            labelTitulo.Text = "Reportes";
-            pictureBoxImagen.Visible = false;
-            genericform?.Close();
-            genericform = new ReportesPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(genericform);
-            genericform.Show();
+            this.buttonClientesFrec.Visible = !this.buttonClientesFrec.Visible;
+            this.buttonPlatosMas.Visible = !this.buttonPlatosMas.Visible;
+            this.buttonReporteDiario.Visible = !this.buttonReporteDiario.Visible;
+            this.buttonReporteMensual.Visible = !this.buttonReporteMensual.Visible;
+
 
         }
 
@@ -205,26 +197,25 @@ namespace GUI_AUGUR_V3 {
             this.buttonSubPlatosDeComida.Visible =!this.buttonSubPlatosDeComida.Visible;
             this.buttonSubIngredientes.Visible =!this.buttonSubIngredientes.Visible;
 
-            
+            this.buttonClientesFrec.Visible = false;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteMensual.Visible = false;
+
+
         }
 
         private void PanelTitulo_Paint(object sender, PaintEventArgs e){
         }
 
-        private void PictureBoxHome_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ButtonSubPlatosDeComida_Click(object sender, EventArgs e)
         {
             this.buttonSubPlatosDeComida.Visible = false;
             this.buttonSubIngredientes.Visible = false;
+
+            
+
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
@@ -242,6 +233,51 @@ namespace GUI_AUGUR_V3 {
             pictureBoxImagen.Visible = false;
             genericform?.Close();
             genericform = new IngredientePrincipal(user, labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonClientesFrec_Click(object sender, EventArgs e)
+        {
+            this.buttonClientesFrec.Visible = false;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteMensual.Visible = false;
+
+            labelTitulo.Text = "Reportes: Clientes más frecuentes";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new RClientesFrecuentes(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonPlatosMas_Click(object sender, EventArgs e)
+        {
+            this.buttonClientesFrec.Visible = false;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteMensual.Visible = false;
+
+            labelTitulo.Text = "Reportes: Platos más vendidos";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new RPlatosMasVendidos(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonReporteDiario_Click(object sender, EventArgs e)
+        {
+            this.buttonClientesFrec.Visible = false;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteMensual.Visible = false;
+
+            labelTitulo.Text = "Reportes Diario";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new RReporteDiario(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(genericform);
             genericform.Show();
         }

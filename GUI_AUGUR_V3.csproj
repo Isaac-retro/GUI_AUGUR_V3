@@ -53,12 +53,6 @@
     <Compile Include="VistasDeMódulos\móduloAyuda\AyudaPrincipal.Designer.cs">
       <DependentUpon>AyudaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistasDeMódulos\móduloPagos\PagosPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistasDeMódulos\móduloPagos\PagosPrincipal.Designer.cs">
-      <DependentUpon>PagosPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +76,12 @@
     </Compile>
     <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\RegistrarActualizarPlatoscs.Designer.cs">
       <DependentUpon>RegistrarActualizarPlatoscs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RClientesFrecuentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RClientesFrecuentes.Designer.cs">
+      <DependentUpon>RClientesFrecuentes.cs</DependentUpon>
     </Compile>
     <Compile Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.cs">
       <SubType>Form</SubType>
@@ -143,6 +143,18 @@
     <Compile Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\PlatosPrincipal.Designer.cs">
       <DependentUpon>PlatosPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RPlatosMasVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RPlatosMasVendidos.Designer.cs">
+      <DependentUpon>RPlatosMasVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RReporteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloReportes\RReporteDiario.Designer.cs">
+      <DependentUpon>RReporteDiario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Loggin.resx">
       <DependentUpon>Loggin.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,9 +188,6 @@
     <EmbeddedResource Include="VistasDeMódulos\móduloClientes\ActualizarRegistrarCliente.resx">
       <DependentUpon>ActualizarRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistasDeMódulos\móduloPagos\PagosPrincipal.resx">
-      <DependentUpon>PagosPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloPedidos\PedidosPrincipal.resx">
       <DependentUpon>PedidosPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,8 +203,17 @@
     <EmbeddedResource Include="VistasDeMódulos\móduloPlatos\submóduloPlatoDeComida\RegistrarActualizarPlatoscs.resx">
       <DependentUpon>RegistrarActualizarPlatoscs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloReportes\RClientesFrecuentes.resx">
+      <DependentUpon>RClientesFrecuentes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloReportes\ReportesPrincipal.resx">
       <DependentUpon>ReportesPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloReportes\RPlatosMasVendidos.resx">
+      <DependentUpon>RPlatosMasVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloReportes\RReporteDiario.resx">
+      <DependentUpon>RReporteDiario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

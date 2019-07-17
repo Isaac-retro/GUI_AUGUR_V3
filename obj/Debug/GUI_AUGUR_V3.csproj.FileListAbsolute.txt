@@ -35,8 +35,8 @@ C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.pdb
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.ReportesPrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloAyuda.AyudaPrincipal.resources
-C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPagos.PagosPrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPedidos.PedidosPrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente.IngredientePrincipal.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente.ActualizarIngrediente.resources
 C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos.RegistrarActualzarPlatocs.resources
+C:\Users\COMPANY\Documents\Programación\C#\GUI_AUGUR_v3\obj\Debug\GUI_AUGUR_V3.VistasDeMódulos.móduloReportes.RClientesFrecuentes.resources
