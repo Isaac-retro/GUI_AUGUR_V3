@@ -16,8 +16,8 @@ namespace GUI_AUGUR_V3.DataBase{
         public ConexionDB() { }
         // variable final que contiene el directorio de la conexión
 
-        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
-        private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
+        private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
+        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
 
         /// variable goblal que sirve para almacenar el comando SQL
         private string consultaString = "";
