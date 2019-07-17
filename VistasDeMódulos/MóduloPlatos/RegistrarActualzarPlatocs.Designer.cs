@@ -163,6 +163,7 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(632, 20);
             this.textBoxNombre.TabIndex = 21;
+            this.textBoxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNombre_KeyPress);
             // 
             // dataGridView1
             // 

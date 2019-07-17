@@ -28,5 +28,10 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
         private void ButtonCancelar_Click(object sender, EventArgs e){
             this.Close();
         }
+
+        private void TextBoxNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
     }
 }

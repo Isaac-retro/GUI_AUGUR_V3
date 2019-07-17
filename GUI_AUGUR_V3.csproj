@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\DataBase\ConexionLoggin.cs" />
+    <Compile Include="Controladores\DataBase\ConexionDB.cs" />
     <Compile Include="ModelosClases\Ingrediente.cs" />
     <Compile Include="ModelosClases\Parametro.cs" />
     <Compile Include="ModelosClases\PlatoDeComida.cs" />

@@ -7,23 +7,46 @@ using GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración;
 using GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos;
 
 namespace GUI_AUGUR_V3 {
+
+    /// <summary>
+    /// Clase de la ventana principal del programa, en el panel contenedor se abren los demas formularios
+    /// </summary>
     public partial class Principal : Form {
+        // variable que almacena el usuario logueado en el sistema
         private Usuario user;
-        Form genericform;
+
+        //variable generica a la que se le realiza un casting para abrir distintos tipos de formularios
+        private Form genericform;
+
+
+        /// <summary>
+        /// Constructor del formulario
+        /// </summary>
+        /// <param name="user"></param>
         public Principal(Usuario user){
             InitializeComponent();
             this.user = user;
-            labelUser.Text = user.getNombreUsuario();
-            labelUserCargo.Text = user.getCargo();
+            labelUser.Text = user.obtenerNombreUsuario();
+            labelUserCargo.Text = user.obtenerCargo();
             pictureBoxImagen.Visible = true;
            
 
         }
 
+
+        /// <summary>
+        /// Importacion de librerias para mover las ventanas a traves de la pantalla
+        /// </summary>
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        /// <summary>
+        /// evento que mueve la ventana en la pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PictureBoxMenu_Click(object sender, EventArgs e)
         {
             if (panelMenuVertical.Width == 250){
@@ -37,11 +60,22 @@ namespace GUI_AUGUR_V3 {
             }
         }
    
+        /// <summary>
+        /// Cierra toda la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PictureBoxSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+
+        /// <summary>
+        /// Maximiza o normaliza la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PictureBoxMax_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal) {
@@ -52,17 +86,35 @@ namespace GUI_AUGUR_V3 {
             }
         }
 
+
+        /// <summary>
+        /// minimiza la ventana 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PictureBoxMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+        /// <summary>
+        /// mueve la ventana en la pantalla presionando un label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PanelTitulo_MouseDown(object sender, MouseEventArgs e){
 
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012,0);
         }
 
+
+        /// <summary>
+        /// abre el formulario de clientes casteando al form genérico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClientes_Click(object sender, EventArgs e){
             labelTitulo.Text = "Clientes";
             pictureBoxImagen.Visible = false;
@@ -90,7 +142,11 @@ namespace GUI_AUGUR_V3 {
             
         }
 
-
+        /// <summary>
+        /// abre el formulario de administración casteando al form genérico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonAdmin_Click(object sender, EventArgs e){
             labelTitulo.Text = "Administración";
             pictureBoxImagen.Visible = false;
@@ -113,6 +169,12 @@ namespace GUI_AUGUR_V3 {
 
         }
 
+
+        /// <summary>
+        /// abre el formulario de Platos casteando al form genérico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonPlatosIng_Click(object sender, EventArgs e){
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
