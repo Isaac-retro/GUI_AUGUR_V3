@@ -50,13 +50,16 @@
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.buttonReporteMensual = new System.Windows.Forms.Button();
+            this.buttonReporteDiario = new System.Windows.Forms.Button();
+            this.buttonClientesFrec = new System.Windows.Forms.Button();
+            this.buttonPlatosMas = new System.Windows.Forms.Button();
             this.buttonSubIngredientes = new System.Windows.Forms.Button();
             this.buttonSubPlatosDeComida = new System.Windows.Forms.Button();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
-            this.buttonClientesFrec = new System.Windows.Forms.Button();
-            this.buttonPlatosMas = new System.Windows.Forms.Button();
-            this.buttonReporteDiario = new System.Windows.Forms.Button();
-            this.buttonReporteMensual = new System.Windows.Forms.Button();
+            this.buttonInvalidarPedido = new System.Windows.Forms.Button();
+            this.buttonCrearPedido = new System.Windows.Forms.Button();
+            this.buttonConsultarPedido = new System.Windows.Forms.Button();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -358,6 +361,9 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.buttonConsultarPedido);
+            this.panelContenedor.Controls.Add(this.buttonInvalidarPedido);
+            this.panelContenedor.Controls.Add(this.buttonCrearPedido);
             this.panelContenedor.Controls.Add(this.buttonReporteMensual);
             this.panelContenedor.Controls.Add(this.buttonReporteDiario);
             this.panelContenedor.Controls.Add(this.buttonClientesFrec);
@@ -372,6 +378,54 @@
             this.panelContenedor.Size = new System.Drawing.Size(1050, 605);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
+            // 
+            // buttonReporteMensual
+            // 
+            this.buttonReporteMensual.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteMensual.Location = new System.Drawing.Point(0, 390);
+            this.buttonReporteMensual.Name = "buttonReporteMensual";
+            this.buttonReporteMensual.Size = new System.Drawing.Size(344, 45);
+            this.buttonReporteMensual.TabIndex = 7;
+            this.buttonReporteMensual.Text = "Reporte mensual";
+            this.buttonReporteMensual.UseVisualStyleBackColor = true;
+            this.buttonReporteMensual.Visible = false;
+            this.buttonReporteMensual.Click += new System.EventHandler(this.ButtonReporteMensual_Click);
+            // 
+            // buttonReporteDiario
+            // 
+            this.buttonReporteDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteDiario.Location = new System.Drawing.Point(0, 349);
+            this.buttonReporteDiario.Name = "buttonReporteDiario";
+            this.buttonReporteDiario.Size = new System.Drawing.Size(344, 45);
+            this.buttonReporteDiario.TabIndex = 6;
+            this.buttonReporteDiario.Text = "Reporte diario";
+            this.buttonReporteDiario.UseVisualStyleBackColor = true;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteDiario.Click += new System.EventHandler(this.ButtonReporteDiario_Click);
+            // 
+            // buttonClientesFrec
+            // 
+            this.buttonClientesFrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientesFrec.Location = new System.Drawing.Point(0, 263);
+            this.buttonClientesFrec.Name = "buttonClientesFrec";
+            this.buttonClientesFrec.Size = new System.Drawing.Size(344, 45);
+            this.buttonClientesFrec.TabIndex = 4;
+            this.buttonClientesFrec.Text = "Clientes más frecuentes";
+            this.buttonClientesFrec.UseVisualStyleBackColor = true;
+            this.buttonClientesFrec.Visible = false;
+            this.buttonClientesFrec.Click += new System.EventHandler(this.ButtonClientesFrec_Click);
+            // 
+            // buttonPlatosMas
+            // 
+            this.buttonPlatosMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlatosMas.Location = new System.Drawing.Point(0, 306);
+            this.buttonPlatosMas.Name = "buttonPlatosMas";
+            this.buttonPlatosMas.Size = new System.Drawing.Size(344, 47);
+            this.buttonPlatosMas.TabIndex = 3;
+            this.buttonPlatosMas.Text = "Platos más vendidos";
+            this.buttonPlatosMas.UseVisualStyleBackColor = true;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonPlatosMas.Click += new System.EventHandler(this.ButtonPlatosMas_Click);
             // 
             // buttonSubIngredientes
             // 
@@ -407,52 +461,41 @@
             this.pictureBoxImagen.TabIndex = 0;
             this.pictureBoxImagen.TabStop = false;
             // 
-            // buttonClientesFrec
+            // buttonInvalidarPedido
             // 
-            this.buttonClientesFrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientesFrec.Location = new System.Drawing.Point(0, 263);
-            this.buttonClientesFrec.Name = "buttonClientesFrec";
-            this.buttonClientesFrec.Size = new System.Drawing.Size(344, 45);
-            this.buttonClientesFrec.TabIndex = 4;
-            this.buttonClientesFrec.Text = "Clientes más frecuentes";
-            this.buttonClientesFrec.UseVisualStyleBackColor = true;
-            this.buttonClientesFrec.Visible = false;
-            this.buttonClientesFrec.Click += new System.EventHandler(this.ButtonClientesFrec_Click);
+            this.buttonInvalidarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInvalidarPedido.Location = new System.Drawing.Point(3, 348);
+            this.buttonInvalidarPedido.Name = "buttonInvalidarPedido";
+            this.buttonInvalidarPedido.Size = new System.Drawing.Size(344, 45);
+            this.buttonInvalidarPedido.TabIndex = 9;
+            this.buttonInvalidarPedido.Text = "Invalidación de pedido";
+            this.buttonInvalidarPedido.UseVisualStyleBackColor = true;
+            this.buttonInvalidarPedido.Visible = false;
+            this.buttonInvalidarPedido.Click += new System.EventHandler(this.ButtonInvalidarPedido_Click);
             // 
-            // buttonPlatosMas
+            // buttonCrearPedido
             // 
-            this.buttonPlatosMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlatosMas.Location = new System.Drawing.Point(0, 306);
-            this.buttonPlatosMas.Name = "buttonPlatosMas";
-            this.buttonPlatosMas.Size = new System.Drawing.Size(344, 47);
-            this.buttonPlatosMas.TabIndex = 3;
-            this.buttonPlatosMas.Text = "Platos más vendidos";
-            this.buttonPlatosMas.UseVisualStyleBackColor = true;
-            this.buttonPlatosMas.Visible = false;
-            this.buttonPlatosMas.Click += new System.EventHandler(this.ButtonPlatosMas_Click);
+            this.buttonCrearPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCrearPedido.Location = new System.Drawing.Point(3, 307);
+            this.buttonCrearPedido.Name = "buttonCrearPedido";
+            this.buttonCrearPedido.Size = new System.Drawing.Size(344, 45);
+            this.buttonCrearPedido.TabIndex = 8;
+            this.buttonCrearPedido.Text = "Creación de pedido";
+            this.buttonCrearPedido.UseVisualStyleBackColor = true;
+            this.buttonCrearPedido.Visible = false;
+            this.buttonCrearPedido.Click += new System.EventHandler(this.ButtonCrearPedido_Click);
             // 
-            // buttonReporteDiario
+            // buttonConsultarPedido
             // 
-            this.buttonReporteDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReporteDiario.Location = new System.Drawing.Point(0, 349);
-            this.buttonReporteDiario.Name = "buttonReporteDiario";
-            this.buttonReporteDiario.Size = new System.Drawing.Size(344, 45);
-            this.buttonReporteDiario.TabIndex = 6;
-            this.buttonReporteDiario.Text = "Reporte diario";
-            this.buttonReporteDiario.UseVisualStyleBackColor = true;
-            this.buttonReporteDiario.Visible = false;
-            this.buttonReporteDiario.Click += new System.EventHandler(this.ButtonReporteDiario_Click);
-            // 
-            // buttonReporteMensual
-            // 
-            this.buttonReporteMensual.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReporteMensual.Location = new System.Drawing.Point(0, 390);
-            this.buttonReporteMensual.Name = "buttonReporteMensual";
-            this.buttonReporteMensual.Size = new System.Drawing.Size(344, 45);
-            this.buttonReporteMensual.TabIndex = 7;
-            this.buttonReporteMensual.Text = "Reporte mensual";
-            this.buttonReporteMensual.UseVisualStyleBackColor = true;
-            this.buttonReporteMensual.Visible = false;
+            this.buttonConsultarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsultarPedido.Location = new System.Drawing.Point(0, 390);
+            this.buttonConsultarPedido.Name = "buttonConsultarPedido";
+            this.buttonConsultarPedido.Size = new System.Drawing.Size(344, 45);
+            this.buttonConsultarPedido.TabIndex = 10;
+            this.buttonConsultarPedido.Text = "Consulta de pedido";
+            this.buttonConsultarPedido.UseVisualStyleBackColor = true;
+            this.buttonConsultarPedido.Visible = false;
+            this.buttonConsultarPedido.Click += new System.EventHandler(this.ButtonConsultarPedido_Click);
             // 
             // Principal
             // 
@@ -512,6 +555,9 @@
         private System.Windows.Forms.Button buttonReporteDiario;
         private System.Windows.Forms.Button buttonClientesFrec;
         private System.Windows.Forms.Button buttonPlatosMas;
+        private System.Windows.Forms.Button buttonConsultarPedido;
+        private System.Windows.Forms.Button buttonInvalidarPedido;
+        private System.Windows.Forms.Button buttonCrearPedido;
     }
 }
 

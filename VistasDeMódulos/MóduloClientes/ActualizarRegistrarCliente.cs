@@ -5,12 +5,20 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
 {
     public partial class ActualizarRegistrarCliente : Form
     {
-        public ActualizarRegistrarCliente(string funcion_name,string funcion){
+        public ActualizarRegistrarCliente(string funcion){
             InitializeComponent();
             labelError.Visible = false;
             labelError.Text = "Error al " + funcion + "Cliente";
-            labelTitulo.Text = funcion_name;
-            buttonRegistrarC.Text = funcion;
+            labelTitulo.Text = funcion;
+
+            if(funcion == "registrar")
+            {
+                this.buttonActualizar.Visible = false;
+            }
+            else
+            {
+                this.buttonRegistrarC.Visible = false;
+            }
             
         }
 
@@ -35,6 +43,11 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes
 
             }
             
+        }
+
+        private void ButtonActualizar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cliente actualizado Exitosamente");
         }
     }
 }

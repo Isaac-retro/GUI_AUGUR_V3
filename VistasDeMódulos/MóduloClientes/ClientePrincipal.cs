@@ -19,13 +19,13 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes{
         
         private void ButtonRegistrarCP_Click_1(object sender, EventArgs e){
             registroActucalizacion?.Close();
-            registroActucalizacion = new ActualizarRegistrarCliente("Registro","Registrar");
+            registroActucalizacion = new ActualizarRegistrarCliente("registrar");
             registroActucalizacion.Visible = true;
         }
 
         private void ButtonActualizarCP_Click(object sender, EventArgs e)        {
             registroActucalizacion?.Close();
-            registroActucalizacion = new ActualizarRegistrarCliente("Actulización","Actualizar");
+            registroActucalizacion = new ActualizarRegistrarCliente("actualizar");
             registroActucalizacion.Visible = true;
 
         }

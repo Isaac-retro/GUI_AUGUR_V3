@@ -138,10 +138,12 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void ButtonAyuda_Click(object sender, EventArgs e){
+            this.ocultarBotonesExtra();
+
             labelTitulo.Text = "Ayuda";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
-            genericform = new AyudaPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            genericform = new AyudaPrincipal(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(genericform);
             genericform.Show();
 
@@ -164,14 +166,17 @@ namespace GUI_AUGUR_V3 {
 
         }
 
-        private void ButtonPedidos_Click(object sender, EventArgs e){
-
-            labelTitulo.Text = "Pedidos";
-            pictureBoxImagen.Visible = false;
-            genericform?.Close();
-            genericform = new PedidosPrincipal(user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
-            panelContenedor.Controls.Add(genericform);
-            genericform.Show();
+        private void ButtonPedidos_Click(object sender, EventArgs e) {
+            this.buttonCrearPedido.Visible = !this.buttonCrearPedido.Visible;
+            this.buttonInvalidarPedido.Visible = !this.buttonInvalidarPedido.Visible;
+            this.buttonConsultarPedido.Visible = !this.buttonConsultarPedido.Visible;
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubIngredientes.Visible = false;
+            this.buttonClientesFrec.Visible = false;
+            this.buttonPlatosMas.Visible = false;
+            this.buttonReporteDiario.Visible = false;
+            this.buttonReporteMensual.Visible = false;
+            
 
         }
 
@@ -211,10 +216,9 @@ namespace GUI_AUGUR_V3 {
 
         private void ButtonSubPlatosDeComida_Click(object sender, EventArgs e)
         {
-            this.buttonSubPlatosDeComida.Visible = false;
-            this.buttonSubIngredientes.Visible = false;
+            ocultarBotonesExtra();
 
-            
+
 
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
@@ -227,8 +231,7 @@ namespace GUI_AUGUR_V3 {
 
         private void ButtonSubIngredientes_Click(object sender, EventArgs e)
         {
-            this.buttonSubPlatosDeComida.Visible = false;
-            this.buttonSubIngredientes.Visible = false;
+            ocultarBotonesExtra();
             labelTitulo.Text = "Ingredientes";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
@@ -239,10 +242,7 @@ namespace GUI_AUGUR_V3 {
 
         private void ButtonClientesFrec_Click(object sender, EventArgs e)
         {
-            this.buttonClientesFrec.Visible = false;
-            this.buttonPlatosMas.Visible = false;
-            this.buttonReporteDiario.Visible = false;
-            this.buttonReporteMensual.Visible = false;
+            ocultarBotonesExtra();
 
             labelTitulo.Text = "Reportes: Clientes más frecuentes";
             pictureBoxImagen.Visible = false;
@@ -254,10 +254,7 @@ namespace GUI_AUGUR_V3 {
 
         private void ButtonPlatosMas_Click(object sender, EventArgs e)
         {
-            this.buttonClientesFrec.Visible = false;
-            this.buttonPlatosMas.Visible = false;
-            this.buttonReporteDiario.Visible = false;
-            this.buttonReporteMensual.Visible = false;
+            ocultarBotonesExtra();
 
             labelTitulo.Text = "Reportes: Platos más vendidos";
             pictureBoxImagen.Visible = false;
@@ -269,15 +266,71 @@ namespace GUI_AUGUR_V3 {
 
         private void ButtonReporteDiario_Click(object sender, EventArgs e)
         {
+            ocultarBotonesExtra();
+
+            labelTitulo.Text = "Reporte Diario";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new RReporteDiario(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonReporteMensual_Click(object sender, EventArgs e)
+        {
+            ocultarBotonesExtra();
+
+            labelTitulo.Text = "Reporte Mensual";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new ReporteMensual(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ocultarBotonesExtra()
+        {
+            this.buttonSubPlatosDeComida.Visible = false;
+            this.buttonSubIngredientes.Visible = false;
             this.buttonClientesFrec.Visible = false;
             this.buttonPlatosMas.Visible = false;
             this.buttonReporteDiario.Visible = false;
             this.buttonReporteMensual.Visible = false;
 
-            labelTitulo.Text = "Reportes Diario";
+            this.buttonCrearPedido.Visible = false;
+            this.buttonInvalidarPedido.Visible = false;
+            this.buttonConsultarPedido.Visible = false;
+        }
+
+        private void ButtonCrearPedido_Click(object sender, EventArgs e)
+        {
+            this.ocultarBotonesExtra();
+            labelTitulo.Text = "Creación de pedido";
             pictureBoxImagen.Visible = false;
             genericform?.Close();
-            genericform = new RReporteDiario(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            genericform = new CreacionPedido(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonInvalidarPedido_Click(object sender, EventArgs e)
+        {
+            this.ocultarBotonesExtra();
+            labelTitulo.Text = "Invalidación de pedido";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new InvalidacionPedido(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(genericform);
+            genericform.Show();
+        }
+
+        private void ButtonConsultarPedido_Click(object sender, EventArgs e)
+        {
+            this.ocultarBotonesExtra();
+            labelTitulo.Text = "Consulta de pedido";
+            pictureBoxImagen.Visible = false;
+            genericform?.Close();
+            genericform = new ConsultaPedido(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(genericform);
             genericform.Show();
         }

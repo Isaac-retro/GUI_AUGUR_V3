@@ -41,12 +41,13 @@
             this.buttonRegistrarC = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelApellido = new System.Windows.Forms.Label();
+            this.labelDocumento = new System.Windows.Forms.Label();
+            this.labelDeIdentificacion = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonActualizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +117,9 @@
             // comboBoxDocumento
             // 
             this.comboBoxDocumento.FormattingEnabled = true;
+            this.comboBoxDocumento.Items.AddRange(new object[] {
+            "cédula",
+            "pasaporte"});
             this.comboBoxDocumento.Location = new System.Drawing.Point(220, 162);
             this.comboBoxDocumento.Name = "comboBoxDocumento";
             this.comboBoxDocumento.Size = new System.Drawing.Size(177, 21);
@@ -137,11 +141,11 @@
             this.buttonRegistrarC.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonRegistrarC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRegistrarC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrarC.Location = new System.Drawing.Point(12, 315);
+            this.buttonRegistrarC.Location = new System.Drawing.Point(38, 315);
             this.buttonRegistrarC.Name = "buttonRegistrarC";
             this.buttonRegistrarC.Size = new System.Drawing.Size(170, 45);
             this.buttonRegistrarC.TabIndex = 16;
-            this.buttonRegistrarC.Text = "boton";
+            this.buttonRegistrarC.Text = "Registrar";
             this.buttonRegistrarC.UseVisualStyleBackColor = true;
             this.buttonRegistrarC.Click += new System.EventHandler(this.ButtonRegistrarC_Click);
             // 
@@ -174,45 +178,45 @@
             this.labelError.TabIndex = 14;
             this.labelError.Text = "Error al registrar Cliente";
             // 
-            // label2
+            // labelNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Nombre";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.Location = new System.Drawing.Point(12, 51);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(71, 20);
+            this.labelNombre.TabIndex = 18;
+            this.labelNombre.Text = "Nombre";
             // 
-            // label3
+            // labelApellido
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 20);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Apellido";
+            this.labelApellido.AutoSize = true;
+            this.labelApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApellido.Location = new System.Drawing.Point(12, 89);
+            this.labelApellido.Name = "labelApellido";
+            this.labelApellido.Size = new System.Drawing.Size(73, 20);
+            this.labelApellido.TabIndex = 19;
+            this.labelApellido.Text = "Apellido";
             // 
-            // label4
+            // labelDocumento
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 20);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Docmuento";
+            this.labelDocumento.AutoSize = true;
+            this.labelDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDocumento.Location = new System.Drawing.Point(12, 136);
+            this.labelDocumento.Name = "labelDocumento";
+            this.labelDocumento.Size = new System.Drawing.Size(101, 20);
+            this.labelDocumento.TabIndex = 20;
+            this.labelDocumento.Text = "Docmuento";
             // 
-            // label5
+            // labelDeIdentificacion
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 163);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "de Identificación";
+            this.labelDeIdentificacion.AutoSize = true;
+            this.labelDeIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDeIdentificacion.Location = new System.Drawing.Point(12, 163);
+            this.labelDeIdentificacion.Name = "labelDeIdentificacion";
+            this.labelDeIdentificacion.Size = new System.Drawing.Size(142, 20);
+            this.labelDeIdentificacion.TabIndex = 21;
+            this.labelDeIdentificacion.Text = "de Identificación";
             // 
             // label6
             // 
@@ -234,17 +238,35 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "Dirección";
             // 
+            // buttonActualizar
+            // 
+            this.buttonActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonActualizar.FlatAppearance.BorderSize = 0;
+            this.buttonActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonActualizar.Location = new System.Drawing.Point(68, 315);
+            this.buttonActualizar.Name = "buttonActualizar";
+            this.buttonActualizar.Size = new System.Drawing.Size(170, 45);
+            this.buttonActualizar.TabIndex = 24;
+            this.buttonActualizar.Text = "Actualizar";
+            this.buttonActualizar.UseVisualStyleBackColor = true;
+            this.buttonActualizar.Click += new System.EventHandler(this.ButtonActualizar_Click);
+            // 
             // ActualizarRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 375);
+            this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelDeIdentificacion);
+            this.Controls.Add(this.labelDocumento);
+            this.Controls.Add(this.labelApellido);
+            this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonRegistrarC);
@@ -280,11 +302,12 @@
         private System.Windows.Forms.Button buttonRegistrarC;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Label labelError;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label labelApellido;
+        private System.Windows.Forms.Label labelDocumento;
+        private System.Windows.Forms.Label labelDeIdentificacion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonActualizar;
     }
 }

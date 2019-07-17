@@ -47,7 +47,7 @@
             // 
             this.labelTit.AutoSize = true;
             this.labelTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTit.Location = new System.Drawing.Point(284, 118);
+            this.labelTit.Location = new System.Drawing.Point(276, 80);
             this.labelTit.Name = "labelTit";
             this.labelTit.Size = new System.Drawing.Size(282, 36);
             this.labelTit.TabIndex = 13;
@@ -60,7 +60,7 @@
             this.platoVendido,
             this.precioPlato,
             this.cantidadPlato});
-            this.dataGridView1.Location = new System.Drawing.Point(177, 212);
+            this.dataGridView1.Location = new System.Drawing.Point(169, 174);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(295, 189);
             this.dataGridView1.TabIndex = 14;
@@ -71,7 +71,7 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreCliente,
             this.cedulaCliente});
-            this.dataGridView2.Location = new System.Drawing.Point(525, 212);
+            this.dataGridView2.Location = new System.Drawing.Point(517, 174);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(311, 189);
             this.dataGridView2.TabIndex = 15;
@@ -79,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(287, 196);
+            this.label1.Location = new System.Drawing.Point(279, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 16;
@@ -88,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(675, 196);
+            this.label2.Location = new System.Drawing.Point(667, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 17;
@@ -97,7 +97,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(421, 434);
+            this.buttonCancelar.Location = new System.Drawing.Point(413, 396);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(171, 85);
             this.buttonCancelar.TabIndex = 18;

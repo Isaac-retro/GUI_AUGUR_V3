@@ -39,6 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBoxBuscarCP = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -88,6 +89,7 @@
             // buttonDarAltaCP
             // 
             this.buttonDarAltaCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonDarAltaCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonDarAltaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarAltaCP.FlatAppearance.BorderSize = 0;
             this.buttonDarAltaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -99,13 +101,14 @@
             this.buttonDarAltaCP.Name = "buttonDarAltaCP";
             this.buttonDarAltaCP.Size = new System.Drawing.Size(200, 40);
             this.buttonDarAltaCP.TabIndex = 13;
-            this.buttonDarAltaCP.Text = "Dar Alta";
-            this.buttonDarAltaCP.UseVisualStyleBackColor = true;
+            this.buttonDarAltaCP.Text = "Dar de alta";
+            this.buttonDarAltaCP.UseVisualStyleBackColor = false;
             this.buttonDarAltaCP.Click += new System.EventHandler(this.ButtonDarAltaCP_Click_1);
             // 
             // buttonDarBajaCP
             // 
             this.buttonDarBajaCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonDarBajaCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonDarBajaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarBajaCP.FlatAppearance.BorderSize = 0;
             this.buttonDarBajaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -117,13 +120,14 @@
             this.buttonDarBajaCP.Name = "buttonDarBajaCP";
             this.buttonDarBajaCP.Size = new System.Drawing.Size(200, 40);
             this.buttonDarBajaCP.TabIndex = 12;
-            this.buttonDarBajaCP.Text = "Dar Baja";
-            this.buttonDarBajaCP.UseVisualStyleBackColor = true;
+            this.buttonDarBajaCP.Text = "Dar de baja";
+            this.buttonDarBajaCP.UseVisualStyleBackColor = false;
             this.buttonDarBajaCP.Click += new System.EventHandler(this.ButtonDarBajaCP_Click);
             // 
             // buttonActualizarCP
             // 
             this.buttonActualizarCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonActualizarCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.buttonActualizarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonActualizarCP.FlatAppearance.BorderSize = 0;
             this.buttonActualizarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -136,12 +140,13 @@
             this.buttonActualizarCP.Size = new System.Drawing.Size(200, 40);
             this.buttonActualizarCP.TabIndex = 11;
             this.buttonActualizarCP.Text = "Actualizar";
-            this.buttonActualizarCP.UseVisualStyleBackColor = true;
+            this.buttonActualizarCP.UseVisualStyleBackColor = false;
             this.buttonActualizarCP.Click += new System.EventHandler(this.ButtonActualizarCP_Click);
             // 
             // buttonRegistrarCP
             // 
             this.buttonRegistrarCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonRegistrarCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonRegistrarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrarCP.FlatAppearance.BorderSize = 0;
             this.buttonRegistrarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -149,16 +154,17 @@
             this.buttonRegistrarCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonRegistrarCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRegistrarCP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrarCP.Location = new System.Drawing.Point(0, 3);
+            this.buttonRegistrarCP.Location = new System.Drawing.Point(12, 3);
             this.buttonRegistrarCP.Name = "buttonRegistrarCP";
-            this.buttonRegistrarCP.Size = new System.Drawing.Size(211, 40);
+            this.buttonRegistrarCP.Size = new System.Drawing.Size(199, 40);
             this.buttonRegistrarCP.TabIndex = 10;
             this.buttonRegistrarCP.Text = "Registrar";
-            this.buttonRegistrarCP.UseVisualStyleBackColor = true;
+            this.buttonRegistrarCP.UseVisualStyleBackColor = false;
             this.buttonRegistrarCP.Click += new System.EventHandler(this.ButtonRegistrarCP_Click_1);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.comboBoxBuscarCP);
             this.panel2.Controls.Add(this.textBox1);
@@ -203,6 +209,15 @@
             this.textBox1.Size = new System.Drawing.Size(622, 20);
             this.textBox1.TabIndex = 9;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(412, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Tabla de búsqueda automática de clientes";
+            // 
             // ClientePrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +250,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxBuscarCP;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
