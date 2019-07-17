@@ -1,4 +1,5 @@
-﻿using GUI_AUGUR_V3.ModelosClases;
+﻿using GUI_AUGUR_V3.DataBase;
+using GUI_AUGUR_V3.ModelosClases;
 using System;
 using System.Windows.Forms;
 
@@ -6,13 +7,15 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
 {
     public partial class UserContra : Form{
         private byte flag;
-        private Usuario user, user_change;
+        private Usuario user;
+        private Usuario usuarioCambiar;
+        private ConexionDB conector;
 
-        public UserContra(string titulo, string funcion, byte flag, Usuario user, Usuario user_change){
+        public UserContra(string titulo, string funcion, byte flag, Usuario user, int idUsuarioCambiar){
             InitializeComponent();
+            conector = new ConexionDB();
             textBoxCargo.Enabled = false;
             this.user = user;
-            this.user_change = user_change;
             labelTitulo.Text = titulo;
             labelError.Visible = false;
             labelError.Text = "Error al " + funcion;
@@ -31,9 +34,10 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                 //restablercer contrasenia
                 textBoxNombreUser.Enabled = false;
                 textBoxLoggin.Enabled = false;
-                textBoxCargo.Text = user_change.obtenerCargo();
-                textBoxLoggin.Text = user.obtenerLoggin();
-                textBoxNombreUser.Text = user.obtenerNombreUsuario();
+                usuarioCambiar = conector.consultarUsuarioId(idUsuarioCambiar);
+                textBoxCargo.Text = usuarioCambiar.obtenerCargo();
+                textBoxLoggin.Text = usuarioCambiar.obtenerLoggin();
+                textBoxNombreUser.Text = usuarioCambiar.obtenerNombreUsuario();
             }
 
 
@@ -67,23 +71,36 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
         }
 
         private void ButtonRegistrarC_Click(object sender, EventArgs e){
-            if (textBoxLoggin.Text.Length < 2 || textBoxLoggin.Text.Length > 6){
+            
+            if ((textBoxLoggin.Text.Length < 2 || textBoxLoggin.Text.Length > 6) && (textBoxContra.Text.Length < 8 || textBoxContra.Text.Length > 16)  ){
+                if (flag == 0)
+                {
+                    // crear usuario 0
+                    if (conector.registrarUsuario(textBoxNombreUser.Text, textBoxLoggin.Text, textBoxContra.Text) > 0)
+                    {
+                        MessageBox.Show("Usuario ingresado exitosamente");
+                        this.Close();
+                    }
+                    else {
+                        labelError.Visible = true;
+                    }
+                }
+                else if (flag == 1)
+                {
+                    // cambiar contrasenia
 
-                labelError.Visible = true;
+                }
+                else
+                {
+                    //restablercer contrasenia
+
+                }
+
             }  else {
-
+                labelError.Visible = true;
             }
 
-            if (flag == 0){
-                // crear usuario 0
-
-            } else if (flag == 1){
-                // cambiar contrasenia
-                
-            } else {
-                //restablercer contrasenia
-
-            }
+            
 
         }
 

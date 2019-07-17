@@ -24,7 +24,6 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración{
         public AdminPrincipal(Usuario user ){
             InitializeComponent();
             buttonResetearContra.Enabled = false;
-            buttonActualizarPr.Enabled = false;
             this.usuario = user;
             labelUser.Text = user.obtenerNombreUsuario();
             labelUserCargo.Text = user.obtenerCargo();
@@ -48,43 +47,25 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración{
 
 
         private void denegarAcciones(string cargo) {
-            if (cargo == "Administrador") {
-                dataGridViewParametros.Enabled = false;
-                buttonRegistrarPr.Enabled = false;
-                buttonEliminarPr.Enabled = false;
-                textBoxBuscarParam.Enabled = false;
-            } else if (cargo == "Gerente") {
+            if (cargo != "Administrador") {
                 buttonCrearUsuario.Enabled = false;
-                dataGridViewUsuario.Enabled = false;
-
-            } else {
-                textBoxBuscarParam.Enabled = false;
-                buttonRegistrarPr.Enabled = false;
-                buttonEliminarPr.Enabled = false;
-                buttonCrearUsuario.Enabled = false;
-                dataGridViewParametros.Enabled = false;
                 dataGridViewUsuario.Enabled = false;
 
             }
         }
 
 
-        private void PictureBoxImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void ButtonCrearUsuario_Click(object sender, EventArgs e){
             formGenerico?.Close();
-            formGenerico = new UserContra("Creación Nuevo Usuario","crear nuevo usuario",0,usuario,null);
+            formGenerico = new UserContra("Creación Nuevo Usuario","crear nuevo usuario",0,usuario,0);
             formGenerico.Show();
         }
 
 
         private void ButtoncambiarContra_Click(object sender, EventArgs e){
             formGenerico?.Close();
-            formGenerico = new UserContra("Cambio de contraseña", "cambiar contraseña", 1, usuario,null);
+            formGenerico = new UserContra("Cambio de contraseña", "cambiar contraseña", 1, usuario,0);
 
             formGenerico.Show();
         }
@@ -92,40 +73,19 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración{
 
         private void ButtonResetearContra_Click(object sender, EventArgs e){
             formGenerico?.Close();
-            formGenerico = new UserContra("Reseteo de contraseña", "resetear contraseña", 2, usuario, usuario); // cambiar por usuario seleccionado
+            formGenerico = new UserContra("Reseteo de contraseña", "resetear contraseña", 2, usuario,1); // cambiar por usuario seleccionado
             formGenerico.Show();
         }
 
 
-        private void ButtonSalirAdmin_Click(object sender, EventArgs e){
-            this.Close();
-        }
-
-
-        private void ButtonRegistrarPr_Click(object sender, EventArgs e)
-        {
-            formGenerico?.Close();
-            formGenerico = new RegistrarActualizarParam("Registro de Parámetros","registrar parámetro");
-            formGenerico.Show();
-        }
-
-
-
-        private void ButtonActualizarPr_Click(object sender, EventArgs e)
-        {
-            formGenerico?.Close();
-            formGenerico = new RegistrarActualizarParam("Actualización de Parámetros", "actualizar parámetro");
-            formGenerico.Show();
-        }
-
-
-        private void TextBoxBuscarParam_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
-        }
-
+        
         private void PictureBoxRefrescarListaUsuarios_Click(object sender, EventArgs e){
             refrescarListaUsuario(conector.regresarListaUsuarios());
+        }
+
+        private void DataGridViewUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonResetearContra.Enabled = true;
         }
     }
 }

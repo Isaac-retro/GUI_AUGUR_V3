@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\DataBase\ConexionDB.cs" />
+    <Compile Include="VistasDeMódulos\móduloAdminstración\ParamPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistasDeMódulos\móduloAdminstración\ParamPrincipal.Designer.cs">
+      <DependentUpon>ParamPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistasDeMódulos\móduloAyuda\AyudaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\AdminPrincipal.resx">
       <DependentUpon>AdminPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\ParamPrincipal.resx">
+      <DependentUpon>ParamPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistasDeMódulos\móduloAdminstración\RegistrarActualizarParam.resx">
       <DependentUpon>RegistrarActualizarParam.cs</DependentUpon>
