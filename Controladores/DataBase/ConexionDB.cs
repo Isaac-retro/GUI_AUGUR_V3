@@ -16,8 +16,8 @@ namespace GUI_AUGUR_V3.DataBase{
         public ConexionDB() { }
         // variable final que contiene el directorio de la conexión
 
-        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
-        private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
+        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
+        private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
 
         /// variable goblal que sirve para almacenar el comando SQL
         private string consultaString = "";
@@ -91,6 +91,40 @@ namespace GUI_AUGUR_V3.DataBase{
         }
 
 
+
+        public Usuario consultarUsuarioId(int idUsuario)
+        {
+            Usuario usuariObjeto;
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                consultaString = "select nombreUsuario,loggin,pass,activoUsuario from usuario where idUsuario = '" + idUsuario + "';";
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                if (lectorDeDatos.Read())
+                {
+                    usuariObjeto = new Usuario(idUsuario,
+                                              Convert.ToString(lectorDeDatos["loggin"]) ,
+                                              Convert.ToString(lectorDeDatos["nombreUsuario"]),
+                                              seleccionarCargo(Convert.ToString(lectorDeDatos["loggin"])),
+                                              Convert.ToString(lectorDeDatos["pass"]),
+                                              Convert.ToString(lectorDeDatos["activoUsuario"]) == "Si");
+                    coneccion.Close();
+                    return usuariObjeto;
+                    
+                }
+                coneccion.Close();
+                return null;
+            }
+            else
+            {
+                MessageBox.Show("Error en la conexión de base de datos");
+                return null;
+            }
+        }
+
+
         /// <summary>
         /// selecciona un cargo de acuerdo al loggin del usuario
         /// </summary>
@@ -137,9 +171,9 @@ namespace GUI_AUGUR_V3.DataBase{
         /// <returns></returns>
         public int registrarLog(int id){
             coneccion = new SqlConnection(CONECCION_STRING);
+            consultaString = "insert into LogAcceso (idUsuario,fechaHoraAcceso) values (" + id + ",GETDATE());";
             coneccion.Open();
             if (coneccion.State == System.Data.ConnectionState.Open){
-                consultaString = "insert into LogAcceso (idUsuario,fechaHoraAcceso) values ("+ id + ",GETDATE());";
                 comandoQuery = new SqlCommand(consultaString, coneccion);
                 id = Convert.ToInt16(comandoQuery.ExecuteNonQuery());
                 coneccion.Close();
@@ -170,6 +204,54 @@ namespace GUI_AUGUR_V3.DataBase{
             }
             return resultado;
         }
+        public int registrarUsuario(string nombreUSuario, string loggin, string pass)
+        {
+            consultaString = "insert into Usuario (nombreUsuario,loggin,pass,activoUsuario ) values ('" + nombreUSuario + "', '" + loggin + "', '" + md5_string(pass) + "' , 'Si'  );";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                int i = Convert.ToInt16(comandoQuery.ExecuteNonQuery());
+                coneccion.Close();
+                return i;
+            }
+            return -1;
+        }
 
+
+
+        public int cambiarContrassniaID(int idUsuario, string pass) {
+            consultaString = "update Usuario set pass = '"  + md5_string(pass) + "' , activoUsuario = 'Si' where idUsuario = " +  idUsuario +";";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                int i = Convert.ToInt16(comandoQuery.ExecuteNonQuery());
+                coneccion.Close();
+                return i;
+            }
+            return -1;
+        }
+
+        public bool consultarLogVacio(int idUsuario) {
+            bool bandera = false;
+            consultaString = "select * from logAcceso where logacceso.idusuario = " + idUsuario;
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                bandera = lectorDeDatos.Read();
+                bandera = lectorDeDatos.Read();
+
+                coneccion.Close();
+                return bandera;
+            }
+            return bandera;
+
+        }
     }
 }

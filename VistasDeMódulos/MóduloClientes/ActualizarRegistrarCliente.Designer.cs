@@ -54,12 +54,13 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panel1.Controls.Add(this.labelTitulo);
             this.panel1.Controls.Add(this.pictureBoxSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(408, 45);
+            this.panel1.Size = new System.Drawing.Size(547, 45);
             this.panel1.TabIndex = 0;
             // 
             // labelTitulo
@@ -67,8 +68,8 @@
             this.labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.labelTitulo.Location = new System.Drawing.Point(32, 5);
+            this.labelTitulo.ForeColor = System.Drawing.Color.White;
+            this.labelTitulo.Location = new System.Drawing.Point(101, 5);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(197, 33);
             this.labelTitulo.TabIndex = 13;
@@ -78,7 +79,7 @@
             // 
             this.pictureBoxSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSalir.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSalir.Image")));
-            this.pictureBoxSalir.Location = new System.Drawing.Point(370, 3);
+            this.pictureBoxSalir.Location = new System.Drawing.Point(509, 3);
             this.pictureBoxSalir.Name = "pictureBoxSalir";
             this.pictureBoxSalir.Size = new System.Drawing.Size(35, 35);
             this.pictureBoxSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -90,28 +91,28 @@
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(156, 51);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(241, 20);
+            this.textBoxNombre.Size = new System.Drawing.Size(388, 20);
             this.textBoxNombre.TabIndex = 1;
             // 
             // textBoxTeléfono
             // 
             this.textBoxTeléfono.Location = new System.Drawing.Point(156, 203);
             this.textBoxTeléfono.Name = "textBoxTeléfono";
-            this.textBoxTeléfono.Size = new System.Drawing.Size(241, 20);
+            this.textBoxTeléfono.Size = new System.Drawing.Size(388, 20);
             this.textBoxTeléfono.TabIndex = 2;
             // 
             // textBoxApellido
             // 
             this.textBoxApellido.Location = new System.Drawing.Point(156, 89);
             this.textBoxApellido.Name = "textBoxApellido";
-            this.textBoxApellido.Size = new System.Drawing.Size(241, 20);
+            this.textBoxApellido.Size = new System.Drawing.Size(388, 20);
             this.textBoxApellido.TabIndex = 3;
             // 
             // textBoxDocumento
             // 
             this.textBoxDocumento.Location = new System.Drawing.Point(156, 136);
             this.textBoxDocumento.Name = "textBoxDocumento";
-            this.textBoxDocumento.Size = new System.Drawing.Size(241, 20);
+            this.textBoxDocumento.Size = new System.Drawing.Size(388, 20);
             this.textBoxDocumento.TabIndex = 4;
             // 
             // comboBoxDocumento
@@ -122,14 +123,14 @@
             "pasaporte"});
             this.comboBoxDocumento.Location = new System.Drawing.Point(220, 162);
             this.comboBoxDocumento.Name = "comboBoxDocumento";
-            this.comboBoxDocumento.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxDocumento.Size = new System.Drawing.Size(324, 21);
             this.comboBoxDocumento.TabIndex = 12;
             // 
             // textBoxdirección
             // 
             this.textBoxdirección.Location = new System.Drawing.Point(156, 238);
             this.textBoxdirección.Name = "textBoxdirección";
-            this.textBoxdirección.Size = new System.Drawing.Size(241, 20);
+            this.textBoxdirección.Size = new System.Drawing.Size(388, 20);
             this.textBoxdirección.TabIndex = 15;
             // 
             // buttonRegistrarC
@@ -172,7 +173,7 @@
             this.labelError.AutoSize = true;
             this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.labelError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.labelError.Location = new System.Drawing.Point(95, 288);
+            this.labelError.Location = new System.Drawing.Point(164, 288);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(232, 24);
             this.labelError.TabIndex = 14;
@@ -259,7 +260,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 375);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(547, 375);
             this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);

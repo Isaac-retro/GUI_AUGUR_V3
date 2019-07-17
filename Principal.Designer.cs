@@ -50,6 +50,9 @@
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.buttonConsultarPedido = new System.Windows.Forms.Button();
+            this.buttonInvalidarPedido = new System.Windows.Forms.Button();
+            this.buttonCrearPedido = new System.Windows.Forms.Button();
             this.buttonReporteMensual = new System.Windows.Forms.Button();
             this.buttonReporteDiario = new System.Windows.Forms.Button();
             this.buttonClientesFrec = new System.Windows.Forms.Button();
@@ -57,9 +60,9 @@
             this.buttonSubIngredientes = new System.Windows.Forms.Button();
             this.buttonSubPlatosDeComida = new System.Windows.Forms.Button();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
-            this.buttonInvalidarPedido = new System.Windows.Forms.Button();
-            this.buttonCrearPedido = new System.Windows.Forms.Button();
-            this.buttonConsultarPedido = new System.Windows.Forms.Button();
+            this.buttonSubAdmin = new System.Windows.Forms.Button();
+            this.buttonSubParam = new System.Windows.Forms.Button();
+            this.buttonInicio = new System.Windows.Forms.Button();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -147,6 +150,7 @@
             this.labelTitulo2.Size = new System.Drawing.Size(195, 29);
             this.labelTitulo2.TabIndex = 10;
             this.labelTitulo2.Text = "Los de Solanda";
+            this.labelTitulo2.Click += new System.EventHandler(this.LabelTitulo2_Click);
             // 
             // labelTitulo1
             // 
@@ -158,6 +162,7 @@
             this.labelTitulo1.Size = new System.Drawing.Size(173, 29);
             this.labelTitulo1.TabIndex = 9;
             this.labelTitulo1.Text = "Encebollados";
+            this.labelTitulo1.Click += new System.EventHandler(this.LabelTitulo1_Click);
             // 
             // buttonAyuda
             // 
@@ -165,8 +170,8 @@
             this.buttonAyuda.FlatAppearance.BorderSize = 0;
             this.buttonAyuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAyuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonAyuda.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonAyuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAyuda.ForeColor = System.Drawing.Color.White;
             this.buttonAyuda.Image = ((System.Drawing.Image)(resources.GetObject("buttonAyuda.Image")));
             this.buttonAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAyuda.Location = new System.Drawing.Point(-3, 451);
@@ -184,8 +189,8 @@
             this.buttonAdmin.FlatAppearance.BorderSize = 0;
             this.buttonAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdmin.Location = new System.Drawing.Point(1, 410);
@@ -203,8 +208,8 @@
             this.buttonPedidos.FlatAppearance.BorderSize = 0;
             this.buttonPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonPedidos.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPedidos.ForeColor = System.Drawing.Color.White;
             this.buttonPedidos.Image = ((System.Drawing.Image)(resources.GetObject("buttonPedidos.Image")));
             this.buttonPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPedidos.Location = new System.Drawing.Point(0, 359);
@@ -222,8 +227,8 @@
             this.buttonReportes.FlatAppearance.BorderSize = 0;
             this.buttonReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReportes.ForeColor = System.Drawing.Color.White;
             this.buttonReportes.Image = ((System.Drawing.Image)(resources.GetObject("buttonReportes.Image")));
             this.buttonReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonReportes.Location = new System.Drawing.Point(0, 308);
@@ -241,8 +246,8 @@
             this.buttonPlatosIng.FlatAppearance.BorderSize = 0;
             this.buttonPlatosIng.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonPlatosIng.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlatosIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonPlatosIng.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonPlatosIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlatosIng.ForeColor = System.Drawing.Color.White;
             this.buttonPlatosIng.Image = ((System.Drawing.Image)(resources.GetObject("buttonPlatosIng.Image")));
             this.buttonPlatosIng.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPlatosIng.Location = new System.Drawing.Point(0, 257);
@@ -260,8 +265,8 @@
             this.buttonClientes.FlatAppearance.BorderSize = 0;
             this.buttonClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonClientes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientes.ForeColor = System.Drawing.Color.White;
             this.buttonClientes.Image = ((System.Drawing.Image)(resources.GetObject("buttonClientes.Image")));
             this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClientes.Location = new System.Drawing.Point(0, 208);
@@ -282,6 +287,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // pictureBoxMenu
             // 
@@ -296,7 +302,8 @@
             // 
             // panelTitulo
             // 
-            this.panelTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelTitulo.BackColor = System.Drawing.Color.White;
+            this.panelTitulo.Controls.Add(this.buttonInicio);
             this.panelTitulo.Controls.Add(this.labelTitulo);
             this.panelTitulo.Controls.Add(this.pictureBoxMenu);
             this.panelTitulo.Controls.Add(this.pictureBoxMax);
@@ -361,6 +368,8 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.buttonSubParam);
+            this.panelContenedor.Controls.Add(this.buttonSubAdmin);
             this.panelContenedor.Controls.Add(this.buttonConsultarPedido);
             this.panelContenedor.Controls.Add(this.buttonInvalidarPedido);
             this.panelContenedor.Controls.Add(this.buttonCrearPedido);
@@ -379,75 +388,156 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
+            // buttonConsultarPedido
+            // 
+            this.buttonConsultarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonConsultarPedido.FlatAppearance.BorderSize = 0;
+            this.buttonConsultarPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonConsultarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConsultarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsultarPedido.ForeColor = System.Drawing.Color.White;
+            this.buttonConsultarPedido.Location = new System.Drawing.Point(0, 393);
+            this.buttonConsultarPedido.Name = "buttonConsultarPedido";
+            this.buttonConsultarPedido.Size = new System.Drawing.Size(263, 45);
+            this.buttonConsultarPedido.TabIndex = 10;
+            this.buttonConsultarPedido.Text = "Consulta de pedido";
+            this.buttonConsultarPedido.UseVisualStyleBackColor = false;
+            this.buttonConsultarPedido.Visible = false;
+            this.buttonConsultarPedido.Click += new System.EventHandler(this.ButtonConsultarPedido_Click);
+            // 
+            // buttonInvalidarPedido
+            // 
+            this.buttonInvalidarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonInvalidarPedido.FlatAppearance.BorderSize = 0;
+            this.buttonInvalidarPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonInvalidarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInvalidarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInvalidarPedido.ForeColor = System.Drawing.Color.White;
+            this.buttonInvalidarPedido.Location = new System.Drawing.Point(-1, 351);
+            this.buttonInvalidarPedido.Name = "buttonInvalidarPedido";
+            this.buttonInvalidarPedido.Size = new System.Drawing.Size(263, 45);
+            this.buttonInvalidarPedido.TabIndex = 9;
+            this.buttonInvalidarPedido.Text = "Invalidación de pedido";
+            this.buttonInvalidarPedido.UseVisualStyleBackColor = false;
+            this.buttonInvalidarPedido.Visible = false;
+            this.buttonInvalidarPedido.Click += new System.EventHandler(this.ButtonInvalidarPedido_Click);
+            // 
+            // buttonCrearPedido
+            // 
+            this.buttonCrearPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonCrearPedido.FlatAppearance.BorderSize = 0;
+            this.buttonCrearPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonCrearPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCrearPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCrearPedido.ForeColor = System.Drawing.Color.White;
+            this.buttonCrearPedido.Location = new System.Drawing.Point(0, 309);
+            this.buttonCrearPedido.Name = "buttonCrearPedido";
+            this.buttonCrearPedido.Size = new System.Drawing.Size(263, 45);
+            this.buttonCrearPedido.TabIndex = 8;
+            this.buttonCrearPedido.Text = "Creación de pedido";
+            this.buttonCrearPedido.UseVisualStyleBackColor = false;
+            this.buttonCrearPedido.Visible = false;
+            this.buttonCrearPedido.Click += new System.EventHandler(this.ButtonCrearPedido_Click);
+            // 
             // buttonReporteMensual
             // 
+            this.buttonReporteMensual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonReporteMensual.FlatAppearance.BorderSize = 0;
+            this.buttonReporteMensual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonReporteMensual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReporteMensual.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteMensual.ForeColor = System.Drawing.Color.White;
             this.buttonReporteMensual.Location = new System.Drawing.Point(0, 390);
             this.buttonReporteMensual.Name = "buttonReporteMensual";
             this.buttonReporteMensual.Size = new System.Drawing.Size(344, 45);
             this.buttonReporteMensual.TabIndex = 7;
             this.buttonReporteMensual.Text = "Reporte mensual";
-            this.buttonReporteMensual.UseVisualStyleBackColor = true;
+            this.buttonReporteMensual.UseVisualStyleBackColor = false;
             this.buttonReporteMensual.Visible = false;
             this.buttonReporteMensual.Click += new System.EventHandler(this.ButtonReporteMensual_Click);
             // 
             // buttonReporteDiario
             // 
+            this.buttonReporteDiario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonReporteDiario.FlatAppearance.BorderSize = 0;
+            this.buttonReporteDiario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonReporteDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReporteDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReporteDiario.ForeColor = System.Drawing.Color.White;
             this.buttonReporteDiario.Location = new System.Drawing.Point(0, 349);
             this.buttonReporteDiario.Name = "buttonReporteDiario";
             this.buttonReporteDiario.Size = new System.Drawing.Size(344, 45);
             this.buttonReporteDiario.TabIndex = 6;
             this.buttonReporteDiario.Text = "Reporte diario";
-            this.buttonReporteDiario.UseVisualStyleBackColor = true;
+            this.buttonReporteDiario.UseVisualStyleBackColor = false;
             this.buttonReporteDiario.Visible = false;
             this.buttonReporteDiario.Click += new System.EventHandler(this.ButtonReporteDiario_Click);
             // 
             // buttonClientesFrec
             // 
+            this.buttonClientesFrec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonClientesFrec.FlatAppearance.BorderSize = 0;
+            this.buttonClientesFrec.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonClientesFrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClientesFrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientesFrec.Location = new System.Drawing.Point(0, 263);
+            this.buttonClientesFrec.ForeColor = System.Drawing.Color.White;
+            this.buttonClientesFrec.Location = new System.Drawing.Point(0, 266);
             this.buttonClientesFrec.Name = "buttonClientesFrec";
-            this.buttonClientesFrec.Size = new System.Drawing.Size(344, 45);
+            this.buttonClientesFrec.Size = new System.Drawing.Size(263, 45);
             this.buttonClientesFrec.TabIndex = 4;
             this.buttonClientesFrec.Text = "Clientes más frecuentes";
-            this.buttonClientesFrec.UseVisualStyleBackColor = true;
+            this.buttonClientesFrec.UseVisualStyleBackColor = false;
             this.buttonClientesFrec.Visible = false;
             this.buttonClientesFrec.Click += new System.EventHandler(this.ButtonClientesFrec_Click);
             // 
             // buttonPlatosMas
             // 
+            this.buttonPlatosMas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonPlatosMas.FlatAppearance.BorderSize = 0;
+            this.buttonPlatosMas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonPlatosMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPlatosMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlatosMas.ForeColor = System.Drawing.Color.White;
             this.buttonPlatosMas.Location = new System.Drawing.Point(0, 306);
             this.buttonPlatosMas.Name = "buttonPlatosMas";
             this.buttonPlatosMas.Size = new System.Drawing.Size(344, 47);
             this.buttonPlatosMas.TabIndex = 3;
             this.buttonPlatosMas.Text = "Platos más vendidos";
-            this.buttonPlatosMas.UseVisualStyleBackColor = true;
+            this.buttonPlatosMas.UseVisualStyleBackColor = false;
             this.buttonPlatosMas.Visible = false;
             this.buttonPlatosMas.Click += new System.EventHandler(this.ButtonPlatosMas_Click);
             // 
             // buttonSubIngredientes
             // 
+            this.buttonSubIngredientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubIngredientes.FlatAppearance.BorderSize = 0;
+            this.buttonSubIngredientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubIngredientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSubIngredientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubIngredientes.ForeColor = System.Drawing.Color.White;
             this.buttonSubIngredientes.Location = new System.Drawing.Point(0, 212);
             this.buttonSubIngredientes.Name = "buttonSubIngredientes";
             this.buttonSubIngredientes.Size = new System.Drawing.Size(200, 45);
             this.buttonSubIngredientes.TabIndex = 2;
             this.buttonSubIngredientes.Text = "Ingredientes";
-            this.buttonSubIngredientes.UseVisualStyleBackColor = true;
+            this.buttonSubIngredientes.UseVisualStyleBackColor = false;
             this.buttonSubIngredientes.Visible = false;
             this.buttonSubIngredientes.Click += new System.EventHandler(this.ButtonSubIngredientes_Click);
             // 
             // buttonSubPlatosDeComida
             // 
+            this.buttonSubPlatosDeComida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubPlatosDeComida.FlatAppearance.BorderSize = 0;
+            this.buttonSubPlatosDeComida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubPlatosDeComida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSubPlatosDeComida.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubPlatosDeComida.ForeColor = System.Drawing.Color.White;
             this.buttonSubPlatosDeComida.Location = new System.Drawing.Point(0, 249);
             this.buttonSubPlatosDeComida.Name = "buttonSubPlatosDeComida";
             this.buttonSubPlatosDeComida.Size = new System.Drawing.Size(200, 47);
             this.buttonSubPlatosDeComida.TabIndex = 1;
             this.buttonSubPlatosDeComida.Text = "Platos de comida";
-            this.buttonSubPlatosDeComida.UseVisualStyleBackColor = true;
+            this.buttonSubPlatosDeComida.UseVisualStyleBackColor = false;
             this.buttonSubPlatosDeComida.Visible = false;
             this.buttonSubPlatosDeComida.Click += new System.EventHandler(this.ButtonSubPlatosDeComida_Click);
             // 
@@ -461,41 +551,55 @@
             this.pictureBoxImagen.TabIndex = 0;
             this.pictureBoxImagen.TabStop = false;
             // 
-            // buttonInvalidarPedido
+            // buttonSubAdmin
             // 
-            this.buttonInvalidarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInvalidarPedido.Location = new System.Drawing.Point(3, 348);
-            this.buttonInvalidarPedido.Name = "buttonInvalidarPedido";
-            this.buttonInvalidarPedido.Size = new System.Drawing.Size(344, 45);
-            this.buttonInvalidarPedido.TabIndex = 9;
-            this.buttonInvalidarPedido.Text = "Invalidación de pedido";
-            this.buttonInvalidarPedido.UseVisualStyleBackColor = true;
-            this.buttonInvalidarPedido.Visible = false;
-            this.buttonInvalidarPedido.Click += new System.EventHandler(this.ButtonInvalidarPedido_Click);
+            this.buttonSubAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonSubAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonSubAdmin.Location = new System.Drawing.Point(-1, 368);
+            this.buttonSubAdmin.Name = "buttonSubAdmin";
+            this.buttonSubAdmin.Size = new System.Drawing.Size(182, 45);
+            this.buttonSubAdmin.TabIndex = 11;
+            this.buttonSubAdmin.Text = "Sistema";
+            this.buttonSubAdmin.UseVisualStyleBackColor = false;
+            this.buttonSubAdmin.Visible = false;
+            this.buttonSubAdmin.Click += new System.EventHandler(this.ButtonSubAdmin_Click);
             // 
-            // buttonCrearPedido
+            // buttonSubParam
             // 
-            this.buttonCrearPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCrearPedido.Location = new System.Drawing.Point(3, 307);
-            this.buttonCrearPedido.Name = "buttonCrearPedido";
-            this.buttonCrearPedido.Size = new System.Drawing.Size(344, 45);
-            this.buttonCrearPedido.TabIndex = 8;
-            this.buttonCrearPedido.Text = "Creación de pedido";
-            this.buttonCrearPedido.UseVisualStyleBackColor = true;
-            this.buttonCrearPedido.Visible = false;
-            this.buttonCrearPedido.Click += new System.EventHandler(this.ButtonCrearPedido_Click);
+            this.buttonSubParam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubParam.FlatAppearance.BorderSize = 0;
+            this.buttonSubParam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubParam.ForeColor = System.Drawing.Color.White;
+            this.buttonSubParam.Location = new System.Drawing.Point(-1, 410);
+            this.buttonSubParam.Name = "buttonSubParam";
+            this.buttonSubParam.Size = new System.Drawing.Size(182, 45);
+            this.buttonSubParam.TabIndex = 12;
+            this.buttonSubParam.Text = "Parámetros";
+            this.buttonSubParam.UseVisualStyleBackColor = false;
+            this.buttonSubParam.Visible = false;
             // 
-            // buttonConsultarPedido
+            // buttonInicio
             // 
-            this.buttonConsultarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultarPedido.Location = new System.Drawing.Point(0, 390);
-            this.buttonConsultarPedido.Name = "buttonConsultarPedido";
-            this.buttonConsultarPedido.Size = new System.Drawing.Size(344, 45);
-            this.buttonConsultarPedido.TabIndex = 10;
-            this.buttonConsultarPedido.Text = "Consulta de pedido";
-            this.buttonConsultarPedido.UseVisualStyleBackColor = true;
-            this.buttonConsultarPedido.Visible = false;
-            this.buttonConsultarPedido.Click += new System.EventHandler(this.ButtonConsultarPedido_Click);
+            this.buttonInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonInicio.FlatAppearance.BorderSize = 0;
+            this.buttonInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInicio.Location = new System.Drawing.Point(44, 4);
+            this.buttonInicio.Name = "buttonInicio";
+            this.buttonInicio.Size = new System.Drawing.Size(113, 35);
+            this.buttonInicio.TabIndex = 15;
+            this.buttonInicio.Text = "Inicio";
+            this.buttonInicio.UseVisualStyleBackColor = true;
+            this.buttonInicio.Click += new System.EventHandler(this.ButtonInicio_Click);
             // 
             // Principal
             // 
@@ -558,6 +662,9 @@
         private System.Windows.Forms.Button buttonConsultarPedido;
         private System.Windows.Forms.Button buttonInvalidarPedido;
         private System.Windows.Forms.Button buttonCrearPedido;
+        private System.Windows.Forms.Button buttonSubParam;
+        private System.Windows.Forms.Button buttonSubAdmin;
+        private System.Windows.Forms.Button buttonInicio;
     }
 }
 

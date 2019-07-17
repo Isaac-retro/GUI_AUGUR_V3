@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientePrincipal));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSalir = new System.Windows.Forms.Button();
@@ -36,18 +37,22 @@
             this.buttonActualizarCP = new System.Windows.Forms.Button();
             this.buttonRegistrarCP = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBoxBuscarCP = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelListaUsers = new System.Windows.Forms.Label();
+            this.pictureBoxRefrescarListaUsuarios = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRefrescarListaUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -71,6 +76,7 @@
             // buttonSalir
             // 
             this.buttonSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSalir.BackColor = System.Drawing.Color.White;
             this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSalir.FlatAppearance.BorderSize = 0;
             this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -83,13 +89,13 @@
             this.buttonSalir.Size = new System.Drawing.Size(212, 40);
             this.buttonSalir.TabIndex = 14;
             this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.UseVisualStyleBackColor = false;
             this.buttonSalir.Click += new System.EventHandler(this.ButtonSalir_Click);
             // 
             // buttonDarAltaCP
             // 
             this.buttonDarAltaCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonDarAltaCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonDarAltaCP.BackColor = System.Drawing.Color.White;
             this.buttonDarAltaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarAltaCP.FlatAppearance.BorderSize = 0;
             this.buttonDarAltaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -108,7 +114,7 @@
             // buttonDarBajaCP
             // 
             this.buttonDarBajaCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonDarBajaCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonDarBajaCP.BackColor = System.Drawing.Color.White;
             this.buttonDarBajaCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDarBajaCP.FlatAppearance.BorderSize = 0;
             this.buttonDarBajaCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -127,7 +133,7 @@
             // buttonActualizarCP
             // 
             this.buttonActualizarCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonActualizarCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonActualizarCP.BackColor = System.Drawing.Color.White;
             this.buttonActualizarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonActualizarCP.FlatAppearance.BorderSize = 0;
             this.buttonActualizarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -146,7 +152,7 @@
             // buttonRegistrarCP
             // 
             this.buttonRegistrarCP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonRegistrarCP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonRegistrarCP.BackColor = System.Drawing.Color.White;
             this.buttonRegistrarCP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrarCP.FlatAppearance.BorderSize = 0;
             this.buttonRegistrarCP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -164,6 +170,9 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pictureBoxRefrescarListaUsuarios);
+            this.panel2.Controls.Add(this.labelListaUsers);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.comboBoxBuscarCP);
@@ -171,8 +180,17 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1050, 55);
+            this.panel2.Size = new System.Drawing.Size(1050, 72);
             this.panel2.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(412, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Tabla de búsqueda automática de clientes";
             // 
             // button1
             // 
@@ -209,14 +227,28 @@
             this.textBox1.Size = new System.Drawing.Size(622, 20);
             this.textBox1.TabIndex = 9;
             // 
-            // label1
+            // labelListaUsers
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(412, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Tabla de búsqueda automática de clientes";
+            this.labelListaUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelListaUsers.AutoSize = true;
+            this.labelListaUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.labelListaUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelListaUsers.Location = new System.Drawing.Point(3, 44);
+            this.labelListaUsers.Name = "labelListaUsers";
+            this.labelListaUsers.Size = new System.Drawing.Size(149, 20);
+            this.labelListaUsers.TabIndex = 26;
+            this.labelListaUsers.Text = "Lista de Usuarios";
+            // 
+            // pictureBoxRefrescarListaUsuarios
+            // 
+            this.pictureBoxRefrescarListaUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxRefrescarListaUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRefrescarListaUsuarios.Image")));
+            this.pictureBoxRefrescarListaUsuarios.Location = new System.Drawing.Point(158, 40);
+            this.pictureBoxRefrescarListaUsuarios.Name = "pictureBoxRefrescarListaUsuarios";
+            this.pictureBoxRefrescarListaUsuarios.Size = new System.Drawing.Size(31, 24);
+            this.pictureBoxRefrescarListaUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRefrescarListaUsuarios.TabIndex = 27;
+            this.pictureBoxRefrescarListaUsuarios.TabStop = false;
             // 
             // ClientePrincipal
             // 
@@ -234,6 +266,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRefrescarListaUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +284,7 @@
         private System.Windows.Forms.ComboBox comboBoxBuscarCP;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelListaUsers;
+        private System.Windows.Forms.PictureBox pictureBoxRefrescarListaUsuarios;
     }
 }

@@ -23,6 +23,8 @@ namespace GUI_AUGUR_V3 {
         // de la clase ConexionDB el objeto controla las conexiones a base de datos a SQL en esta clase
         private ConexionDB conector = new ConexionDB();
 
+
+        private ReseteoContra primer;
         /// <summary>
         /// Constructor del Form
         /// </summary>
@@ -80,9 +82,18 @@ namespace GUI_AUGUR_V3 {
 
                     if (conector.registrarLog(usuarioObjeto.obtenerIDUsuario()) > 0){
                         principal = new Principal(usuarioObjeto);
-
-                        principal.Visible = true;
-                        this.Hide();
+                        if (!conector.consultarLogVacio(usuarioObjeto.obtenerIDUsuario()))
+                        {
+                            primer = new ReseteoContra(usuarioObjeto,(Principal)principal);
+                            primer.Show();
+                            this.Hide();
+                            
+                        }
+                        else {
+                            principal.Visible = true;
+                            this.Hide();
+                        }
+                        
                     } else {
                         MessageBox.Show("Error del sistema, su acceso no pudo ser registrado");
                     }
@@ -162,7 +173,7 @@ namespace GUI_AUGUR_V3 {
         }
 
         private void TextBoxPassLoggin_KeyUp(object sender, KeyEventArgs e){
-            buttonIngresarLoggin.Enabled = (textBoxUserLoggin.Text.Length > 2 || textBoxUserLoggin.Text.Length < 7) && (textBoxPassLoggin.Text.Length > 7 || textBoxPassLoggin.Text.Length < 17);
+            buttonIngresarLoggin.Enabled = (textBoxUserLoggin.Text.Length > 2 && textBoxUserLoggin.Text.Length < 7) && (textBoxPassLoggin.Text.Length > 7 && textBoxPassLoggin.Text.Length < 17);
         }
 
         private void LabelTituloLoggin_MouseDown(object sender, MouseEventArgs e){

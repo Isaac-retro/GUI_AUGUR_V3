@@ -200,6 +200,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.buttonCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreacionPedido";
             this.Text = "PedidosPrincipal";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
