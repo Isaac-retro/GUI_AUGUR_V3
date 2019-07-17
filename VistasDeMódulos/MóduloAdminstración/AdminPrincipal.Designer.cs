@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPrincipal));
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.dataGridViewUsuario = new System.Windows.Forms.DataGridView();
+            this.idUsuarioDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuarioDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargoDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bloqueadoDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonResetearContra = new System.Windows.Forms.Button();
             this.buttonCrearUsuario = new System.Windows.Forms.Button();
@@ -41,10 +45,6 @@
             this.labelUserCargo = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
-            this.idUsuarioDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuarioDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargoDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bloqueadoDataGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuario)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,6 +66,7 @@
             // 
             // dataGridViewUsuario
             // 
+            this.dataGridViewUsuario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridViewUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idUsuarioDataGrid,
@@ -78,6 +79,37 @@
             this.dataGridViewUsuario.Size = new System.Drawing.Size(696, 541);
             this.dataGridViewUsuario.TabIndex = 19;
             this.dataGridViewUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewUsuario_CellClick);
+            // 
+            // idUsuarioDataGrid
+            // 
+            this.idUsuarioDataGrid.Frozen = true;
+            this.idUsuarioDataGrid.HeaderText = "ID";
+            this.idUsuarioDataGrid.Name = "idUsuarioDataGrid";
+            this.idUsuarioDataGrid.ReadOnly = true;
+            // 
+            // nombreUsuarioDataGrid
+            // 
+            this.nombreUsuarioDataGrid.Frozen = true;
+            this.nombreUsuarioDataGrid.HeaderText = "Nombre de Usuario";
+            this.nombreUsuarioDataGrid.Name = "nombreUsuarioDataGrid";
+            this.nombreUsuarioDataGrid.ReadOnly = true;
+            this.nombreUsuarioDataGrid.Width = 250;
+            // 
+            // cargoDataGrid
+            // 
+            this.cargoDataGrid.Frozen = true;
+            this.cargoDataGrid.HeaderText = "Cargo";
+            this.cargoDataGrid.Name = "cargoDataGrid";
+            this.cargoDataGrid.ReadOnly = true;
+            this.cargoDataGrid.Width = 150;
+            // 
+            // bloqueadoDataGrid
+            // 
+            this.bloqueadoDataGrid.Frozen = true;
+            this.bloqueadoDataGrid.HeaderText = "Bloqueado";
+            this.bloqueadoDataGrid.Name = "bloqueadoDataGrid";
+            this.bloqueadoDataGrid.ReadOnly = true;
+            this.bloqueadoDataGrid.Width = 150;
             // 
             // panel1
             // 
@@ -218,37 +250,6 @@
             this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxImage.TabIndex = 22;
             this.pictureBoxImage.TabStop = false;
-            // 
-            // idUsuarioDataGrid
-            // 
-            this.idUsuarioDataGrid.Frozen = true;
-            this.idUsuarioDataGrid.HeaderText = "ID";
-            this.idUsuarioDataGrid.Name = "idUsuarioDataGrid";
-            this.idUsuarioDataGrid.ReadOnly = true;
-            // 
-            // nombreUsuarioDataGrid
-            // 
-            this.nombreUsuarioDataGrid.Frozen = true;
-            this.nombreUsuarioDataGrid.HeaderText = "Nombre de Usuario";
-            this.nombreUsuarioDataGrid.Name = "nombreUsuarioDataGrid";
-            this.nombreUsuarioDataGrid.ReadOnly = true;
-            this.nombreUsuarioDataGrid.Width = 250;
-            // 
-            // cargoDataGrid
-            // 
-            this.cargoDataGrid.Frozen = true;
-            this.cargoDataGrid.HeaderText = "Cargo";
-            this.cargoDataGrid.Name = "cargoDataGrid";
-            this.cargoDataGrid.ReadOnly = true;
-            this.cargoDataGrid.Width = 150;
-            // 
-            // bloqueadoDataGrid
-            // 
-            this.bloqueadoDataGrid.Frozen = true;
-            this.bloqueadoDataGrid.HeaderText = "Bloqueado";
-            this.bloqueadoDataGrid.Name = "bloqueadoDataGrid";
-            this.bloqueadoDataGrid.ReadOnly = true;
-            this.bloqueadoDataGrid.Width = 150;
             // 
             // AdminPrincipal
             // 

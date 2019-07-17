@@ -10,10 +10,12 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
         private Usuario user;
         private Usuario usuarioCambiar;
         private ConexionDB conector;
+        private AdminPrincipal anterior;
 
-        public UserContra(string titulo, string funcion, byte flag, Usuario user, int idUsuarioCambiar){
+        public UserContra(string titulo, string funcion, byte flag, Usuario user, int idUsuarioCambiar, AdminPrincipal anterior){
             InitializeComponent();
             conector = new ConexionDB();
+            this.anterior = anterior;
             textBoxCargo.Enabled = false;
             this.user = user;
             labelTitulo.Text = titulo;
@@ -52,11 +54,13 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
         }
 
         private void ButtonCancelar_Click(object sender, EventArgs e){
+            anterior.refrescarListaUsuario(conector.regresarListaUsuarios());
             this.Close();
         }
 
         private void PictureBoxSalir_Click(object sender, EventArgs e)
         {
+            anterior.refrescarListaUsuario(conector.regresarListaUsuarios());
             this.Close();
         }
 
@@ -72,13 +76,13 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
 
         private void ButtonRegistrarC_Click(object sender, EventArgs e){
             
-            if ((textBoxLoggin.Text.Length < 2 || textBoxLoggin.Text.Length > 6) && (textBoxContra.Text.Length < 8 || textBoxContra.Text.Length > 16)  ){
+            if (textBoxLoggin.Text.Length > 2 && textBoxLoggin.Text.Length < 6 && textBoxContra.Text.Length > 8 && textBoxContra.Text.Length < 16 ){
                 if (flag == 0)
                 {
                     // crear usuario 0
                     if (conector.registrarUsuario(textBoxNombreUser.Text, textBoxLoggin.Text, textBoxContra.Text) > 0)
                     {
-                        MessageBox.Show("Usuario ingresado exitosamente");
+                        MessageBox.Show("Usuario registrado exitosamente");
                         this.Close();
                     }
                     else {
@@ -88,12 +92,31 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                 else if (flag == 1)
                 {
                     // cambiar contrasenia
+                    if (conector.cambiarContrassniaID(user.obtenerIDUsuario(), textBoxContra.Text) > 0)
+                    {
+                        MessageBox.Show( "Contraseña actualizada exitosamente");
+                        this.Close();
+                    }
+                    else
+                    {
+                        labelError.Visible = true;
+                    }
 
                 }
                 else
                 {
                     //restablercer contrasenia
+                    if (conector.cambiarContrassniaID(usuarioCambiar.obtenerIDUsuario(), textBoxContra.Text) > 0)
+                    {
+                        MessageBox.Show("Contraseña reseteada exitosamente | El usuario " + usuarioCambiar.obtenerNombreUsuario() +" debe cambiar su contraseña en el siguiente acceso");
+                        anterior.refrescarListaUsuario(conector.regresarListaUsuarios());
+                        this.Close();
 
+                    }
+                    else
+                    {
+                        labelError.Visible = true;
+                    }
                 }
 
             }  else {

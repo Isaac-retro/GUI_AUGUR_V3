@@ -99,13 +99,13 @@ namespace GUI_AUGUR_V3.DataBase{
             coneccion.Open();
             if (coneccion.State == System.Data.ConnectionState.Open)
             {
-                consultaString = "select nombreUsuario,loggin,pass from usuario where AND idUsuario = '" + idUsuario + "';";
+                consultaString = "select nombreUsuario,loggin,pass,activoUsuario from usuario where idUsuario = '" + idUsuario + "';";
                 comandoQuery = new SqlCommand(consultaString, coneccion);
                 lectorDeDatos = comandoQuery.ExecuteReader();
                 if (lectorDeDatos.Read())
                 {
                     usuariObjeto = new Usuario(idUsuario,
-                                              Convert.ToString(lectorDeDatos["loggin"]),
+                                              Convert.ToString(lectorDeDatos["loggin"]) ,
                                               Convert.ToString(lectorDeDatos["nombreUsuario"]),
                                               seleccionarCargo(Convert.ToString(lectorDeDatos["loggin"])),
                                               Convert.ToString(lectorDeDatos["pass"]),
@@ -219,5 +219,39 @@ namespace GUI_AUGUR_V3.DataBase{
             return -1;
         }
 
+
+
+        public int cambiarContrassniaID(int idUsuario, string pass) {
+            consultaString = "update Usuario set pass = '"  + md5_string(pass) + "' , activoUsuario = 'Si' where idUsuario = " +  idUsuario +";";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                int i = Convert.ToInt16(comandoQuery.ExecuteNonQuery());
+                coneccion.Close();
+                return i;
+            }
+            return -1;
+        }
+
+        public bool consultarLogVacio(int idUsuario) {
+            bool bandera = false;
+            consultaString = "select * from logAcceso where logacceso.idusuario = " + idUsuario;
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                bandera = lectorDeDatos.Read();
+                bandera = lectorDeDatos.Read();
+
+                coneccion.Close();
+                return bandera;
+            }
+            return bandera;
+
+        }
     }
 }

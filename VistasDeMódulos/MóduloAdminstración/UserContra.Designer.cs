@@ -108,6 +108,7 @@
             this.textBoxContra.Name = "textBoxContra";
             this.textBoxContra.Size = new System.Drawing.Size(381, 22);
             this.textBoxContra.TabIndex = 21;
+            this.textBoxContra.UseSystemPasswordChar = true;
             this.textBoxContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxContra_KeyPress);
             // 
             // textBoxNombreUser

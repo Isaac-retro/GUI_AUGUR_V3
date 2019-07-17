@@ -140,11 +140,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(409, 140);
+            this.label4.Location = new System.Drawing.Point(372, 151);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(261, 13);
+            this.label4.Size = new System.Drawing.Size(320, 13);
             this.label4.TabIndex = 47;
-            this.label4.Text = "Tabla de búsqueda automática para platos de comida";
+            this.label4.Text = "Tabla de búsqueda automática por nombre, para platos de comida";
             // 
             // PlatosPrincipal
             // 

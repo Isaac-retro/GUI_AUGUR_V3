@@ -170,11 +170,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(414, 138);
+            this.label4.Location = new System.Drawing.Point(373, 137);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(238, 13);
+            this.label4.Size = new System.Drawing.Size(280, 13);
             this.label4.TabIndex = 48;
-            this.label4.Text = "Tabla de búsqueda automática para ingredientes";
+            this.label4.Text = "Tabla de búsqueda automática por nombre de ingrediente";
             // 
             // IngredientePrincipal
             // 
