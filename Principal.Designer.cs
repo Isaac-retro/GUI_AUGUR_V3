@@ -45,11 +45,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxMenu = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.buttonInicio = new System.Windows.Forms.Button();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.pictureBoxMax = new System.Windows.Forms.PictureBox();
             this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.buttonSubParam = new System.Windows.Forms.Button();
+            this.buttonSubAdmin = new System.Windows.Forms.Button();
             this.buttonConsultarPedido = new System.Windows.Forms.Button();
             this.buttonInvalidarPedido = new System.Windows.Forms.Button();
             this.buttonCrearPedido = new System.Windows.Forms.Button();
@@ -60,9 +63,6 @@
             this.buttonSubIngredientes = new System.Windows.Forms.Button();
             this.buttonSubPlatosDeComida = new System.Windows.Forms.Button();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
-            this.buttonSubAdmin = new System.Windows.Forms.Button();
-            this.buttonSubParam = new System.Windows.Forms.Button();
-            this.buttonInicio = new System.Windows.Forms.Button();
             this.panelMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -317,6 +317,23 @@
             this.panelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelTitulo_Paint);
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitulo_MouseDown);
             // 
+            // buttonInicio
+            // 
+            this.buttonInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonInicio.FlatAppearance.BorderSize = 0;
+            this.buttonInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInicio.Location = new System.Drawing.Point(44, 4);
+            this.buttonInicio.Name = "buttonInicio";
+            this.buttonInicio.Size = new System.Drawing.Size(113, 35);
+            this.buttonInicio.TabIndex = 15;
+            this.buttonInicio.Text = "Inicio";
+            this.buttonInicio.UseVisualStyleBackColor = true;
+            this.buttonInicio.Click += new System.EventHandler(this.ButtonInicio_Click);
+            // 
             // labelTitulo
             // 
             this.labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -387,6 +404,40 @@
             this.panelContenedor.Size = new System.Drawing.Size(1050, 605);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
+            // 
+            // buttonSubParam
+            // 
+            this.buttonSubParam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubParam.FlatAppearance.BorderSize = 0;
+            this.buttonSubParam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubParam.ForeColor = System.Drawing.Color.White;
+            this.buttonSubParam.Location = new System.Drawing.Point(-1, 410);
+            this.buttonSubParam.Name = "buttonSubParam";
+            this.buttonSubParam.Size = new System.Drawing.Size(182, 45);
+            this.buttonSubParam.TabIndex = 12;
+            this.buttonSubParam.Text = "Parámetros";
+            this.buttonSubParam.UseVisualStyleBackColor = false;
+            this.buttonSubParam.Visible = false;
+            this.buttonSubParam.Click += new System.EventHandler(this.ButtonSubParam_Click);
+            // 
+            // buttonSubAdmin
+            // 
+            this.buttonSubAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.buttonSubAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonSubAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonSubAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonSubAdmin.Location = new System.Drawing.Point(-1, 368);
+            this.buttonSubAdmin.Name = "buttonSubAdmin";
+            this.buttonSubAdmin.Size = new System.Drawing.Size(182, 45);
+            this.buttonSubAdmin.TabIndex = 11;
+            this.buttonSubAdmin.Text = "Sistema";
+            this.buttonSubAdmin.UseVisualStyleBackColor = false;
+            this.buttonSubAdmin.Visible = false;
+            this.buttonSubAdmin.Click += new System.EventHandler(this.ButtonSubAdmin_Click);
             // 
             // buttonConsultarPedido
             // 
@@ -550,56 +601,6 @@
             this.pictureBoxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxImagen.TabIndex = 0;
             this.pictureBoxImagen.TabStop = false;
-            // 
-            // buttonSubAdmin
-            // 
-            this.buttonSubAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.buttonSubAdmin.FlatAppearance.BorderSize = 0;
-            this.buttonSubAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.buttonSubAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSubAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubAdmin.ForeColor = System.Drawing.Color.White;
-            this.buttonSubAdmin.Location = new System.Drawing.Point(-1, 368);
-            this.buttonSubAdmin.Name = "buttonSubAdmin";
-            this.buttonSubAdmin.Size = new System.Drawing.Size(182, 45);
-            this.buttonSubAdmin.TabIndex = 11;
-            this.buttonSubAdmin.Text = "Sistema";
-            this.buttonSubAdmin.UseVisualStyleBackColor = false;
-            this.buttonSubAdmin.Visible = false;
-            this.buttonSubAdmin.Click += new System.EventHandler(this.ButtonSubAdmin_Click);
-            // 
-            // buttonSubParam
-            // 
-            this.buttonSubParam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.buttonSubParam.FlatAppearance.BorderSize = 0;
-            this.buttonSubParam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.buttonSubParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSubParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubParam.ForeColor = System.Drawing.Color.White;
-            this.buttonSubParam.Location = new System.Drawing.Point(-1, 410);
-            this.buttonSubParam.Name = "buttonSubParam";
-            this.buttonSubParam.Size = new System.Drawing.Size(182, 45);
-            this.buttonSubParam.TabIndex = 12;
-            this.buttonSubParam.Text = "Parámetros";
-            this.buttonSubParam.UseVisualStyleBackColor = false;
-            this.buttonSubParam.Visible = false;
-            // 
-            // buttonInicio
-            // 
-            this.buttonInicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonInicio.FlatAppearance.BorderSize = 0;
-            this.buttonInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.buttonInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.buttonInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInicio.Location = new System.Drawing.Point(44, 4);
-            this.buttonInicio.Name = "buttonInicio";
-            this.buttonInicio.Size = new System.Drawing.Size(113, 35);
-            this.buttonInicio.TabIndex = 15;
-            this.buttonInicio.Text = "Inicio";
-            this.buttonInicio.UseVisualStyleBackColor = true;
-            this.buttonInicio.Click += new System.EventHandler(this.ButtonInicio_Click);
             // 
             // Principal
             // 

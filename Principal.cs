@@ -9,7 +9,7 @@ using GUI_AUGUR_V3.VistasDeMódulos.móduloPedidos;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloAyuda;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloPlatos.submóduloIngrediente;
 using GUI_AUGUR_V3.VistasDeMódulos.móduloReportes;
-
+using GUI_AUGUR_V3.VistasDeMódulos.móduloAdminstración;
 
 namespace GUI_AUGUR_V3 {
 
@@ -144,14 +144,32 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PanelContenedor_Paint(object sender, PaintEventArgs e){
             
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PanelMenuVertical_Paint(object sender, PaintEventArgs e){
             cerrarbotones();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonAyuda_Click(object sender, EventArgs e){
             this.ocultarBotonesExtra();
 
@@ -178,15 +196,19 @@ namespace GUI_AUGUR_V3 {
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonPedidos_Click(object sender, EventArgs e) {
             cerrarbotones();
             buttonCrearPedido.Visible = !buttonCrearPedido.Visible;
             buttonInvalidarPedido.Visible = !buttonInvalidarPedido.Visible;
             buttonConsultarPedido.Visible = !buttonConsultarPedido.Visible;
-            
-            
-
         }
+
 
         /// <summary>
         /// despliega las opciones de pantalla para 
@@ -229,12 +251,14 @@ namespace GUI_AUGUR_V3 {
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSubPlatosDeComida_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
-
-
-
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -244,6 +268,13 @@ namespace GUI_AUGUR_V3 {
 
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSubIngredientes_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
@@ -255,10 +286,15 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClientesFrec_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
-
             labelTitulo.Text = "Reportes: Clientes más frecuentes";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -267,6 +303,14 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonPlatosMas_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
@@ -279,10 +323,16 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonReporteDiario_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
-
             labelTitulo.Text = "Reporte Diario";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -291,6 +341,12 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonReporteMensual_Click(object sender, EventArgs e)
         {
             ocultarBotonesExtra();
@@ -303,6 +359,11 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void ocultarBotonesExtra()
         {
             this.buttonSubPlatosDeComida.Visible = false;
@@ -317,6 +378,13 @@ namespace GUI_AUGUR_V3 {
             this.buttonConsultarPedido.Visible = false;
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCrearPedido_Click(object sender, EventArgs e)
         {
             this.ocultarBotonesExtra();
@@ -328,6 +396,13 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonInvalidarPedido_Click(object sender, EventArgs e)
         {
             this.ocultarBotonesExtra();
@@ -339,6 +414,12 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonConsultarPedido_Click(object sender, EventArgs e)
         {
             this.ocultarBotonesExtra();
@@ -350,6 +431,13 @@ namespace GUI_AUGUR_V3 {
             formgenerico.Show();
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSubAdmin_Click(object sender, EventArgs e)
         {
             labelTitulo.Text = "Administración: Sistema";
@@ -359,6 +447,8 @@ namespace GUI_AUGUR_V3 {
             panelContenedor.Controls.Add(formgenerico);
             formgenerico.Show();
         }
+
+
 
         private void LabelTitulo2_Click(object sender, EventArgs e)
         {
@@ -375,12 +465,35 @@ namespace GUI_AUGUR_V3 {
             cerrarbotones();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonInicio_Click(object sender, EventArgs e)
         {
             cerrarbotones();
             formgenerico?.Close();
             pictureBoxImagen.Visible = true;
 
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSubParam_Click(object sender, EventArgs e)
+        {
+            labelTitulo.Text = "Administración: Parámetros";
+            pictureBoxImagen.Visible = false;
+            formgenerico?.Close();
+            formgenerico = new ParamPrincipal() { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            panelContenedor.Controls.Add(formgenerico);
+            formgenerico.Show();
         }
     }
 }

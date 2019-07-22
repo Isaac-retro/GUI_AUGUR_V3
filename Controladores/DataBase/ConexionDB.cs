@@ -15,7 +15,6 @@ namespace GUI_AUGUR_V3.DataBase{
     class ConexionDB {
         public ConexionDB() { }
         // variable final que contiene el directorio de la conexión
-
         //private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
         private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
 
@@ -91,7 +90,11 @@ namespace GUI_AUGUR_V3.DataBase{
         }
 
 
-
+        /// <summary>
+        /// consulta un usuario con el loggin
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
         public Usuario consultarUsuarioId(int idUsuario)
         {
             Usuario usuariObjeto;
@@ -182,6 +185,7 @@ namespace GUI_AUGUR_V3.DataBase{
             return -1;
         }
 
+
         /// <summary>
         /// esta funcion regresa en una lista de usuarios, todos los usuarios registrados en la base de datos
         /// </summary>
@@ -204,6 +208,14 @@ namespace GUI_AUGUR_V3.DataBase{
             }
             return resultado;
         }
+
+        /// <summary>
+        /// registra un usuario en valido en la base de datos
+        /// </summary>
+        /// <param name="nombreUSuario"></param>
+        /// <param name="loggin"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public int registrarUsuario(string nombreUSuario, string loggin, string pass)
         {
             consultaString = "insert into Usuario (nombreUsuario,loggin,pass,activoUsuario ) values ('" + nombreUSuario + "', '" + loggin + "', '" + md5_string(pass) + "' , 'Si'  );";
@@ -220,7 +232,12 @@ namespace GUI_AUGUR_V3.DataBase{
         }
 
 
-
+        /// <summary>
+        /// cambia con la contraseña de un usuario y lo desbloquea
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public int cambiarContrassniaID(int idUsuario, string pass) {
             consultaString = "update Usuario set pass = '"  + md5_string(pass) + "' , activoUsuario = 'Si' where idUsuario = " +  idUsuario +";";
             coneccion = new SqlConnection(CONECCION_STRING);
@@ -235,6 +252,11 @@ namespace GUI_AUGUR_V3.DataBase{
             return -1;
         }
 
+        /// <summary>
+        /// compureba si un susuario a ingresado por primera vez
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
         public bool consultarLogVacio(int idUsuario) {
             bool bandera = false;
             consultaString = "select * from logAcceso where logacceso.idusuario = " + idUsuario;
@@ -246,7 +268,6 @@ namespace GUI_AUGUR_V3.DataBase{
                 lectorDeDatos = comandoQuery.ExecuteReader();
                 bandera = lectorDeDatos.Read();
                 bandera = lectorDeDatos.Read();
-
                 coneccion.Close();
                 return bandera;
             }
