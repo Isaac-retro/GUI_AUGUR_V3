@@ -23,7 +23,7 @@ namespace GUI_AUGUR_V3
             InitializeComponent();
             this.principal = principal;
             conector = new ConexionDB();
-            label1.Text = "Estimado " +usuario.obtenerNombreUsuario() + " debido a que es la primera vez que ingresas al\nprograma debes reestablecer tu contraseña\nPor favor ingresa tu nueva contraseña ";
+            label1.Text = "Estimado " +usuario.obtenerNombreNatural() + " debido a que es la primera vez que ingresas al\nprograma debes reestablecer tu contraseña\nPor favor ingresa tu nueva contraseña ";
             id = usuario.obtenerIDUsuario();
 
         }

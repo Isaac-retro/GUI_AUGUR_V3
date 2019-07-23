@@ -39,7 +39,7 @@ create table FACTURA
    IDFACTURA            integer                        not null identity(1,1),
    IDCLIENTE            integer                        not null,
    TOTALFACTURA         numeric(8,2)                   not null,
-   FECHAHORAFACTURA     timestamp                      not null,
+   FECHAHORAFACTURA     datetime                      not null,
    ACTIVOFACTURA        varchar(2)                     null,
    constraint PK_FACTURA primary key (IDFACTURA)
 );
@@ -66,7 +66,7 @@ create table INGREDIENTES
 create table LOGACCESO 
 (
    IDUSUARIO            integer                        not null,
-   FECHAHORAACCESO      timestamp                      not null
+   FECHAHORAACCESO      datetime                      not null
 );
 
 
@@ -93,7 +93,7 @@ create table PEDIDO
    IDUSUARIO            integer                        not null,
    IDFACTURA            integer                        null,
    TOTAL                numeric(8,2)                   not null,
-   FECHAHORAPEDIDO      timestamp                      not null,
+   FECHAHORAPEDIDO      datetime                      not null,
    ACTIVOPEDIDO         varchar(2)                     not null,
    constraint PK_PEDIDO primary key (IDPEDIDO)
 );
@@ -122,7 +122,7 @@ create table ULTIMACONTRASENA
 (
    IDUSUARIO            integer                        not null,
    ULTIMOPASS           varchar(33)                    not null,
-   FECHAHORAUC          timestamp                      not null
+   FECHAHORAUC          datetime                      not null
 );
 
 
@@ -134,7 +134,7 @@ create table ULTIMOPARAMETRO
 (
    IDPARAMETRO          integer                        not null,
    VALORPATAMETRO       numeric(8,2)                   not null,
-   FECHAHORAPARAMETRO   timestamp                      not null
+   FECHAHORAPARAMETRO   datetime                      not null
 );
 
 
@@ -146,7 +146,7 @@ create table ULTIMOPRECIOINGREDIENTE
 (
    IDINGREDIENTE        integer                        not null,
    ULTIMPRECIOINGREDIENTE numeric(8,2)                   not null,
-   FECHAHORAUPI         timestamp                      null
+   FECHAHORAUPI         datetime                      null
 );
 
 /*==============================================================*/
@@ -156,7 +156,7 @@ create table ULTIMOPRECIOPLATO
 (
    IDPLATO              integer                        not null,
    ULTIMOPRECIOPLATO    numeric(8,2)                   not null,
-   FECHAHORAUPP         timestamp                      not null
+   FECHAHORAUPP         datetime                      not null
 );
 
 /*==============================================================*/
@@ -238,5 +238,89 @@ alter table ULTIMOPRECIOINGREDIENTE
 alter table ULTIMOPRECIOPLATO
    add constraint FK_ULTIMOPR_TIENEPREC_PLATODEC foreign key (IDPLATO)
       references PLATODECOMIDA (IDPLATO)
+
+
+--adminAugur
+insert into usuario (nombreNatural,nombreUsuario,cargo,pass,activoUsuario)
+values ('Christian','admin','','09723F3F8CFBBE51F793BD792F32AC62','Si');
+--managAugur
+insert into usuario (nombreNatural,nombreUsuario,cargo,pass,activoUsuario)
+values ('Christian','manag','Gerente','F5858ABE9DB3AFC597A30B74D403E06F','Si');
+
+
+insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Tigrillo Futbolero',	5.50, 'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Encebollado', 		3.25, 'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Encebollado Jumbo', 	3.75, 'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Ceviche de Camarón', 	9.00,'fuerte' ,'Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Ceviche de Concha', 	9.00,'fuerte' ,'Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Ceviche Mixto', 		4.60,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Maremoto', 		6.20,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Arroz con Camaron',	6.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Arroz con Concha',		6.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Arroz Mixto',		7.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Arroz Marinero', 		12.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Filete de Corvina',	7.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Bandera', 			10.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Sopa de Cangrejo', 	3.90,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Caldo de Bagre', 		3.50,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Guatita',			2.50,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Casuela sencilla', 	6.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Casuel mixta',		6.00,'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Camarones Apanados',	6.00, 'fuerte','Si')
+--insert into PlatoDeComida (nombrePlato, precioplato,tipoplato, activoPlato) values ('Camarones al Ajillo',	6.00,'fuerte','Si')
+
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Sal',					0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Huevo',				0,'unidad','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Cilantro',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Mantequilla',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Platano',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Queso',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Paiteña',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Pescado Albacora',	0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Camaron',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Concha',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Yuca',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Cebolla',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Ajo',					0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Aji Peruano',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Aceite',				0,'litros','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Azucar',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Tomate',				0,'unidad','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Pimiento',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Naranja',				0,'unidad','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Limon',				0,'unidad','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Culantro',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Langosta',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Langostino',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Motaza',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Salsa de Tomate',		0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Comino Molido',		0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Vino Blanco',			0,'litros','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Aguacate',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Papa',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Leche',				0,'litros','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Panza de Res',		0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente,UNIDADMEDIDA, ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Cangrejo',			0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Comino',				0,'gramos','Si',100)
+insert into Ingredientes (nombreIngrediente, precioIngrediente, UNIDADMEDIDA,ACTIVOPARAMETRO, CANTIDADDISPONIBLE) values('Pescado Bagre',		0,'gramos','Si',100)
+
+
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,2,10)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,3,3)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,4,10)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,5,15)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,6,20)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,7,15)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,8,20)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,12,10)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,13,15)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,14,3)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,16,0.35)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,18,3)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,19,5)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,22,3)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,29,6)
+insert into DETALLE_PLATO_INGREDIENTE (IDPLATO,IDINGREDIENTE,CANTIDAD) values (1,31,0.4);
+
 
 

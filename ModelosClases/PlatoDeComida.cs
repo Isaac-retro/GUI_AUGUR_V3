@@ -3,24 +3,29 @@
         private int idPlato;
         private string nombrePlato;
         private float valorPlato;
+        private string tipoPlato;
         private bool activo;
-        public PlatoDeComida(int idPlato, string nombrePlato, float valorPlato, bool activo) {
+        public PlatoDeComida(int idPlato, string nombrePlato, float valorPlato, string tipoPlato, bool activo) {
             this.idPlato = idPlato;
             this.nombrePlato = nombrePlato;
             this.valorPlato = valorPlato;
+            this.tipoPlato = tipoPlato;
             this.activo = activo;
         }
-        public int getIdPlato() {
+        public int obtenerIdPlato() {
             return idPlato;
         }
-        public string getNombrePlato() {
+        public string obtenerNombrePlato() {
             return nombrePlato;
         }
-        public float getValorPlato() {
+        public float obtenerValorPlato() {
             return valorPlato;
         }
-        public bool isActive() {
+        public bool isActivo() {
             return activo;
+        }
+        public string obtenerTipo() {
+            return tipoPlato;
         }
     }
 }

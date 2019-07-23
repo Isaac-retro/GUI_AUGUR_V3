@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes{
     public partial class ClientePrincipal : Form{
-        Form registroActucalizacion; 
-        public ClientePrincipal(){
+        Form registroActucalizacion;
+        Principal pl;
+        public ClientePrincipal(Principal pl){
             InitializeComponent();
-
+            this.pl = pl;
         }
 
         
@@ -41,6 +42,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloClientes{
         }
 
         private void ButtonSalir_Click(object sender, EventArgs e){
+            pl.abrirInicio();
             this.Close();
         }
     }

@@ -4,10 +4,10 @@
         private int idUsuario;
 
         //es el nombre de usuario con el que se accede al sistema
-        private string loggin; 
+        private string nombreUsuario; 
 
         //el nombre del usuario
-        private string nombreUsuario;
+        private string nombreNatural;
 
         //almacena el nombre del cargo que ocupa un usuaurio
         private string cargo;
@@ -15,23 +15,23 @@
         //guarda el hash de la contraseña del usuario
         private string pass;
 
-        //indica si el usuario no está bloquedo
+        //indica si el usuario no está bloquedoz
         private bool activo;
 
         public Usuario() { }
-        public Usuario(int idUser, string loggin, string nombreUsuario, string cargo, string pass, bool activo) {
-            this.idUsuario = idUser;
-            this.loggin = loggin;
+        public Usuario(int idUsuario, string nombreUsuario, string nombreNatural, string cargo, string pass, bool activo) {
+            this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;
+            this.nombreNatural = nombreNatural;
             this.cargo = cargo;
             this.pass = pass;
             this.activo = activo;
         }
         public string obtenerLoggin() {
-            return loggin;
-        }
-        public string obtenerNombreUsuario() {
             return nombreUsuario;
+        }
+        public string obtenerNombreNatural() {
+            return nombreNatural;
         }
         public string obtenerCargo() {
             return cargo;

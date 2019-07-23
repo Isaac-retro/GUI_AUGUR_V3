@@ -1,25 +1,49 @@
-﻿using GUI_AUGUR_V3.ModelosClases;
+﻿using GUI_AUGUR_V3.DataBase;
+using GUI_AUGUR_V3.ModelosClases;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 {
     public partial class PlatosPrincipal : Form{
-        Form registrarActualizarP;
-        Usuario user;
-        Label labelTitulo;
-        public PlatosPrincipal(Usuario user, Label labelTitulo){
+        private Form registrarActualizarP;
+        private Usuario user;
+        private Principal pl;
+        private ConexionDB conector;
+        public PlatosPrincipal(Principal pl,Usuario user ){
             InitializeComponent();
             this.user = user;
-            this.labelTitulo = labelTitulo; 
+            this.pl = pl;
+            conector = new ConexionDB();
+            refrescarLista(conector.regresarListaPlatos(""));
+            buttonActualizar.Enabled = false;
         }
 
+        private void refrescarLista(List<PlatoDeComida> listPlatos) {
+            dataGridViewPlatos.Rows.Clear();
+            for (int i = 0; i < listPlatos.Count; i++)
+            {
+                if (listPlatos[i].isActivo())
+                {
+                    dataGridViewPlatos.Rows.Add(listPlatos[i].obtenerIdPlato().ToString(), listPlatos[i].obtenerNombrePlato(), listPlatos[i].obtenerValorPlato(), listPlatos[i].obtenerTipo());
+                }
+
+            }
+        }
+
+        public void refreshListaPlatos() {
+            refrescarLista(conector.regresarListaPlatos(""));
+        }
 
         private void validarCaracteres(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == '´' || char.IsWhiteSpace(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back));
-
-            if (this.textBoxNombre.Text.Length > 50)
+            if (this.textBoxNombrePlato.Text.Length > 20)
+            {
                 MessageBox.Show("Nombre demasiado largo");
+                textBoxNombrePlato.Text = "";
+                refrescarLista(conector.regresarListaPlatos(""));
+            }
         }
 
         private void ButtonEliminar_Click(object sender, EventArgs e)
@@ -29,23 +53,41 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
         {
+            pl.abrirInicio();
             this.Close();
-            this.labelTitulo.Text = "AUGUR";
+            
 
         }
 
         private void ButtonRegistrar_Click(object sender, EventArgs e)
         {
             registrarActualizarP?.Close();
-            registrarActualizarP = new RegistrarActualzarPlatocs("Registro de plato de comida", "registar", user, 0);
+            registrarActualizarP = new RegistrarActualzarPlatocs(this,"Registro Plato de comida", "registar", user, 0);
             registrarActualizarP.Show();
         }
 
         private void ButtonActualizar_Click(object sender, EventArgs e)
         {
             registrarActualizarP?.Close();
-            registrarActualizarP = new RegistrarActualzarPlatocs("Actualización de un plato de comida", "actualizar", user, 0);
+            registrarActualizarP = new RegistrarActualzarPlatocs(this,"Actualización Plato de comida", "actualizar", user, 0);
             registrarActualizarP.Show();
+        }
+
+        private void TextBoxNombrePlato_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void TextBoxNombrePlato_TextChanged(object sender, EventArgs e)
+        {
+            refrescarLista(conector.regresarListaPlatos(textBoxNombrePlato.Text));
+        }
+
+        private void PictureBoxRefrescarLista_Click(object sender, EventArgs e)
+        {
+            refrescarLista(conector.regresarListaPlatos(""));
+            textBoxNombrePlato.Text = "";
+
         }
     }
 }

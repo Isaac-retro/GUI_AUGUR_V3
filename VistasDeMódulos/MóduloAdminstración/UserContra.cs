@@ -30,7 +30,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                 textBoxNombreUser.Enabled = false;
                 textBoxLoggin.Enabled = false;
                 textBoxLoggin.Text = user.obtenerLoggin();
-                textBoxNombreUser.Text = user.obtenerNombreUsuario();
+                textBoxNombreUser.Text = user.obtenerNombreNatural();
                 textBoxCargo.Text = user.obtenerCargo();
             } else {
                 //restablercer contrasenia
@@ -39,7 +39,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                 usuarioCambiar = conector.consultarUsuarioId(idUsuarioCambiar);
                 textBoxCargo.Text = usuarioCambiar.obtenerCargo();
                 textBoxLoggin.Text = usuarioCambiar.obtenerLoggin();
-                textBoxNombreUser.Text = usuarioCambiar.obtenerNombreUsuario();
+                textBoxNombreUser.Text = usuarioCambiar.obtenerNombreNatural();
             }
 
 
@@ -108,7 +108,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración
                     //restablercer contrasenia
                     if (conector.cambiarContrassniaID(usuarioCambiar.obtenerIDUsuario(), textBoxContra.Text) > 0)
                     {
-                        MessageBox.Show("Contraseña reseteada exitosamente | El usuario " + usuarioCambiar.obtenerNombreUsuario() +" debe cambiar su contraseña en el siguiente acceso");
+                        MessageBox.Show("Contraseña reseteada exitosamente | El usuario " + usuarioCambiar.obtenerNombreNatural() +" debe cambiar su contraseña en el siguiente acceso");
                         anterior.refrescarListaUsuario(conector.regresarListaUsuarios());
                         this.Close();
 

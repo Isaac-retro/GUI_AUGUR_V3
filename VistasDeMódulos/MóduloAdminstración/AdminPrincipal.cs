@@ -27,21 +27,21 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración{
             InitializeComponent();
             buttonResetearContra.Enabled = false;
             this.usuario = user;
-            labelUser.Text = user.obtenerNombreUsuario();
+            labelUser.Text = user.obtenerNombreNatural();
             labelUserCargo.Text = user.obtenerCargo();
             denegarAcciones(user.obtenerCargo());
             refrescarListaUsuario(conector.regresarListaUsuarios());
         }
 
         public void refrescarListaUsuario(List<Usuario> listaUsuarios) {
-            labelUser.Text = usuario.obtenerNombreUsuario();
+            labelUser.Text = usuario.obtenerNombreNatural();
             labelUserCargo.Text = usuario.obtenerCargo();
             dataGridViewUsuario.Rows.Clear();
             for (int i = 0; i < listaUsuarios.Count; i++) {
                 if (listaUsuarios[i].isActivo()) {
-                    dataGridViewUsuario.Rows.Add(listaUsuarios[i].obtenerIDUsuario().ToString(), listaUsuarios[i].obtenerNombreUsuario(), listaUsuarios[i].obtenerCargo(), "No");
+                    dataGridViewUsuario.Rows.Add(listaUsuarios[i].obtenerIDUsuario().ToString(), listaUsuarios[i].obtenerNombreNatural(), listaUsuarios[i].obtenerCargo(), "No");
                 } else {
-                    dataGridViewUsuario.Rows.Add(listaUsuarios[i].obtenerIDUsuario().ToString(), listaUsuarios[i].obtenerNombreUsuario(), listaUsuarios[i].obtenerCargo(), "Si");
+                    dataGridViewUsuario.Rows.Add(listaUsuarios[i].obtenerIDUsuario().ToString(), listaUsuarios[i].obtenerNombreNatural(), listaUsuarios[i].obtenerCargo(), "Si");
                 }           
 
             }
@@ -77,7 +77,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloAdminstración{
 
         private void ButtonResetearContra_Click(object sender, EventArgs e){
             formGenerico?.Close();
-            formGenerico = new UserContra("Reseteo de contraseña", "resetear contraseña", 2, usuario, idAux,this) ; // cambiar por usuario seleccionado
+            formGenerico = new UserContra("Reseteo de contraseña", "resetear contraseña", 2, usuario, idAux,this) ; 
             formGenerico.Show();
         }
 

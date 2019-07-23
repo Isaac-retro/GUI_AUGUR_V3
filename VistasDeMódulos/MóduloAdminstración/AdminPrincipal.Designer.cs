@@ -196,7 +196,7 @@
             // 
             this.pictureBoxRefrescarListaUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxRefrescarListaUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRefrescarListaUsuarios.Image")));
-            this.pictureBoxRefrescarListaUsuarios.Location = new System.Drawing.Point(505, 73);
+            this.pictureBoxRefrescarListaUsuarios.Location = new System.Drawing.Point(507, 73);
             this.pictureBoxRefrescarListaUsuarios.Name = "pictureBoxRefrescarListaUsuarios";
             this.pictureBoxRefrescarListaUsuarios.Size = new System.Drawing.Size(31, 24);
             this.pictureBoxRefrescarListaUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

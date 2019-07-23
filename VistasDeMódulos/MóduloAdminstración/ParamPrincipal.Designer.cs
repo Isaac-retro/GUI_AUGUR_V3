@@ -41,6 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxBuscarParam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.idParamSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorparamSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelParam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametros)).BeginInit();
             this.panelParamInferior.SuspendLayout();
@@ -62,6 +65,10 @@
             // dataGridViewParametros
             // 
             this.dataGridViewParametros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParametros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParamSet,
+            this.nombreParam,
+            this.valorparamSet});
             this.dataGridViewParametros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewParametros.Location = new System.Drawing.Point(0, 86);
             this.dataGridViewParametros.Name = "dataGridViewParametros";
@@ -130,6 +137,7 @@
             this.buttonActualizarPr.TabIndex = 12;
             this.buttonActualizarPr.Text = "Actualizar";
             this.buttonActualizarPr.UseVisualStyleBackColor = true;
+            this.buttonActualizarPr.Click += new System.EventHandler(this.ButtonActualizarPr_Click);
             // 
             // buttonRegistrarPr
             // 
@@ -151,6 +159,7 @@
             // 
             // panelParamSuperior
             // 
+            this.panelParamSuperior.BackColor = System.Drawing.Color.White;
             this.panelParamSuperior.Controls.Add(this.pictureBoxRefrescarListaParametros);
             this.panelParamSuperior.Controls.Add(this.label3);
             this.panelParamSuperior.Controls.Add(this.textBoxBuscarParam);
@@ -171,6 +180,7 @@
             this.pictureBoxRefrescarListaParametros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxRefrescarListaParametros.TabIndex = 27;
             this.pictureBoxRefrescarListaParametros.TabStop = false;
+            this.pictureBoxRefrescarListaParametros.Click += new System.EventHandler(this.PictureBoxRefrescarListaParametros_Click);
             // 
             // label3
             // 
@@ -205,6 +215,27 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Buscar Parámetro";
             // 
+            // idParamSet
+            // 
+            this.idParamSet.Frozen = true;
+            this.idParamSet.HeaderText = "ID";
+            this.idParamSet.Name = "idParamSet";
+            this.idParamSet.ReadOnly = true;
+            // 
+            // nombreParam
+            // 
+            this.nombreParam.Frozen = true;
+            this.nombreParam.HeaderText = "Nombre del Parametro";
+            this.nombreParam.Name = "nombreParam";
+            this.nombreParam.ReadOnly = true;
+            // 
+            // valorparamSet
+            // 
+            this.valorparamSet.Frozen = true;
+            this.valorparamSet.HeaderText = "Valor del Parametro";
+            this.valorparamSet.Name = "valorparamSet";
+            this.valorparamSet.ReadOnly = true;
+            // 
             // ParamPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,5 +269,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxBuscarParam;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idParamSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreParam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorparamSet;
     }
 }

@@ -14,9 +14,11 @@ namespace GUI_AUGUR_V3.DataBase{
     /// </summary>
     class ConexionDB {
         public ConexionDB() { }
+
         // variable final que contiene el directorio de la conexión
         //private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
-        private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR;Integrated Security=True";
+        private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR_BASE;Integrated Security=True";
+
 
         /// variable goblal que sirve para almacenar el comando SQL
         private string consultaString = "";
@@ -60,21 +62,21 @@ namespace GUI_AUGUR_V3.DataBase{
 
 
         /// <summary>
-        /// devuelve un objeto usuario de acuerdo al loggin del usuario almacenado en la base de datos
+        /// devuelve un objeto usuario de acuerdo al nombre de usuario almacenado en la base de datos
         /// </summary>
-        /// <param name="logginUsuario"></param>
+        /// <param name="nombreUsuario"></param>
         /// <returns></returns>
-        public Usuario consultarUsuario(string logginUsuario) {
+        public Usuario consultarUsuario(string nombreUsuario) {
             Usuario user_object;
             coneccion = new SqlConnection(CONECCION_STRING);
             coneccion.Open();
             if (coneccion.State == System.Data.ConnectionState.Open) {
-                consultaString = "select idUsuario,nombreUsuario,loggin,pass from usuario where  activoUsuario = 'Si' AND loggin = '" + logginUsuario + "';";
+                consultaString = "select idUsuario,nombreUsuario,nombreNatural,pass,cargo from usuario where  activoUsuario = 'Si' AND nombreUsuario = '" + nombreUsuario + "';";
                 comandoQuery = new SqlCommand(consultaString, coneccion);
                 lectorDeDatos = comandoQuery.ExecuteReader();
                 if (lectorDeDatos.Read()) {
-                    if (logginUsuario.ToString() == Convert.ToString(lectorDeDatos["loggin"])) {
-                        user_object = new Usuario(Convert.ToInt32(lectorDeDatos["idUsuario"]), Convert.ToString(lectorDeDatos["loggin"]), Convert.ToString(lectorDeDatos["nombreUsuario"]), seleccionarCargo(Convert.ToString(lectorDeDatos["loggin"])), Convert.ToString(lectorDeDatos["pass"]),true);
+                    if (nombreUsuario.ToString() == Convert.ToString(lectorDeDatos["nombreUsuario"])) {
+                        user_object = new Usuario(Convert.ToInt32(lectorDeDatos["idUsuario"]), Convert.ToString(lectorDeDatos["nombreUsuario"]), Convert.ToString(lectorDeDatos["nombreNatural"]), Convert.ToString(lectorDeDatos["cargo"]), Convert.ToString(lectorDeDatos["pass"]), Convert.ToString(lectorDeDatos["pass"]) == "Si");
                         coneccion.Close();
                         return user_object;
                     } else {
@@ -91,7 +93,7 @@ namespace GUI_AUGUR_V3.DataBase{
 
 
         /// <summary>
-        /// consulta un usuario con el loggin
+        /// consulta un usuario cde acuerdo al id usuario
         /// </summary>
         /// <param name="idUsuario"></param>
         /// <returns></returns>
@@ -102,15 +104,15 @@ namespace GUI_AUGUR_V3.DataBase{
             coneccion.Open();
             if (coneccion.State == System.Data.ConnectionState.Open)
             {
-                consultaString = "select nombreUsuario,loggin,pass,activoUsuario from usuario where idUsuario = '" + idUsuario + "';";
+                consultaString = "select nombreUsuario,nombreNatural,pass,cargo,activoUsuario from usuario where idUsuario = '" + idUsuario + "';";
                 comandoQuery = new SqlCommand(consultaString, coneccion);
                 lectorDeDatos = comandoQuery.ExecuteReader();
                 if (lectorDeDatos.Read())
                 {
                     usuariObjeto = new Usuario(idUsuario,
-                                              Convert.ToString(lectorDeDatos["loggin"]) ,
                                               Convert.ToString(lectorDeDatos["nombreUsuario"]),
-                                              seleccionarCargo(Convert.ToString(lectorDeDatos["loggin"])),
+                                              Convert.ToString(lectorDeDatos["nombreNatural"]),
+                                                Convert.ToString(lectorDeDatos["cargo"]),
                                               Convert.ToString(lectorDeDatos["pass"]),
                                               Convert.ToString(lectorDeDatos["activoUsuario"]) == "Si");
                     coneccion.Close();
@@ -126,24 +128,6 @@ namespace GUI_AUGUR_V3.DataBase{
                 return null;
             }
         }
-
-
-        /// <summary>
-        /// selecciona un cargo de acuerdo al loggin del usuario
-        /// </summary>
-        /// <param name="param"></param>
-        /// <returns></returns>
-        public string seleccionarCargo(string param) {
-            if (param == "manag") {
-                return "Gerente";
-            } else if (param == "admin") {
-                return "Administrador";
-            } else {
-                return "Cajero";
-            }
-
-        }
-
 
         /// <summary>
         /// cambia el atributo de activoUsuario almacenado en la base datos mediante el Id del usuario
@@ -201,7 +185,12 @@ namespace GUI_AUGUR_V3.DataBase{
                 lectorDeDatos = comandoQuery.ExecuteReader();
                 while (lectorDeDatos.Read())
                 {
-                    resultado.Add(new Usuario(Convert.ToInt32(lectorDeDatos["idUsuario"]), Convert.ToString(lectorDeDatos["loggin"]), Convert.ToString(lectorDeDatos["nombreUsuario"]), seleccionarCargo(Convert.ToString(lectorDeDatos["loggin"])), Convert.ToString(lectorDeDatos["pass"]), Convert.ToString(lectorDeDatos["activoUsuario"]) == "Si"));
+                    resultado.Add(new Usuario(Convert.ToInt32(lectorDeDatos["idUsuario"]),
+                        Convert.ToString(lectorDeDatos["nombreUsuario"]),
+                        Convert.ToString(lectorDeDatos["nombreNatural"]),
+                        Convert.ToString(lectorDeDatos["Cargo"]),
+                        Convert.ToString(lectorDeDatos["pass"]),
+                        Convert.ToString(lectorDeDatos["activoUsuario"]) == "Si"));
                 }
 
                 coneccion.Close();
@@ -212,13 +201,13 @@ namespace GUI_AUGUR_V3.DataBase{
         /// <summary>
         /// registra un usuario en valido en la base de datos
         /// </summary>
-        /// <param name="nombreUSuario"></param>
-        /// <param name="loggin"></param>
+        /// <param name="nombreNatural"></param>
+        /// <param name="nombreUsuario"></param>
         /// <param name="pass"></param>
         /// <returns></returns>
-        public int registrarUsuario(string nombreUSuario, string loggin, string pass)
+        public int registrarUsuario(string nombreNatural, string nombreUsuario, string pass)
         {
-            consultaString = "insert into Usuario (nombreUsuario,loggin,pass,activoUsuario ) values ('" + nombreUSuario + "', '" + loggin + "', '" + md5_string(pass) + "' , 'Si'  );";
+            consultaString = "insert into Usuario (nombreNatural,nombreUsuario,cargo,pass,activoUsuario ) values ('" + nombreNatural + "', '" + nombreUsuario + "', 'Cajero','" + md5_string(pass) + "' , 'Si'  );";
             coneccion = new SqlConnection(CONECCION_STRING);
             coneccion.Open();
             if (coneccion.State == System.Data.ConnectionState.Open)
@@ -273,6 +262,91 @@ namespace GUI_AUGUR_V3.DataBase{
             }
             return bandera;
 
+        }
+
+
+        public List<PlatoDeComida> regresarListaPlatos(string nombrePlato) {
+            List<PlatoDeComida> resultado = new List<PlatoDeComida>();
+            consultaString = "select * from PlatoDeComida where nombrePlato like '" + nombrePlato + "%'";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                while (lectorDeDatos.Read())
+                {
+                    resultado.Add(new PlatoDeComida(Convert.ToInt32(lectorDeDatos["idPlato"]),
+                        Convert.ToString(lectorDeDatos["nombrePlato"]),
+                        (float)Convert.ToDouble(lectorDeDatos["precioPlato"]),
+                        Convert.ToString(lectorDeDatos["tipoPlato"]),
+                        Convert.ToString(lectorDeDatos["activoPlato"]) == "Si"));
+                }
+
+                coneccion.Close();
+            }
+            return resultado;
+        }
+
+        public int registrarPlato(PlatoDeComida plato) {
+            consultaString = "insert into PlatoDeComida (nombrePlato,precioPlato,tipoPlato,activoPlato )" +
+                " values ('" + plato.obtenerNombrePlato() + "', '" + plato.obtenerValorPlato() + "', '"+  plato.obtenerTipo()  + "', 'Si'  );";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                int i = Convert.ToInt16(comandoQuery.ExecuteNonQuery());
+                coneccion.Close();
+                return i;
+            }
+            return -1;
+        }
+
+        public List<Ingrediente> regresarListaIngredientes(string nombreIngrediente) {
+            List<Ingrediente> resultado = new List<Ingrediente>();
+            consultaString = "select * from Ingredientes where nombreIngrediente like '" + nombreIngrediente + "%' ";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                while (lectorDeDatos.Read())
+                {
+                    resultado.Add(new Ingrediente(Convert.ToInt32(lectorDeDatos["idIngrediente"]),
+                        Convert.ToString(lectorDeDatos["nombreIngrediente"]),
+                        (float)Convert.ToDouble(lectorDeDatos["precioIngrediente"]),
+                        Convert.ToString(lectorDeDatos["unidadMedida"]),
+                        (float)Convert.ToDouble(lectorDeDatos["cantidadDisponible"]),
+                        Convert.ToString(lectorDeDatos["activoparametro"]) == "Si"));
+                }
+
+                coneccion.Close();
+            }
+            return resultado;
+        }
+
+        public List<Parametro> regresarListaParametros(string nombreParam) {
+            List<Parametro> resultado = new List<Parametro>();
+            consultaString = "select * from Parametro where nombreParametro like '" + nombreParam + "%' ";
+            coneccion = new SqlConnection(CONECCION_STRING);
+            coneccion.Open();
+            if (coneccion.State == System.Data.ConnectionState.Open)
+            {
+                comandoQuery = new SqlCommand(consultaString, coneccion);
+                lectorDeDatos = comandoQuery.ExecuteReader();
+                while (lectorDeDatos.Read())
+                {
+                    resultado.Add(new Parametro(Convert.ToInt32(lectorDeDatos["idParametro"]),
+                        Convert.ToString(lectorDeDatos["nombreParametro"]),
+                        (float)Convert.ToDouble(lectorDeDatos["valorParametro"]),
+                        Convert.ToString(lectorDeDatos["activoParametro"]) == "Si"));
+                }
+
+                coneccion.Close();
+            }
+            return resultado;
         }
     }
 }

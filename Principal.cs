@@ -17,12 +17,12 @@ namespace GUI_AUGUR_V3 {
     /// Clase de la ventana principal del programa, en el panel contenedor se abren los demas formularios
     /// </summary>
     public partial class Principal : Form {
+
         // variable que almacena el usuario logueado en el sistema
         private Usuario user;
 
         //variable generica a la que se le realiza un casting para abrir distintos tipos de formularios
         private Form formgenerico;
-
 
         /// <summary>
         /// Constructor del formulario
@@ -31,13 +31,11 @@ namespace GUI_AUGUR_V3 {
         public Principal(Usuario user){
             InitializeComponent();
             this.user = user;
-            labelUser.Text = user.obtenerNombreUsuario();
+            labelUser.Text = user.obtenerNombreNatural();
             labelUserCargo.Text = user.obtenerCargo();
-            pictureBoxImagen.Visible = true;
-           
+            pictureBoxImagen.Visible = true;          
 
         }
-
 
         /// <summary>
         /// Importacion de librerias para mover las ventanas a traves de la pantalla
@@ -52,7 +50,6 @@ namespace GUI_AUGUR_V3 {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void cerrarbotones() {
             buttonCrearPedido.Visible = false;
             buttonInvalidarPedido.Visible = false;
@@ -63,6 +60,15 @@ namespace GUI_AUGUR_V3 {
             buttonPlatosMas.Visible = false;
             buttonReporteDiario.Visible = false;
             buttonReporteMensual.Visible = false;
+
+        }
+
+
+        public void abrirInicio() {
+            cerrarbotones();
+            formgenerico?.Close();
+            labelTitulo.Text = "AUGUR";
+            pictureBoxImagen.Visible = true;
         }
 
 
@@ -73,10 +79,16 @@ namespace GUI_AUGUR_V3 {
                 panelMenuVertical.Width = 62;
                 labelUserCargo.Visible = false;
                 labelUser.Visible = false;
+                labelTitulo1.Visible = false;
+                labelTitulo2.Visible = false;
+
+
             } else {
                 panelMenuVertical.Width = 250;
                 labelUserCargo.Visible = true;
                 labelUser.Visible = true;
+                labelTitulo1.Visible = true;
+                labelTitulo2.Visible = true;
             }
         }
    
@@ -136,10 +148,11 @@ namespace GUI_AUGUR_V3 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonClientes_Click(object sender, EventArgs e){
+            cerrarbotones();
             labelTitulo.Text = "Clientes";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
-            formgenerico = new ClientePrincipal() { TopLevel = false, FormBorderStyle = FormBorderStyle.None , Dock = DockStyle.Fill };
+            formgenerico = new ClientePrincipal(this) { TopLevel = false, FormBorderStyle = FormBorderStyle.None , Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(formgenerico);
             formgenerico.Show();
         }
@@ -171,8 +184,8 @@ namespace GUI_AUGUR_V3 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonAyuda_Click(object sender, EventArgs e){
-            this.ocultarBotonesExtra();
-
+            
+            cerrarbotones();
             labelTitulo.Text = "Ayuda";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -258,11 +271,11 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonSubPlatosDeComida_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Platos de Comida";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
-            formgenerico = new PlatosPrincipal(user, this.labelTitulo) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
+            formgenerico = new PlatosPrincipal(this,user) { TopLevel = false, FormBorderStyle = FormBorderStyle.None, Dock = DockStyle.Fill };
             panelContenedor.Controls.Add(formgenerico);
             formgenerico.Show();
 
@@ -277,7 +290,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonSubIngredientes_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Ingredientes";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -294,7 +307,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonClientesFrec_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Reportes: Clientes más frecuentes";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -313,7 +326,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonPlatosMas_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
 
             labelTitulo.Text = "Reportes: Platos más vendidos";
             pictureBoxImagen.Visible = false;
@@ -332,7 +345,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonReporteDiario_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Reporte Diario";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -349,7 +362,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonReporteMensual_Click(object sender, EventArgs e)
         {
-            ocultarBotonesExtra();
+            cerrarbotones();
 
             labelTitulo.Text = "Reporte Mensual";
             pictureBoxImagen.Visible = false;
@@ -364,19 +377,7 @@ namespace GUI_AUGUR_V3 {
         /// <summary>
         /// 
         /// </summary>
-        private void ocultarBotonesExtra()
-        {
-            this.buttonSubPlatosDeComida.Visible = false;
-            this.buttonSubIngredientes.Visible = false;
-            this.buttonClientesFrec.Visible = false;
-            this.buttonPlatosMas.Visible = false;
-            this.buttonReporteDiario.Visible = false;
-            this.buttonReporteMensual.Visible = false;
-
-            this.buttonCrearPedido.Visible = false;
-            this.buttonInvalidarPedido.Visible = false;
-            this.buttonConsultarPedido.Visible = false;
-        }
+      
 
 
 
@@ -387,7 +388,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonCrearPedido_Click(object sender, EventArgs e)
         {
-            this.ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Creación de pedido";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -405,7 +406,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonInvalidarPedido_Click(object sender, EventArgs e)
         {
-            this.ocultarBotonesExtra();
+            cerrarbotones();
             labelTitulo.Text = "Invalidación de pedido";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -422,7 +423,8 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonConsultarPedido_Click(object sender, EventArgs e)
         {
-            this.ocultarBotonesExtra();
+
+            cerrarbotones();
             labelTitulo.Text = "Consulta de pedido";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -440,6 +442,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonSubAdmin_Click(object sender, EventArgs e)
         {
+            cerrarbotones();    
             labelTitulo.Text = "Administración: Sistema";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();
@@ -473,9 +476,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonInicio_Click(object sender, EventArgs e)
         {
-            cerrarbotones();
-            formgenerico?.Close();
-            pictureBoxImagen.Visible = true;
+            abrirInicio();
 
         }
 
@@ -488,6 +489,7 @@ namespace GUI_AUGUR_V3 {
         /// <param name="e"></param>
         private void ButtonSubParam_Click(object sender, EventArgs e)
         {
+            cerrarbotones();
             labelTitulo.Text = "Administración: Parámetros";
             pictureBoxImagen.Visible = false;
             formgenerico?.Close();

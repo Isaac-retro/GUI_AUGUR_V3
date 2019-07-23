@@ -105,7 +105,7 @@ namespace GUI_AUGUR_V3 {
                         contador++;
                         if (contador > 4 && conector.bloquearUsuario(usuarioObjeto.obtenerIDUsuario()) > 0) {
 
-                            MessageBox.Show("El usuario \"" + usuarioObjeto.obtenerNombreUsuario() + "\" ha sido bloqueado | Consulte al admnistrador");
+                            MessageBox.Show("El usuario \"" + usuarioObjeto.obtenerNombreNatural() + "\" ha sido bloqueado | Consulte al admnistrador");
 
                         }
                     } else  {
