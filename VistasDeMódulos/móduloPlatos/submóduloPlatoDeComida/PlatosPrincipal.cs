@@ -15,24 +15,22 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             this.user = user;
             this.pl = pl;
             conector = new ConexionDB();
-            refrescarLista(conector.regresarListaPlatos(""));
+            //refrescarLista(conector.regresarListaPlatos(""));
+            RefrescarLista(conector.consultarPlatos());
             buttonActualizar.Enabled = false;
         }
 
-        private void refrescarLista(List<PlatoDeComida> listPlatos) {
+        public void RefrescarLista(List<PlatoDeComida> listPlatos) {
             dataGridViewPlatos.Rows.Clear();
             for (int i = 0; i < listPlatos.Count; i++)
             {
-                if (listPlatos[i].isActivo())
-                {
                     dataGridViewPlatos.Rows.Add(listPlatos[i].obtenerIdPlato().ToString(), listPlatos[i].obtenerNombrePlato(), listPlatos[i].obtenerValorPlato(), listPlatos[i].obtenerTipo());
-                }
-
+                
             }
         }
 
         public void refreshListaPlatos() {
-            refrescarLista(conector.regresarListaPlatos(""));
+            RefrescarLista(conector.consultarPlatos());
         }
 
         private void validarCaracteres(object sender, KeyPressEventArgs e)
@@ -42,13 +40,8 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             {
                 MessageBox.Show("Nombre demasiado largo");
                 textBoxNombrePlato.Text = "";
-                refrescarLista(conector.regresarListaPlatos(""));
+                RefrescarLista(conector.consultarPlatos());
             }
-        }
-
-        private void ButtonEliminar_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Plato X eliminado exitosamente");
         }
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
@@ -68,10 +61,40 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void ButtonActualizar_Click(object sender, EventArgs e)
         {
-            registrarActualizarP?.Close();
-            registrarActualizarP = new RegistrarActualzarPlatocs(this,"Actualización Plato de comida", "actualizar", user, 0);
-            registrarActualizarP.Show();
+            try { 
+                //this.dataGridViewPlatos.Rows(dataGridViewLista.Rows.RemoveAt(dataGridViewLista.CurrentRow.Index));
+                if (dataGridViewPlatos.Rows[dataGridViewPlatos.CurrentRow.Index].Cells[0].Value != null)
+                {
+                    int id = Convert.ToInt32(dataGridViewPlatos.Rows[dataGridViewPlatos.CurrentRow.Index].Cells[0].Value.ToString());
+                    registrarActualizarP?.Close();
+                    registrarActualizarP = new RegistrarActualzarPlatocs(this, "Actualización Plato de comida", "actualizar", user, id);
+                    registrarActualizarP.Show();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+
         }
+
+
+        private void ButtonEliminar_Click(object sender, EventArgs e)
+        {
+            try { 
+                ConexionDB conexion = new ConexionDB();
+                int id = Convert.ToInt32(dataGridViewPlatos.Rows[dataGridViewPlatos.CurrentRow.Index].Cells[0].Value.ToString());
+
+                conexion.eliminarPlato(id);
+
+                RefrescarLista(conector.consultarPlatos());
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
 
         private void TextBoxNombrePlato_KeyDown(object sender, KeyEventArgs e)
         {
@@ -80,14 +103,24 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void TextBoxNombrePlato_TextChanged(object sender, EventArgs e)
         {
-            refrescarLista(conector.regresarListaPlatos(textBoxNombrePlato.Text));
+            RefrescarLista(conector.regresarListaPlatos(textBoxNombrePlato.Text));
         }
 
         private void PictureBoxRefrescarLista_Click(object sender, EventArgs e)
         {
-            refrescarLista(conector.regresarListaPlatos(""));
+            RefrescarLista(conector.consultarPlatos());
             textBoxNombrePlato.Text = "";
 
+        }
+
+        private void DataGridViewPlatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.buttonActualizar.Enabled = true;
+        }
+
+        private void DataGridViewPlatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.buttonActualizar.Enabled = true;
         }
     }
 }

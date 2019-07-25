@@ -34,7 +34,6 @@
             this.labelTituloLoggin = new System.Windows.Forms.Label();
             this.pictureBoxSalir = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.buttonQuitar = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
@@ -43,13 +42,10 @@
             this.dataGridViewOk = new System.Windows.Forms.DataGridView();
             this.idOkay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreIngredienteOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadMedidaOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLista = new System.Windows.Forms.DataGridView();
             this.idLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreIngredienteLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadMedidaLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
@@ -115,7 +111,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.buttonActualizar);
             this.panel1.Controls.Add(this.buttonQuitar);
             this.panel1.Controls.Add(this.buttonAgregar);
@@ -135,17 +130,6 @@
             this.panel1.Size = new System.Drawing.Size(847, 450);
             this.panel1.TabIndex = 34;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(438, 45);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 20);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Costo por Ingrediente: ";
-            // 
             // buttonActualizar
             // 
             this.buttonActualizar.BackColor = System.Drawing.Color.White;
@@ -154,12 +138,13 @@
             this.buttonActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonActualizar.Location = new System.Drawing.Point(424, 398);
+            this.buttonActualizar.Location = new System.Drawing.Point(428, 398);
             this.buttonActualizar.Name = "buttonActualizar";
             this.buttonActualizar.Size = new System.Drawing.Size(200, 45);
             this.buttonActualizar.TabIndex = 44;
             this.buttonActualizar.Text = "Actualizar";
             this.buttonActualizar.UseVisualStyleBackColor = false;
+            this.buttonActualizar.Click += new System.EventHandler(this.ButtonActualizar_Click);
             // 
             // buttonQuitar
             // 
@@ -175,7 +160,7 @@
             this.buttonQuitar.Name = "buttonQuitar";
             this.buttonQuitar.Size = new System.Drawing.Size(200, 45);
             this.buttonQuitar.TabIndex = 43;
-            this.buttonQuitar.Text = "Quitar";
+            this.buttonQuitar.Text = "Reestablecer";
             this.buttonQuitar.UseVisualStyleBackColor = false;
             this.buttonQuitar.Click += new System.EventHandler(this.ButtonQuitar_Click);
             // 
@@ -225,7 +210,6 @@
             this.dataGridViewOk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idOkay,
             this.nombreIngredienteOk,
-            this.unidadMedidaOk,
             this.cantidadOk});
             this.dataGridViewOk.Location = new System.Drawing.Point(424, 110);
             this.dataGridViewOk.Name = "dataGridViewOk";
@@ -247,33 +231,23 @@
             this.nombreIngredienteOk.HeaderText = "Nombre del Ingrediente";
             this.nombreIngredienteOk.Name = "nombreIngredienteOk";
             this.nombreIngredienteOk.ReadOnly = true;
-            this.nombreIngredienteOk.Width = 150;
-            // 
-            // unidadMedidaOk
-            // 
-            this.unidadMedidaOk.Frozen = true;
-            this.unidadMedidaOk.HeaderText = "Unidad de Medida";
-            this.unidadMedidaOk.Name = "unidadMedidaOk";
-            this.unidadMedidaOk.ReadOnly = true;
+            this.nombreIngredienteOk.Width = 250;
             // 
             // cantidadOk
             // 
             this.cantidadOk.Frozen = true;
             this.cantidadOk.HeaderText = "Cantidad";
             this.cantidadOk.Name = "cantidadOk";
-            this.cantidadOk.ReadOnly = true;
             // 
             // dataGridViewLista
             // 
             this.dataGridViewLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idLista,
-            this.nombreIngredienteLista,
-            this.unidadMedidaLista,
-            this.cantidadLista});
+            this.nombreIngredienteLista});
             this.dataGridViewLista.Location = new System.Drawing.Point(12, 110);
             this.dataGridViewLista.Name = "dataGridViewLista";
-            this.dataGridViewLista.Size = new System.Drawing.Size(406, 282);
+            this.dataGridViewLista.Size = new System.Drawing.Size(396, 282);
             this.dataGridViewLista.TabIndex = 38;
             this.dataGridViewLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewLista_CellClick);
             this.dataGridViewLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
@@ -294,21 +268,7 @@
             this.nombreIngredienteLista.Name = "nombreIngredienteLista";
             this.nombreIngredienteLista.ReadOnly = true;
             this.nombreIngredienteLista.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nombreIngredienteLista.Width = 150;
-            // 
-            // unidadMedidaLista
-            // 
-            this.unidadMedidaLista.Frozen = true;
-            this.unidadMedidaLista.HeaderText = "Unidad de Medida";
-            this.unidadMedidaLista.Name = "unidadMedidaLista";
-            this.unidadMedidaLista.ReadOnly = true;
-            this.unidadMedidaLista.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // cantidadLista
-            // 
-            this.cantidadLista.Frozen = true;
-            this.cantidadLista.HeaderText = "Cantidad";
-            this.cantidadLista.Name = "cantidadLista";
+            this.nombreIngredienteLista.Width = 300;
             // 
             // label3
             // 
@@ -343,7 +303,7 @@
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(151, 10);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(421, 20);
+            this.textBoxNombre.Size = new System.Drawing.Size(267, 20);
             this.textBoxNombre.TabIndex = 34;
             this.textBoxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNombre_KeyPress);
             // 
@@ -405,14 +365,10 @@
         private System.Windows.Forms.TextBox textBoxPrecio;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadMedidaLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadLista;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn idOkay;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteOk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadMedidaOk;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadOk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteLista;
     }
 }

@@ -32,6 +32,8 @@
             this.textBoxNuevoPrecio = new System.Windows.Forms.TextBox();
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxCantidad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +76,29 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(167, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "nueva cantidad";
+            // 
+            // textBoxCantidad
+            // 
+            this.textBoxCantidad.Location = new System.Drawing.Point(312, 113);
+            this.textBoxCantidad.Name = "textBoxCantidad";
+            this.textBoxCantidad.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCantidad.TabIndex = 5;
+            // 
             // ActualizarIngrediente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 225);
+            this.Controls.Add(this.textBoxCantidad);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.textBoxNuevoPrecio);
@@ -96,5 +116,7 @@
         private System.Windows.Forms.TextBox textBoxNuevoPrecio;
         private System.Windows.Forms.Button buttonActualizar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxCantidad;
     }
 }

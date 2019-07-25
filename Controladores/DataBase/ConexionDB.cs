@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using GUI_AUGUR_V3.ModelosClases;
 using System.Collections.Generic;
+using System.Data;
 
 namespace GUI_AUGUR_V3.DataBase{
 
@@ -12,12 +13,12 @@ namespace GUI_AUGUR_V3.DataBase{
     /// Conexión Loggin sirver para estalecer una conexión a  
     /// autor = Isaac Tuquerrez
     /// </summary>
-    class ConexionDB {
+    public class ConexionDB {
         public ConexionDB() { }
 
         // variable final que contiene el directorio de la conexión
-        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR;Integrated Security=True";
-        private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR_BASE;Integrated Security=True";
+        private readonly string CONECCION_STRING = "Data Source=DESKTOP-U6QA500;Initial Catalog=AUGUR_BASE;Integrated Security=True";
+        //private readonly string CONECCION_STRING = "Data Source=DESKTOP-9G3OD0K\\ISAAC_SQL_SERVER;Initial Catalog=AUGUR_BASE;Integrated Security=True";
 
 
         /// variable goblal que sirve para almacenar el comando SQL
@@ -61,6 +62,274 @@ namespace GUI_AUGUR_V3.DataBase{
         }
 
 
+        public void crearPlatoDeComida(PlatoDeComida platoDeComida)
+        {
+            using (var conn = new SqlConnection(this.CONECCION_STRING)) {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("dbo.crearPlatoDeComida", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@nombrePlato", platoDeComida.obtenerNombrePlato()));
+                cmd.Parameters.Add(new SqlParameter("@precioPlato", platoDeComida.obtenerValorPlato()));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+        }
+
+
+        public List<PlatoDeComida> consultarPlatos()
+        {
+            List<PlatoDeComida> platos = new List<PlatoDeComida>();
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("consultarTodosLosPlatos", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        platos.Add(new PlatoDeComida(Convert.ToInt32(rdr["idplato"].ToString()), rdr["nombreplato"].ToString(),
+                            (float)Convert.ToDouble(rdr["precioplato"].ToString()), rdr["tipoplato"].ToString(), (rdr["activoplato"].ToString() == "Si" || rdr["activoplato"].ToString() == "si") ? true: false));
+
+                        //Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+            return platos;
+
+        }
+
+        public void actualizarPlato(int idPlato, float precio, bool estado)
+        {
+
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("actualizarPlatoDeComida", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@idPlato", idPlato));
+                cmd.Parameters.Add(new SqlParameter("@precioPlato", precio));
+                cmd.Parameters.Add(new SqlParameter("@activoPlato", estado));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+
+        }
+
+        public void eliminarPlato(int idPlato)
+        {
+
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("borrarPlatoDeComida", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@idPlato", idPlato));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+
+        }
+
+
+        public void eliminarIngrediente(string nombre)
+        {
+
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("borrarIngrediente", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nombreIngrediente", nombre));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+
+        }
+
+
+        public List<Ingrediente> consultarIngredientes()
+        {
+            List<Ingrediente> ingredientes = new List<Ingrediente>();
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("consultarTodosLosIngredientes", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+
+                        ingredientes.Add(new Ingrediente(Convert.ToInt32(rdr["idingrediente"].ToString()),
+                            rdr["nombreingrediente"].ToString(),
+                            (float)Convert.ToDouble(rdr["precioIngrediente"].ToString()),
+                            Convert.ToInt32(rdr["cantidaddisponible"].ToString()),
+                            (rdr["activoparametro"].ToString() == "Si" || rdr["activoplato"].ToString() == "si") ? true : false));
+
+                        
+                        //Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+            return ingredientes;
+
+        }
+
+
+        public void crearIngrediente(Ingrediente ingrediente)
+        {
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("crearIngrediente", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@nombreIngrediente", ingrediente.obtenerNombreIngrediente()));
+                cmd.Parameters.Add(new SqlParameter("@precioIngrediente", ingrediente.obtenerValorIngrediente()));
+                cmd.Parameters.Add(new SqlParameter("@cantidadDisponible", ingrediente.obtnerCantidaddisponible()));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombreIngrediente"], rdr["precioIngrediente"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+        }
+
+
+        public void actualizarIngrediente(string nombre, float precio, int cantidad)
+        {
+
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("actualizarIngrediente", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nombreIngrediente", nombre));
+                cmd.Parameters.Add(new SqlParameter("@precioIngrediente", precio));
+                cmd.Parameters.Add(new SqlParameter("@cantidadDisponible", (float)cantidad));
+                Console.WriteLine(nombre);
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombreIngrediente"], rdr["precioIngrediente"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+
+        }
         /// <summary>
         /// devuelve un objeto usuario de acuerdo al nombre de usuario almacenado en la base de datos
         /// </summary>

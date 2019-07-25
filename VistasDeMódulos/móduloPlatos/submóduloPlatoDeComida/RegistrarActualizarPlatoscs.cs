@@ -7,9 +7,10 @@ using System.Windows.Forms;
 namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 {
     public partial class RegistrarActualzarPlatocs : Form {
-        private int idPlato = 0;
+        private int idPlato = -1;
         private DataGridViewRow rowLista;
-        private DataGridViewRow rowOkay;
+
+
         private Usuario user;
         private PlatosPrincipal ppl;
         private ConexionDB conector;
@@ -23,7 +24,8 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             refrescarLista(conector.regresarListaIngredientes("") );
             if (funcion == "actualizar")
             {
-                textBoxNombre.Enabled = false;
+                label2.Visible = false;
+                textBoxNombre.Visible = false;
                 buttonRegistrar.Visible = false;
 
             }
@@ -50,10 +52,6 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
         }
 
 
-        private void ButtonRegistrar_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Plato registrado correctamente");
-        }
 
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,9 +67,10 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
         {
-            ppl.refreshListaPlatos();
+            ppl.RefrescarLista(conector.consultarPlatos());
             this.Close();
         }
+
 
 
         private void DataGridViewLista_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -97,24 +96,18 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
         private void ButtonAgregar_Click(object sender, EventArgs e)
         {
 
-            if (dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[3].Value.ToString() != "0" )
+           
+            try
             {
-                try
-                {
-                    Convert.ToDouble(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[3].Value.ToString());
-                    dataGridViewOk.Rows.Add(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[0].Value,
-                    dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[1].Value,
-                    dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[2].Value,
-                    dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[3].Value);
-                    dataGridViewLista.Rows.RemoveAt(dataGridViewLista.CurrentRow.Index);
-                }
-                catch {
-                    MessageBox.Show("Escribe un valor númerico en la cantidad");
-                }
+                //Convert.ToDouble(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[3].Value.ToString());
+                dataGridViewOk.Rows.Add(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[0].Value, 0);
+                dataGridViewLista.Rows.RemoveAt(dataGridViewLista.CurrentRow.Index);
             }
-            else {
-                MessageBox.Show("Escribe un valor númerico en la cantidad");
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
+
 
         }
 
@@ -132,5 +125,48 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             refrescarLista(conector.regresarListaIngredientes(""));
             dataGridViewOk.Rows.Clear();
         }
+
+        private void ButtonActualizar_Click(object sender, EventArgs e)
+        {
+            try { 
+            ConexionDB conexion = new ConexionDB();
+            conexion.actualizarPlato(this.idPlato, (float)Convert.ToDouble(this.textBoxPrecio.Text), true);
+            refrescarLista(conector.regresarListaIngredientes(""));
+                limpiarCajas();
+                MessageBox.Show("Plato actualizado");
+            dataGridViewOk.Rows.Clear();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+
+
+        private void ButtonRegistrar_Click(object sender, EventArgs e)
+        {
+            try { 
+
+                ConexionDB conexion = new ConexionDB();
+                conexion.crearPlatoDeComida(new PlatoDeComida(100,this.textBoxNombre.Text,(float)Convert.ToDouble(this.textBoxPrecio.Text),"Fuerte",true));
+                refrescarLista(conector.regresarListaIngredientes(""));
+                limpiarCajas();
+                dataGridViewOk.Rows.Clear();
+                MessageBox.Show("Plato registrado");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void limpiarCajas()
+        {
+            this.textBoxNombre.Text = "";
+            this.textBoxPrecio.Text = "";
+        }
+
+
     }
 }

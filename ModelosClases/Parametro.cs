@@ -1,5 +1,5 @@
 ﻿namespace GUI_AUGUR_V3.ModelosClases {
-    class Parametro {
+    public class Parametro {
         private int idParametro;
         private string nombreParametro;
         private float valorParametro;

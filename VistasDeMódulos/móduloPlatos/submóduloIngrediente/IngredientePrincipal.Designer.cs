@@ -32,13 +32,17 @@
             this.textBoxNombreIngrediente = new System.Windows.Forms.TextBox();
             this.textBoxPrecioIngrediente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxCantidad = new System.Windows.Forms.TextBox();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,24 +82,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Precio";
             // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEliminar.FlatAppearance.BorderSize = 0;
-            this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminar.Location = new System.Drawing.Point(67, 432);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(289, 90);
-            this.buttonEliminar.TabIndex = 34;
-            this.buttonEliminar.Text = "Eliminar ingrediente seleccionado";
-            this.buttonEliminar.UseVisualStyleBackColor = false;
-            this.buttonEliminar.Click += new System.EventHandler(this.Button2_Click);
-            // 
             // buttonRegistrar
             // 
             this.buttonRegistrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -124,7 +110,7 @@
             this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancelar.Location = new System.Drawing.Point(814, 434);
+            this.buttonCancelar.Location = new System.Drawing.Point(732, 432);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(170, 87);
             this.buttonCancelar.TabIndex = 32;
@@ -142,7 +128,7 @@
             this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonActualizar.Location = new System.Drawing.Point(432, 432);
+            this.buttonActualizar.Location = new System.Drawing.Point(386, 432);
             this.buttonActualizar.Name = "buttonActualizar";
             this.buttonActualizar.Size = new System.Drawing.Size(321, 87);
             this.buttonActualizar.TabIndex = 31;
@@ -153,9 +139,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombre,
+            this.precio,
+            this.cantidadDisponible});
             this.dataGridView1.Location = new System.Drawing.Point(161, 163);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(741, 243);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 243);
             this.dataGridView1.TabIndex = 35;
             // 
             // label3
@@ -167,14 +157,60 @@
             this.label3.TabIndex = 36;
             this.label3.Text = "dólares";
             // 
+            // textBoxCantidad
+            // 
+            this.textBoxCantidad.Location = new System.Drawing.Point(487, 127);
+            this.textBoxCantidad.Name = "textBoxCantidad";
+            this.textBoxCantidad.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCantidad.TabIndex = 49;
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEliminar.FlatAppearance.BorderSize = 0;
+            this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEliminar.Location = new System.Drawing.Point(67, 432);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(289, 90);
+            this.buttonEliminar.TabIndex = 34;
+            this.buttonEliminar.Text = "Eliminar ingrediente seleccionado";
+            this.buttonEliminar.UseVisualStyleBackColor = false;
+            this.buttonEliminar.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(373, 137);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(334, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(280, 13);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "Tabla de búsqueda automática por nombre de ingrediente";
+            this.label4.Size = new System.Drawing.Size(134, 36);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Cantidad";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 300;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "precioIngrediente";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            // 
+            // cantidadDisponible
+            // 
+            this.cantidadDisponible.HeaderText = "CantidadDisponible";
+            this.cantidadDisponible.Name = "cantidadDisponible";
+            this.cantidadDisponible.ReadOnly = true;
+            this.cantidadDisponible.Width = 200;
             // 
             // IngredientePrincipal
             // 
@@ -182,6 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 548);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxCantidad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonEliminar);
@@ -206,12 +243,16 @@
         private System.Windows.Forms.TextBox textBoxNombreIngrediente;
         private System.Windows.Forms.TextBox textBoxPrecioIngrediente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonActualizar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxCantidad;
+        private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDisponible;
     }
 }

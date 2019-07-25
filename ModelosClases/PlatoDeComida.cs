@@ -1,5 +1,5 @@
 ﻿namespace GUI_AUGUR_V3.ModelosClases {
-    class PlatoDeComida{
+    public class PlatoDeComida{
         private int idPlato;
         private string nombrePlato;
         private float valorPlato;

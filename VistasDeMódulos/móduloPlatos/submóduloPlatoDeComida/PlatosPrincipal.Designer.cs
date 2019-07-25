@@ -116,9 +116,9 @@
             this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonActualizar.Location = new System.Drawing.Point(271, 3);
+            this.buttonActualizar.Location = new System.Drawing.Point(296, 0);
             this.buttonActualizar.Name = "buttonActualizar";
-            this.buttonActualizar.Size = new System.Drawing.Size(262, 45);
+            this.buttonActualizar.Size = new System.Drawing.Size(218, 45);
             this.buttonActualizar.TabIndex = 41;
             this.buttonActualizar.Text = "Actualizar";
             this.buttonActualizar.UseVisualStyleBackColor = false;
@@ -219,6 +219,8 @@
             this.dataGridViewPlatos.Name = "dataGridViewPlatos";
             this.dataGridViewPlatos.Size = new System.Drawing.Size(1050, 526);
             this.dataGridViewPlatos.TabIndex = 46;
+            this.dataGridViewPlatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPlatos_CellClick);
+            this.dataGridViewPlatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPlatos_CellContentClick);
             // 
             // idPlato
             // 
