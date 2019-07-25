@@ -100,8 +100,15 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             try
             {
                 //Convert.ToDouble(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[3].Value.ToString());
-                dataGridViewOk.Rows.Add(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[0].Value, 0);
+                dataGridViewOk.Rows.Add(dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[0].Value,
+                    dataGridViewLista.Rows[dataGridViewLista.CurrentRow.Index].Cells[1].Value,0);
                 dataGridViewLista.Rows.RemoveAt(dataGridViewLista.CurrentRow.Index);
+
+
+                
+
+
+
             }
             catch (Exception error)
             {
@@ -128,6 +135,9 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void ButtonActualizar_Click(object sender, EventArgs e)
         {
+
+            
+            
             try { 
             ConexionDB conexion = new ConexionDB();
             conexion.actualizarPlato(this.idPlato, (float)Convert.ToDouble(this.textBoxPrecio.Text), true);
@@ -135,6 +145,13 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
                 limpiarCajas();
                 MessageBox.Show("Plato actualizado");
             dataGridViewOk.Rows.Clear();
+
+                for(int i= 0; i< dataGridViewOk.Rows.Count-1; i++) {
+                    Console.WriteLine(dataGridViewOk.Rows[i].Cells[0].Value);
+                    Console.WriteLine(dataGridViewOk.Rows[i].Cells[1].Value);
+                    Console.WriteLine(dataGridViewOk.Rows[i].Cells[2].Value);
+                }
+                
             }
             catch (Exception error)
             {
@@ -146,6 +163,7 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
 
         private void ButtonRegistrar_Click(object sender, EventArgs e)
         {
+            
             try { 
 
                 ConexionDB conexion = new ConexionDB();
@@ -154,6 +172,15 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
                 limpiarCajas();
                 dataGridViewOk.Rows.Clear();
                 MessageBox.Show("Plato registrado");
+
+                for (int i = 0; i < dataGridViewOk.Rows.Count; i++)
+                {
+
+                    conector.ingresarIngredientePlato(Convert.ToInt32(dataGridViewOk.Rows[i].Cells[0].ToString()),
+                        Convert.ToInt32(dataGridViewOk.Rows[i].Cells[1].ToString()), 
+                        (float)Convert.ToInt32(dataGridViewOk.Rows[i].Cells[2].ToString()));
+                    
+                }
             }
             catch (Exception error)
             {

@@ -24,11 +24,27 @@ namespace GUI_AUGUR_V3.VistasDeMódulos.MóduloPlatos
             dataGridViewPlatos.Rows.Clear();
             for (int i = 0; i < listPlatos.Count; i++)
             {
-                    dataGridViewPlatos.Rows.Add(listPlatos[i].obtenerIdPlato().ToString(), listPlatos[i].obtenerNombrePlato(), listPlatos[i].obtenerValorPlato(), listPlatos[i].obtenerTipo());
+                string ingredient = obtenerIngredientesString(listPlatos[i].obtenerIdPlato());
+
+               
+
+                dataGridViewPlatos.Rows.Add(listPlatos[i].obtenerIdPlato().ToString(), listPlatos[i].obtenerNombrePlato(), listPlatos[i].obtenerValorPlato(), 
+                        ingredient);
                 
             }
         }
 
+        public string obtenerIngredientesString(int id)
+        {
+            string salida = "";
+            List<Ingrediente> ings = conector.consultarIngredientesPlato(id);
+            for (int i = 0; i < ings.Count; i++)
+            {
+                salida += ings[i].obtenerNombreIngrediente() + " + ";
+            }
+
+            return salida;
+        }
         public void refreshListaPlatos() {
             RefrescarLista(conector.consultarPlatos());
         }

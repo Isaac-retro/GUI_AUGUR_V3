@@ -40,9 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewOk = new System.Windows.Forms.DataGridView();
-            this.idOkay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreIngredienteOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLista = new System.Windows.Forms.DataGridView();
             this.idLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreIngredienteLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,9 @@
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.idOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreIngredienteOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadOk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTituloLoggin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).BeginInit();
             this.panel1.SuspendLayout();
@@ -208,7 +208,7 @@
             // 
             this.dataGridViewOk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idOkay,
+            this.idOk,
             this.nombreIngredienteOk,
             this.cantidadOk});
             this.dataGridViewOk.Location = new System.Drawing.Point(424, 110);
@@ -216,28 +216,6 @@
             this.dataGridViewOk.Size = new System.Drawing.Size(411, 282);
             this.dataGridViewOk.TabIndex = 39;
             this.dataGridViewOk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewOk_CellClick);
-            // 
-            // idOkay
-            // 
-            this.idOkay.Frozen = true;
-            this.idOkay.HeaderText = "ID";
-            this.idOkay.Name = "idOkay";
-            this.idOkay.ReadOnly = true;
-            this.idOkay.Width = 50;
-            // 
-            // nombreIngredienteOk
-            // 
-            this.nombreIngredienteOk.Frozen = true;
-            this.nombreIngredienteOk.HeaderText = "Nombre del Ingrediente";
-            this.nombreIngredienteOk.Name = "nombreIngredienteOk";
-            this.nombreIngredienteOk.ReadOnly = true;
-            this.nombreIngredienteOk.Width = 250;
-            // 
-            // cantidadOk
-            // 
-            this.cantidadOk.Frozen = true;
-            this.cantidadOk.HeaderText = "Cantidad";
-            this.cantidadOk.Name = "cantidadOk";
             // 
             // dataGridViewLista
             // 
@@ -325,6 +303,28 @@
             this.buttonCancelar.UseVisualStyleBackColor = false;
             this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
+            // idOk
+            // 
+            this.idOk.Frozen = true;
+            this.idOk.HeaderText = "ID";
+            this.idOk.Name = "idOk";
+            this.idOk.ReadOnly = true;
+            this.idOk.Width = 50;
+            // 
+            // nombreIngredienteOk
+            // 
+            this.nombreIngredienteOk.Frozen = true;
+            this.nombreIngredienteOk.HeaderText = "Nombre del Ingrediente";
+            this.nombreIngredienteOk.Name = "nombreIngredienteOk";
+            this.nombreIngredienteOk.ReadOnly = true;
+            this.nombreIngredienteOk.Width = 250;
+            // 
+            // cantidadOk
+            // 
+            this.cantidadOk.Frozen = true;
+            this.cantidadOk.HeaderText = "Cantidad";
+            this.cantidadOk.Name = "cantidadOk";
+            // 
             // RegistrarActualzarPlatocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,10 +365,10 @@
         private System.Windows.Forms.TextBox textBoxPrecio;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idOkay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteOk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadOk;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLista;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idOk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreIngredienteOk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadOk;
     }
 }

@@ -251,7 +251,7 @@
             // tipoPlatoDataSet
             // 
             this.tipoPlatoDataSet.Frozen = true;
-            this.tipoPlatoDataSet.HeaderText = "Tipo";
+            this.tipoPlatoDataSet.HeaderText = "Ingredientes";
             this.tipoPlatoDataSet.Name = "tipoPlatoDataSet";
             this.tipoPlatoDataSet.ReadOnly = true;
             this.tipoPlatoDataSet.Resizable = System.Windows.Forms.DataGridViewTriState.False;

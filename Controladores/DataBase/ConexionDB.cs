@@ -91,6 +91,98 @@ namespace GUI_AUGUR_V3.DataBase{
 
         }
 
+        /*
+         
+             create procedure [dbo].[buscarIngredientesPlato]
+@idPlato int
+as
+begin
+select nombreIngrediente from INGREDIENTES where IDINGREDIENTE in (select IDINGREDIENTE from DETALLE_PLATO_INGREDIENTE where idplato = @idPlato);
+
+end
+
+             
+             */
+
+
+
+
+
+        public void ingresarIngredientePlato(int idPlato, int idIngrediente, float cantidad)
+        {
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("ingresarIngredientePlato", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@idPlato", idPlato));
+                cmd.Parameters.Add(new SqlParameter("@idIngrediente", idIngrediente));
+                cmd.Parameters.Add(new SqlParameter("@cantidad", cantidad));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        //Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+
+
+            
+        }
+
+
+        public List<Ingrediente> consultarIngredientesPlato(int idPlato)
+        {
+            List<Ingrediente> platoIngredientes = new List<Ingrediente>();
+
+            using (var conn = new SqlConnection(this.CONECCION_STRING))
+            {
+                conn.Open();
+
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("buscarIngredientesPlato", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@idPlato", idPlato));
+
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        platoIngredientes.Add(new Ingrediente(Convert.ToInt32(rdr["idingrediente"].ToString()),
+                            rdr["nombreingrediente"].ToString(),
+                            (float)Convert.ToDouble(rdr["precioIngrediente"].ToString()),
+                            Convert.ToInt32(rdr["cantidaddisponible"].ToString()),
+                            (rdr["activoparametro"].ToString() == "Si" || rdr["activoplato"].ToString() == "si") ? true : false));
+
+                        //Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["nombrePlato"], rdr["precioPlato"]);
+                    }
+                }
+
+                conn.Close();
+            }
+
+            return platoIngredientes;
+
+        }
+
+
 
         public List<PlatoDeComida> consultarPlatos()
         {
